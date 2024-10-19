@@ -30,8 +30,9 @@ class Onboarding01WelcomeRoute extends GoRouteData {
       );
 }
 
+/// The welcome screen of the onboarding flow.
 class Onboarding01WelcomeScreen extends HookConsumerWidget {
-  /// The registration screen
+  /// The welcome screen of the onboarding flow.
   const Onboarding01WelcomeScreen({super.key});
 
   @override
