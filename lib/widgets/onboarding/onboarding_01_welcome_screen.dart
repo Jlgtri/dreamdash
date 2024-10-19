@@ -4,8 +4,10 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../generated/i18n.g.dart';
 
+/// The welcome screen of the onboarding flow.
 @TypedGoRoute<Onboarding01WelcomeRoute>(path: '/onboarding/01_welcome')
 class Onboarding01WelcomeRoute extends GoRouteData {
+  /// The welcome screen of the onboarding flow.
   const Onboarding01WelcomeRoute();
 
   @override
@@ -38,8 +40,6 @@ class Onboarding01WelcomeScreen extends HookConsumerWidget {
   @override
   Widget build(final BuildContext context, final WidgetRef ref) {
     final I18N i18n = I18N.of(context);
-
-    i18n.profile.classCard;
     return DecoratedBox(
       decoration: const BoxDecoration(
         gradient: LinearGradient(
@@ -69,7 +69,7 @@ class Onboarding01WelcomeScreen extends HookConsumerWidget {
                       mainAxisSize: MainAxisSize.min,
                       children: <Widget>[
                         Text(
-                          'Welcome!',
+                          i18n.onboarding01WelcomeScreenWelcome,
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             color: Color.fromRGBO(255, 255, 255, 1),
@@ -82,7 +82,7 @@ class Onboarding01WelcomeScreen extends HookConsumerWidget {
                         ),
                         SizedBox(height: 12),
                         Text(
-                          'To your dream’s fulfilling app',
+                          i18n.onboarding01WelcomeScreenToYourDreamS,
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             // color: undefined,
@@ -99,7 +99,7 @@ class Onboarding01WelcomeScreen extends HookConsumerWidget {
                   const SizedBox(height: 19),
                   const SizedBox(height: 19),
                   const SizedBox(height: 19),
-                  const Text(
+                  Text(
                     'By continuing you agree with our privacy policy and terms of use',
                     textAlign: TextAlign.center,
                     style: TextStyle(
