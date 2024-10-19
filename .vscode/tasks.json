@@ -1,0 +1,92 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "pub_get",
+            "command": "${command:pub.get}",
+            "isBackground": true,
+            "presentation": {
+                "echo": true,
+                "reveal": "silent",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            },
+            "runOptions": {
+                "runOn": "folderOpen"
+            }
+        },
+        {
+            "type": "shell",
+            "label": "build_runner",
+            "command": "dart",
+            "args": [
+                "run",
+                "build_runner",
+                "watch",
+                "--delete-conflicting-outputs",
+                "--low-resources-mode",
+                "--use-polling-watcher"
+            ],
+            "isBackground": true,
+            "presentation": {
+                "echo": true,
+                "reveal": "silent",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            },
+            // "dependsOn": "pub_get",
+            "problemMatcher": [
+                "$dart-build_runner"
+            ],
+            "runOptions": {
+                "runOn": "folderOpen"
+            }
+        },
+        {
+            "label": "Aider (Gemini)",
+            "type": "shell",
+            "command": "aider",
+            "args": [],
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated",
+                "focus": true,
+                "close": false,
+                "showReuseMessage": false
+            },
+            "promptOnClose": true,
+            "isBackground": true,
+            "runOptions": {
+                "runOn": "folderOpen",
+                "instanceLimit": 1
+            },
+            "options": {
+                // https://aider.chat/docs/config/dotenv.html
+                "env": {
+                    "GEMINI_API_KEY": "AIzaSyAgdgc5cEviW-uGA34HL7qHM2EtYZZGHxU",
+                    // "GROQ_API_KEY": "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",
+                    // Main
+                    // "AIDER_MODEL": "groq/llama3-70b-8192",
+                    "AIDER_MODEL": "gemini/gemini-1.5-pro-latest",
+                    // Model Settings
+                    "AIDER_MAP_TOKENS": "1024",
+                    "AIDER_CACHE_PROMPTS": "true",
+                    // Output Settings
+                    "AIDER_DARK_MODE": "true",
+                    // Git Settings
+                    "AIDER_DIRTY_COMMITS": "false",
+                    "AIDER_ATTRIBUTE_COMMIT_MESSAGE_AUTHOR": "true",
+                    // Other Settings
+                    "AIDER_YES": "true"
+                }
+            }
+        }
+    ]
+}

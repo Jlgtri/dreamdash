@@ -1,0 +1,146 @@
+navigation:
+  home: Home
+  schedule: Schedule
+  videos: Videos
+  memberships: Memberships
+  profile: Profile
+
+schedule:
+  filter:
+    all: All Classes
+    your: Your Classes
+  sport_classes:
+    top: Top Teacher
+    register: View schedule
+    adress: Yavornickogo 72B
+
+home:
+  category:
+    trending: Trending Today
+    your: Your Classes Today
+    avaliable: Avaliable Today
+    all: All your classes
+  product_type:
+    adress: Yavornickogo 72B
+
+memberships:
+  title: Memberships
+  membership_card:
+    unlimite: UNLIMITE
+    currency: UAH
+    duration: 1 month
+    freeze: Able to freeze
+    try_now: Try now
+    popular: POPULAR
+    premium: PREMIUM
+  membership_description:
+    title: Attending rule
+    description: Абонемент діє 30 днів із дня покупки на всі напрямки студії. Запис на тренування здійснюється заздалегідь. \nЗапис можна скасувати \n-до 21:00, якщо тренування до 15:00 наступного дня;\n -до 12:00, якщо тренування з 15:00 \nІнакше тренування списується
+
+profile:
+  user_info:
+    edit_profile: Edit Profile
+  edit_profile:
+    create: Create profile
+    edit: Edit
+    confirm: Confirm
+    birthday: DD/MM/YYYY
+    changed_email: Attention, email change!\nGo to your current email to confirm and re-enter the app
+    image_source: Select image source
+    gallery: Select from gallery
+    camera: Select from camera
+    cancel: Cancel
+  membership:
+    title: Membership for 12 times plan
+    progress: Your Progress
+    freze: Freeze
+    unfrize: Unfreeze
+  user_classes:
+    title: Your Classes
+  class_card:
+   title: Pole Exotic Individual Class
+   adress: Yavornickogo 72B
+
+settings:
+  title: Settings
+  language: Language
+  history: History of your visits
+  password_change:
+   change_password: Change the password
+   password_reset: Password reset
+   valid_password: Password must contain at least 1 letter, 1 number and 1 symbol
+   submit: Submit new password
+   new_password: New password
+   confirm_password: Confirm password
+  help: Help
+  privacy_policy: Privacy Policy
+  english: English
+  log_out: Log out
+
+product:
+  sign_up: Register
+  register: Your lesson has been deducted from your membership.
+  duration(final int minutes): $minutes minutes
+  product_card:
+    classesleft(final int users): Only $users classes left!
+    classesclosed(final int users, final int maxUsers): $users/$maxUsers closed
+    title_booked: Class is booked!
+    title_left: Only 5 classes left!
+    fully_closed: Fully closed
+    partly_closed: 6/9 closed
+  location: Location
+  address: Dmitra Yavornickogo 72B
+
+category:
+  description: This text is about an article of this theme and consist some interesting information. this text is about an article of this theme and consist some interesting information
+  view_schedule: View schedule
+
+auth:
+  guest_prompt: Sign Up
+  promotion:
+    title: To use our services\nyou need to register
+    sign_up: Register
+    sign_in: Log in
+    divider: or
+  input:
+    first_name: First name
+    last_name: Last name
+    phone: (XXX) XXX XX-XX
+    email: Email
+    password: '********'
+  sign_in:
+    title: Login
+    description: Access account
+    confirm: Sign In
+    sign_up_prompt: Don't have an account?
+    sign_up: Register
+    incorrect_email: Incorrect email or password
+    not_confirmed: Email not confirmed
+  sign_up:
+    title: Register Account
+    description: Fill your details or continue with social media
+    tos: By creating account or signing you agree to our
+    tos_link: Terms and Conditions
+    exception: Email already exists
+  password_reset:
+    title: Password reset
+    description: Enter your registered email below\nto receive password reset instruction
+    confirm: Sent
+    sign_up_prompt: Remember password?
+    sign_up: Log In
+  password_reset_sent:
+    title: Password reset
+    description: E-mail has been send!
+    description2:  Please check inbox and click in to received link to reset a password
+    confirm: Log In
+    sign_up_prompt: Didn’t receive the link?
+    sign_up: Resend
+videos:
+  title: Video
+  free: For FREE
+  all: All Types
+video: 
+  show_more: Show more...
+  hide: hide
+  other: Other videos
+  all: View All

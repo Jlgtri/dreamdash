@@ -1,0 +1,33 @@
+# yaml-language-server: $schema=./build.yaml
+targets:
+  $default:
+    sources:
+      include:
+        - $package$
+        - lib/$lib$
+        - lib/src/models/**
+        - lib/src/providers/**
+        - source/**
+
+    builders:
+      slang_build_runner:
+        options:
+          base_locale: en-US
+          class_name: I18N
+          enum_name: I18NLocale
+          flat_map: false
+          input_directory: source/i18n
+          input_file_pattern: .yaml
+          key_case: camel
+          key_map_case: camel
+          output_directory: lib/generated
+          output_file_name: i18n.g.dart
+          param_case: camaal
+          pluralization:
+            auto: off
+
+      riverpod_generator:
+        enabled: true
+        generate_for:
+          include:
+            - lib/src/providers/**
