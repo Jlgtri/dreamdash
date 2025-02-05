@@ -3,7 +3,9 @@
 
 ### Custom ###
 generated/
-**/*.g.dart
+**/*.g*.dart
+**/*.rsp*.dart
+**/*.mapper*.dart
 .aider*
 lib_old
 

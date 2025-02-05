@@ -1,0 +1,13 @@
+<svg
+          width="15"
+          height="20.38461685180664" fill="none"
+          xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="e5351545">
+        <stop offset="0%" style="stop-color:rgb(251,208,128);stop-opacity:1" />
+        <stop offset="46.50000035762787%" style="stop-color:rgb(242,221,181);stop-opacity:1" />
+        <stop offset="100%" style="stop-color:rgb(252,209,128);stop-opacity:1" />
+        </linearGradient>
+          </defs>
+          <path d="M 7.3336546843346495 0 L 8.86542391571705 8.318474950417135 L 15 10.19230842590332 L 8.86542391571705 12.066141368640746 L 7.3336546843346495 20.38461685180664 L 5.8018854529522494 12.066141368640746 L 0 10.19230842590332 L 5.8018854529522494 8.318474950417135 L 7.3336546843346495 0 Z" fill="url(#e5351545)"/>
+        </svg>

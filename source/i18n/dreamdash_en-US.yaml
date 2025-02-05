@@ -1,0 +1,465 @@
+splash:
+  become: Become
+  a_star: a star
+  you: you
+  deserve: deserve
+  to_be: to be
+
+
+authorization:
+  a01_prompt:
+    dream: DREAM
+    dash: DASH
+    get_back_to_progress: Get back to your progress
+    sign_in_to_account: Sign in to your Account
+    email: E-mail
+    button_text: Continue
+    or_sign_in_via: or sign in via
+    sign_in_with_apple: Sign in with Apple
+    google: Google
+
+  a02_verification:
+    dream: DREAM
+    dash: DASH
+    insert_code_or_tap_link: Insert the code from the email or tap on the link
+    please_enter_code: Please enter the code we emailed you at
+    email_example: $email
+    button_text: Continue
+
+
+onboarding:
+  a00_splash:
+    dream: DREAM
+    dash: DASH
+
+    become: Become
+    a_star: a star
+    you: you
+    deserve: deserve
+    to_be: to be
+
+
+  a01_welcome:
+    welcome: Welcome!
+    getStarted: Get started
+    iAlreadyHaveAnAccount: I already have an account
+
+    toYour: To your
+    dreamsFullfilling: dream's fulfilling
+    app: app
+
+    agreement:
+      byContinuingYouAgree: By continuing you agree
+      withOur: with our
+      privacyPolicy: privacy policy
+      and: and
+      termsOfUse: terms of use
+
+
+  a02_introduction:
+    whatIs: What is
+    yourName: your name
+    placeholder: Taya
+
+    respectPrivacy: We respect your privacy
+    submit: Continue
+
+
+  a03_greeting:
+    greeting: Nice to meet you,
+    name: $name
+    exclamation: '!'
+    goal_start: Our way of achieving your goal starts now
+    introduction: Firstly, let me know more about you
+    button_text: Continue
+
+
+  a04_gender:
+    question: What is
+    your: your
+    gender: gender
+    question_mark: '?'
+    options:
+      female: Female
+      male: Male
+      non_binary: Non-binary
+      other: Other
+
+
+  a05_age:
+    question: What is
+    your: your
+    age: age
+    question_mark: '?'
+    options:
+      age_18_25: 18-25
+      age_26_35: 26-35
+      age_36_45: 36-45
+      age_46_55: 46-55
+      age_56_plus: 56-65+
+
+
+  a06_info:
+    header: Be in the flow with DreamDash app
+    thank_you: Thanks,
+    user_name: $name
+    motivation_message: Did you know that
+    motivation_stat: 89% users get more effective results
+    motivation_fact: when they feel motivated
+    call_to_action: Let's check your motivation level!
+    footer_note: '*users who achieved results with DreamDash app, based on internal analytics'
+    continue_button: Continue
+
+
+  a07_motivation_q1:
+    feeling_intro: I
+    feeling_lost: feel lost
+    working_on_dreams_intro: ','
+    working_on_dreams: working on my
+    dreams: dreams
+
+
+  a08_motivation_q2:
+    feeling_intro: I
+    feeling_trouble: have trouble
+    finishing_intro: ','
+    finishing_statement: finishing what I
+    starting_point: start
+
+
+  a09_motivation_q3:
+    need_intro: I need
+    need_acceptance: acceptance
+    need_connector: and
+    need_support: support
+
+
+  a10_motivation_level:
+    here_you_are: Here you are!
+    motivation_status:
+      start: Your
+      level: motivation level
+      completion:  is $percent% -
+      state: moderate
+    improvement_message: We have some things to work on!
+    button_text: Continue
+
+
+  a11_progress:
+    greeting:
+      thanks: Thanks,
+      name: $name
+    profile_ready:
+      message: You're profile is ready for
+      completion: $percent%
+    last_step:
+      prompt: 'The last thing:'
+      assessment: we need to assess your mental well-being
+    motivation_message: It will help us on our dream fulfilling path
+    button_text: Continue
+
+
+
+  a12_mental_health_q1:
+    how_often_do_you: How often do you
+    feel_anxious: feel anxious
+    about_starting_tasks: about starting new tasks or projects?
+    almost_always: Almost always
+    often: Often
+    sometimes: Sometimes
+    never: Never
+
+
+  a13_mental_health_q2:
+    do_you: Do you
+    feel_overwhelmed: feel overwhelmed
+    by_complexity_of_goals: by the complexity size of your goals?
+    almost_always: Almost always
+    often: Often
+    sometimes: Sometimes
+    never: Never
+
+
+  a14_mental_health_q3:
+    how_often_do: How often do
+    negative_thoughts: negative thoughts
+    hold_you_back: hold you back from taking action?
+    almost_always: Almost always
+    often: Often
+    sometimes: Sometimes
+    never: Never
+
+
+  a15_mental_health_q4:
+    do_you: Do you
+    feel_confident: feel confident
+    that_you_can_accomplish: that you can accomplish your goals?
+    almost_always: Almost always
+    often: Often
+    sometimes: Sometimes
+    never: Never
+
+
+  a16_mental_health_q5:
+    do_you: Do you
+    feel_satisfied: feel satisfied
+    with_your_progress: with your progress in life overall?
+    almost_always: Almost always
+    often: Often
+    sometimes: Sometimes
+    never: Never
+
+
+  a17_info_2:
+    username: $name,
+    thanks_for_sharing: thanks for sharing!
+    your: Your
+    mental_health_state: mental health state
+    is_generally_favourable: is generally favourable, but it
+    can_be_better: can be better
+    with_some_specific_instruments: with some specific instruments
+    button_text: Continue
+
+
+  a18_comparison:
+    see_the_difference_with: See the difference with
+    dreamdash: DreamDash
+    without: Without
+    adhd: ADHD
+    struggle_to_start: Struggle to start
+    no_focus: No focus
+    lack_of_support: Lack of support
+    poor_results: Poor results
+    with_us: With
+    peace_of_mind: Peace of mind
+    to_do_personalized_plan: To-Do personalized plan
+    ai_coach: AI coach
+    focus_on_yourself: Focus on yourself
+    reaching_the_goal: Reaching the goal
+    button_text: Continue
+
+
+  a19_journey:
+    start_your: Start your
+    transformation_journey: transformation journey
+    more_energetic: More energetic
+    productive: Productive
+    life_organised: Life organised
+    fabulous_changes: Fabulous changes
+    users_experience: 2 out of 3
+    stress_reduction: users experience a stress reduction within
+    weeks: 2 weeks
+    of_daily_usage: of daily usage
+    button_text: Continue
+
+
+  a20_statement_q1:
+    do_you_relate: Do you relate to the statement below?
+    put_off_things: I put off the things I want to do lately
+
+
+  a21_statement_q2:
+    do_you_relate: Do you relate to the statement below?
+    ready_to_act: I'm ready to act and
+    become_happier: become happier from now!
+
+
+  a22_motivation_progress:
+    title:
+      username: $name
+      separator: ','
+      for_the_next: for the next
+      weeks: $amount weeks
+      we_will: we will
+      hit_your_goal: hit your goal
+      keep_you_motivation: and keep your motivation high.
+    weeks:
+      week_1: Week 1
+      week_2: Week 2
+      week_3: Week 3
+      week_4: Week 4
+      week_5: Week 5
+    states:
+      week_1: Moderate
+      week_2: High
+      week_3: Doubts
+      week_4: Inspired
+      week_5: Happy with yourself
+    usage:
+      use: Use
+      dreamdash: DreamDash app
+      create_plan: to create a plan, follow it and
+      ask_for_motivation: ask for a motivation
+      from_coach: from your personalized coach whenever you need it.
+    button_text: Continue
+
+
+  a23_testimonials:
+    title:
+      what_other_people_say: What other people say
+      about_us: about us
+    subtitle:
+      over: Over $amount+
+      lives_changed: changed lives
+    feedback:
+      bishop:
+        name: Bishop
+        prefix: It feels like
+        body: it really understands what I need to succeed
+        suffix: .
+      liya:
+        name: Liya
+        prefix: This app is a game-changer for me! The AI coach provides
+        body: personalized advice for my dream
+        suffix: . I've made more progress towards my goals in the past month than I have in years.
+      nolan:
+        name: Nolan
+        prefix: The
+        body: daily motivational messages
+        suffix: ' and reminders keep me on track. I feel like I have a personal cheerleader in my pocket!'
+      rebecca:
+        name: Rebecca
+        prefix: 'Perfect for people with ADHD. Now '
+        body: I feel good and organized
+        suffix: .
+      annie:
+        name: Annie
+        prefix: 'This app has changed everything! I used to delay my dreams, not knowing where to start, but with the AI coach, '
+        body: I'm finally making real progress
+        suffix: .
+      robbert:
+        name: Robbert
+        prefix: 'I love how personalized this app is. It '
+        body: helped me get clear on my goals and gave me the motivation
+        suffix: !
+    button_text: Continue
+
+
+  a24_task:
+    button_text: Continue
+    your_first: Your first
+    baby_step: baby step
+    create_wishlist: Create a wishlist
+
+
+  a25_wishlist:
+    create_wishlist: Create a wishlist
+    life_advice: Write down 3 things you want to do during your life no matter what happens. Be honest with yourself.
+    wish_list_items:
+      item1: Open a restaurant
+      item2: Get a promotion
+      item3: Build strong relationships
+    help_questions: In case of difficulties, these questions may help you. What do I want to do, but postpone? What makes me happy? What do I want to change to live my best life?
+    button_text: Continue
+
+
+  a26_commitment:
+    watch_progress: Watch your progress
+    progress_time: 4:55
+    moving_towards_dreams: Minutes you're moving towards your dreams
+    keep_up: KEEP UP!
+    set_your: Set your
+    daily_goal: daily goal
+    daily_goals:
+      a5_min: 5 min/day
+      a5_min_label: Explorer
+      a10_min: 10 min/day
+      a10_min_label: Builder
+      a15_min: 15 min/day
+      a15_min_label: Achiever
+      a20_min: 20 min/day
+      a20_min_label: Star
+
+
+  a27_notification:
+    remarkable: You're remarkable!
+    welcome_message: Welcome to DreamDash
+    notifications:
+      turn_on: Turn on notifications
+      to_get_results: to get 100% results and receive personalized reminders and
+      motivational_tips: motivational tips
+      from_your_coach: from your coach
+    button_text: Continue
+
+  a28_promise:
+    are_you_ready: Are you ready?
+    commitment_intro: I,
+    user_name: $name
+    commitment_statement: ", am ready to embrace a happier and more fulfilling life. I commit to setting clear goals and taking action towards the life I've always dreamed of. I understand that there's no better time to start than now."
+    bold_commitment_statement: I am the architect of my own joy and success.
+    tap_to_commit: Tap and hold the button to commit and take a first step toward a happier life.
+
+
+  a29_chat:
+    dream: DREAM
+    coach: COACH
+    focus_question: |-
+      Let's focus!
+
+      What is one thing you desire most?
+    placeholder: I want to ...
+    desire_advice: |-
+      Great!
+      1. Identify Your Talent or Niche
+      Discover what makes you unique: Fame often comes from excelling in a particular area.
+      Be authentic: People are drawn to individuals who are genuine.
+    skills_advice: |-
+      2. Work on Your Skills
+      Get training or education: Take classes, workshops, or hire a coach or mentor to help you grow in your field.
+    button_text: Continue
+
+
+  a30_paywall:
+    title: $name, can you imagine?
+    today:
+      today_is: Today is
+      date: $date
+      best_life: and I'm living my best life now.
+    decision_message: Just because 1 year ago I decided to take those serious steps for me - for us.
+    health_message: "I have excellent news: I'm healthy, serene, content with every day and in great shape. Thanks to our every day choice."
+    support_message: I'll be with you every step of our way.
+    see_you_soon: See you soon,
+    farewell: future $name
+
+    change_your: Change your
+    mindset: MINDSET
+
+    buttons:
+      fixed: Fixed
+      growth: Growth
+      keep_trying: I'll keep trying
+      can_learn: I can learn how
+      how_get_better: How can I get better
+      try_different_way: I will try a different way
+      practice_get_easier: With practice it will get easier
+      i_cant_do_it: I can't do it
+      i_give_up: I give up
+      too_hard: It's too hard
+      dont_know_how: I don't know how
+      not_good_at_this: I'm not good at this
+
+    pricing:
+      save_offer: Save $percent%
+      annually:
+        title: $days days free then
+        weekly_price: $price / week
+        price: $price
+        period: charged every 12 months
+      monthly:
+        title: 1 month
+        weekly_price: $price / week
+        price: $price / month
+        period: charged every 4 weeks
+      weekly:
+        title: 1 week
+        price: $price / week
+        period: charged every 7 days
+
+    footer:
+      hint_text: It is auto-renewable, you can cancel anytime in $store
+      button_text: Continue
+      try_free: Try free for $days days
+      terms_of_use: Terms of Use
+      privacy_policy: Privacy Policy
+      restore: Restore
+

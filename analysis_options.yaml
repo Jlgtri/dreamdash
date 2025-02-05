@@ -15,8 +15,29 @@ analyzer:
     unrelated_type_equality_checks: warning
     unnecessary_null_comparison: warning
   exclude:
-    - lib/src/providers/*.g.dart
-    - lib/src/models/*.g.dart
+    - '**.g*.dart'
+    - '**.rsp*.dart'
+    - '**.mapper*.dart'
+    - lib_old
+  plugins:
+    - custom_lint
+
+custom_lint:
+  enable_all_lint_rules: false
+  rules:
+    - missing_provider_scope
+    - provider_dependencies
+    - scoped_providers_should_specify_dependencies
+    - avoid_manual_providers_as_generated_provider_dependency
+    - avoid_build_context_in_providers
+    - provider_parameters
+    - avoid_public_notifier_properties
+    - unsupported_provider_value
+    - functional_ref
+    - notifier_extends
+    - avoid_ref_inside_state_dispose
+    - notifier_build
+    - async_value_nullable_patttern
 
 linter:
   rules:

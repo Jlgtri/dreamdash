@@ -3,6 +3,22 @@
     // for the documentation about the tasks.json format
     "version": "2.0.0",
     "tasks": [
+        // {
+        //     "type": "shell",
+        //     "label": "adb connect",
+        //     "command": "adb connect 127.0.0.1",
+        //     "presentation": {
+        //         "echo": true,
+        //         "reveal": "silent",
+        //         "focus": false,
+        //         "panel": "shared",
+        //         "showReuseMessage": true,
+        //         "clear": false
+        //     },
+        //     "runOptions": {
+        //         "runOn": "folderOpen"
+        //     }
+        // },
         {
             "type": "shell",
             "label": "pub_get",
@@ -50,7 +66,7 @@
             }
         },
         {
-            "label": "Aider (Gemini)",
+            "label": "Aider",
             "type": "shell",
             "command": "aider",
             "args": [],
@@ -70,11 +86,11 @@
             "options": {
                 // https://aider.chat/docs/config/dotenv.html
                 "env": {
-                    "GEMINI_API_KEY": "AIzaSyAgdgc5cEviW-uGA34HL7qHM2EtYZZGHxU",
-                    // "GROQ_API_KEY": "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",
+                    // "GEMINI_API_KEY": "AIzaSyAgdgc5cEviW-uGA34HL7qHM2EtYZZGHxU",
+                    "GROQ_API_KEY": "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",
                     // Main
-                    // "AIDER_MODEL": "groq/llama3-70b-8192",
-                    "AIDER_MODEL": "gemini/gemini-1.5-pro-latest",
+                    "AIDER_MODEL": "groq/llama3-70b-8192",
+                    // "AIDER_MODEL": "gemini/gemini-1.5-pro-latest",
                     // Model Settings
                     "AIDER_MAP_TOKENS": "1024",
                     "AIDER_CACHE_PROMPTS": "true",

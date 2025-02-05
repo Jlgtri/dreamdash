@@ -5,12 +5,63 @@ targets:
       include:
         - $package$
         - lib/$lib$
-        - lib/src/models/**
-        - lib/src/providers/**
+        - pubspec.yaml
+        - lib/**.dart
         - source/**
+      exclude:
+        - '**.g*.dart'
+        - '**.rsp*.dart'
+        - '**.mapper*.dart'
 
     builders:
+      dart_mappable_builder:
+        enabled: true
+        generate_for:
+          include:
+            - lib/providers/**.dart
+
+      drift_dev:
+        enabled: true
+        generate_for:
+          include:
+            - lib/providers/**.dart
+
+      envied_generator:
+        enabled: true
+        generate_for:
+          include:
+            - .env
+            - lib/env.dart
+
+      flutter_gen:
+        enabled: true
+        generate_for:
+          include:
+            - source/**
+        options:
+          output: lib/generated/
+          package_parameter_enabled: true
+          integrations:
+            flutter_svg: true
+          assets:
+            enabled: true
+          fonts:
+            enabled: true
+          colors:
+            enabled: true
+
+
+      go_router_builder:
+        enabled: true
+        generate_for:
+          include:
+            - lib/widgets/**.dart
+
       slang_build_runner:
+        enabled: true
+        generate_for:
+          include:
+            - source/i18n/**.yaml
         options:
           base_locale: en-US
           class_name: I18N
@@ -22,7 +73,7 @@ targets:
           key_map_case: camel
           output_directory: lib/generated
           output_file_name: i18n.g.dart
-          param_case: camaal
+          param_case: camel
           pluralization:
             auto: off
 
@@ -30,4 +81,10 @@ targets:
         enabled: true
         generate_for:
           include:
-            - lib/src/providers/**
+            - lib/providers/**.dart
+
+      riverpod_state_provider_generator:
+        enabled: true
+        generate_for:
+          include:
+            - lib/providers/**.dart
