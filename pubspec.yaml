@@ -8,7 +8,7 @@ environment:
 
 
 dart_mappable: &dart_mappable ^4.3.0
-drift_version: &drift_version ^2.23.1
+drift_version: &drift_version ^2.24.0
 envied_version: &envied_version ^1.0.0
 riverpod_version: &riverpod_version ^3.0.0-dev.3
 slang_version: &slang_version ^4.4.0
@@ -91,7 +91,6 @@ dev_dependencies:
   slang_build_runner: *slang_version
 
 dependency_overrides:
-  analyzer: 6.9.0
   collection: ^1.19.1
   custom_lint: ^0.6.5
   custom_lint_core: ^0.6.5
