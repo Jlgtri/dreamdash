@@ -16,9 +16,7 @@ analyzer:
     unnecessary_null_comparison: warning
   exclude:
     - '**.g*.dart'
-    - '**.rsp*.dart'
     - '**.mapper*.dart'
-    - lib_old
   plugins:
     - custom_lint
 

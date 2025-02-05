@@ -4,10 +4,8 @@
 ### Custom ###
 generated/
 **/*.g*.dart
-**/*.rsp*.dart
 **/*.mapper*.dart
 .aider*
-lib_old
 
 ### Dart ###
 # See https://www.dartlang.org/guides/libraries/private-files

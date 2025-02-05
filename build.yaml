@@ -10,7 +10,6 @@ targets:
         - source/**
       exclude:
         - '**.g*.dart'
-        - '**.rsp*.dart'
         - '**.mapper*.dart'
 
     builders:
@@ -78,12 +77,6 @@ targets:
             auto: off
 
       riverpod_generator:
-        enabled: true
-        generate_for:
-          include:
-            - lib/providers/**.dart
-
-      riverpod_state_provider_generator:
         enabled: true
         generate_for:
           include:
