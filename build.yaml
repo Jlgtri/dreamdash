@@ -39,7 +39,6 @@ targets:
             - source/**
         options:
           output: lib/generated/
-          package_parameter_enabled: true
           integrations:
             flutter_svg: true
           assets:
