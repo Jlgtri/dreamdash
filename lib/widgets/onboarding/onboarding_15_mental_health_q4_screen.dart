@@ -90,146 +90,151 @@ class Onboarding15MentalHealthQ4Screen extends HookConsumerWidget {
       }
     }
 
-    return CustomScrollView(
-      controller: scrollController,
-      shrinkWrap: true,
-      clipBehavior: Clip.antiAlias,
-      slivers: <Widget>[
-        const SliverToBoxAdapter(child: OnboardingStarHeader()),
-        const SliverToBoxAdapter(child: SizedBox(height: 71)),
-        SliverFillRemaining(
-          hasScrollBody: false,
-          fillOverscroll: true,
-          child: Container(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 24,
-              vertical: 48,
-            ),
-            child: Column(
-              children: <Widget>[
-                Text.rich(
-                  TextSpan(
-                    children: <InlineSpan>[
-                      TextSpan(text: i18n.doYou),
-                      const TextSpan(text: ' '),
-                      TextSpan(
-                        text: i18n.feelConfident,
-                        style: TextStyle(
-                          color: theme.colorScheme.secondary,
+    return Container(
+      padding:
+          (mediaQuery.viewPadding + mediaQuery.viewInsets).copyWith(top: 0),
+      decoration: const BoxDecoration(gradient: primaryGradient),
+      child: CustomScrollView(
+        controller: scrollController,
+        shrinkWrap: true,
+        clipBehavior: Clip.antiAlias,
+        slivers: <Widget>[
+          const SliverToBoxAdapter(child: OnboardingStarHeader()),
+          const SliverToBoxAdapter(child: SizedBox(height: 71)),
+          SliverFillRemaining(
+            hasScrollBody: false,
+            fillOverscroll: true,
+            child: Container(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 24,
+                vertical: 48,
+              ),
+              child: Column(
+                children: <Widget>[
+                  Text.rich(
+                    TextSpan(
+                      children: <InlineSpan>[
+                        TextSpan(text: i18n.doYou),
+                        const TextSpan(text: ' '),
+                        TextSpan(
+                          text: i18n.feelConfident,
+                          style: TextStyle(
+                            color: theme.colorScheme.secondary,
+                          ),
                         ),
-                      ),
-                      const TextSpan(text: ' '),
-                      TextSpan(text: i18n.thatYouCanAccomplish),
-                    ],
+                        const TextSpan(text: ' '),
+                        TextSpan(text: i18n.thatYouCanAccomplish),
+                      ],
+                    ),
+                    textAlign: TextAlign.center,
+                    style: theme.textTheme.headlineLarge,
                   ),
-                  textAlign: TextAlign.center,
-                  style: theme.textTheme.headlineLarge,
-                ),
-                const SizedBox(height: 48),
-                SizedBox(
-                  height: 264,
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: <Widget>[
-                      Container(
-                        width: 450,
-                        height: 48,
-                        clipBehavior: Clip.antiAlias,
-                        decoration: ShapeDecoration(
-                          color: theme.colorScheme.primaryContainer,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(25),
+                  const SizedBox(height: 48),
+                  SizedBox(
+                    height: 264,
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: <Widget>[
+                        Container(
+                          width: 450,
+                          height: 48,
+                          clipBehavior: Clip.antiAlias,
+                          decoration: ShapeDecoration(
+                            color: theme.colorScheme.primaryContainer,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(25),
+                            ),
+                          ),
+                          child: TextButton(
+                            onPressed: () async => next(Frequency.almostAlways),
+                            style: TextButton.styleFrom(
+                              overlayColor: theme.colorScheme.onSurface,
+                            ),
+                            child: Text(
+                              i18n.almostAlways,
+                              textAlign: TextAlign.center,
+                              style: theme.textTheme.labelLarge,
+                            ),
                           ),
                         ),
-                        child: TextButton(
-                          onPressed: () async => next(Frequency.almostAlways),
-                          style: TextButton.styleFrom(
-                            overlayColor: theme.colorScheme.onSurface,
+                        const SizedBox(height: 24),
+                        Container(
+                          width: 450,
+                          height: 48,
+                          clipBehavior: Clip.antiAlias,
+                          decoration: ShapeDecoration(
+                            color: theme.colorScheme.primaryContainer,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(25),
+                            ),
                           ),
-                          child: Text(
-                            i18n.almostAlways,
-                            textAlign: TextAlign.center,
-                            style: theme.textTheme.labelLarge,
-                          ),
-                        ),
-                      ),
-                      const SizedBox(height: 24),
-                      Container(
-                        width: 450,
-                        height: 48,
-                        clipBehavior: Clip.antiAlias,
-                        decoration: ShapeDecoration(
-                          color: theme.colorScheme.primaryContainer,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(25),
-                          ),
-                        ),
-                        child: TextButton(
-                          onPressed: () async => next(Frequency.often),
-                          style: TextButton.styleFrom(
-                            overlayColor: theme.colorScheme.onSurface,
-                          ),
-                          child: Text(
-                            i18n.often,
-                            textAlign: TextAlign.center,
-                            style: theme.textTheme.labelLarge,
+                          child: TextButton(
+                            onPressed: () async => next(Frequency.often),
+                            style: TextButton.styleFrom(
+                              overlayColor: theme.colorScheme.onSurface,
+                            ),
+                            child: Text(
+                              i18n.often,
+                              textAlign: TextAlign.center,
+                              style: theme.textTheme.labelLarge,
+                            ),
                           ),
                         ),
-                      ),
-                      const SizedBox(height: 24),
-                      Container(
-                        width: 450,
-                        height: 48,
-                        clipBehavior: Clip.antiAlias,
-                        decoration: ShapeDecoration(
-                          color: theme.colorScheme.primaryContainer,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(25),
+                        const SizedBox(height: 24),
+                        Container(
+                          width: 450,
+                          height: 48,
+                          clipBehavior: Clip.antiAlias,
+                          decoration: ShapeDecoration(
+                            color: theme.colorScheme.primaryContainer,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(25),
+                            ),
+                          ),
+                          child: TextButton(
+                            onPressed: () async => next(Frequency.sometimes),
+                            style: TextButton.styleFrom(
+                              overlayColor: theme.colorScheme.onSurface,
+                            ),
+                            child: Text(
+                              i18n.sometimes,
+                              textAlign: TextAlign.center,
+                              style: theme.textTheme.labelLarge,
+                            ),
                           ),
                         ),
-                        child: TextButton(
-                          onPressed: () async => next(Frequency.sometimes),
-                          style: TextButton.styleFrom(
-                            overlayColor: theme.colorScheme.onSurface,
+                        const SizedBox(height: 24),
+                        Container(
+                          width: 450,
+                          height: 48,
+                          clipBehavior: Clip.antiAlias,
+                          decoration: ShapeDecoration(
+                            color: theme.colorScheme.primaryContainer,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(25),
+                            ),
                           ),
-                          child: Text(
-                            i18n.sometimes,
-                            textAlign: TextAlign.center,
-                            style: theme.textTheme.labelLarge,
-                          ),
-                        ),
-                      ),
-                      const SizedBox(height: 24),
-                      Container(
-                        width: 450,
-                        height: 48,
-                        clipBehavior: Clip.antiAlias,
-                        decoration: ShapeDecoration(
-                          color: theme.colorScheme.primaryContainer,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(25),
-                          ),
-                        ),
-                        child: TextButton(
-                          onPressed: () async => next(Frequency.never),
-                          style: TextButton.styleFrom(
-                            overlayColor: theme.colorScheme.onSurface,
-                          ),
-                          child: Text(
-                            i18n.never,
-                            textAlign: TextAlign.center,
-                            style: theme.textTheme.labelLarge,
+                          child: TextButton(
+                            onPressed: () async => next(Frequency.never),
+                            style: TextButton.styleFrom(
+                              overlayColor: theme.colorScheme.onSurface,
+                            ),
+                            child: Text(
+                              i18n.never,
+                              textAlign: TextAlign.center,
+                              style: theme.textTheme.labelLarge,
+                            ),
                           ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

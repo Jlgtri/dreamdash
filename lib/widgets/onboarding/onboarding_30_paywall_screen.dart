@@ -174,11 +174,6 @@ class Onboarding30PaywallScreen extends HookConsumerWidget {
       ),
       extendBodyBehindAppBar: true,
       body: Container(
-        padding: mediaQuery.padding,
-        constraints: BoxConstraints(
-          minHeight: mediaQuery.size.height,
-          maxWidth: mediaQuery.size.width,
-        ),
         clipBehavior: Clip.antiAlias,
         decoration: const BoxDecoration(gradient: primaryGradient),
         child: CustomScrollView(
@@ -188,7 +183,7 @@ class Onboarding30PaywallScreen extends HookConsumerWidget {
           slivers: <Widget>[
             SliverToBoxAdapter(
               child: Container(
-                height: 46 - 24 - 10,
+                height: 46,
                 color: theme.colorScheme.primaryContainer,
               ),
             ),

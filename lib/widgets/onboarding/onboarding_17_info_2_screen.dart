@@ -91,126 +91,130 @@ class Onboarding17Info2Screen extends HookConsumerWidget {
       }
     }
 
-    return CustomScrollView(
-      controller: scrollController,
-      shrinkWrap: true,
-      clipBehavior: Clip.antiAlias,
-      slivers: <Widget>[
-        const SliverToBoxAdapter(child: SizedBox(height: 64)),
-        SliverToBoxAdapter(
-          child: Container(
-            constraints: const BoxConstraints(
-              minHeight: 250,
-              maxHeight: 350,
-            ),
-            height: 350 / 852 * mediaQuery.size.height,
-            padding: const EdgeInsets.symmetric(horizontal: 24),
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: assets.medicalmonitoringofhumanhealth1.provider(),
-                fit: BoxFit.scaleDown,
+    return Container(
+      padding: mediaQuery.viewPadding + mediaQuery.viewInsets,
+      decoration: const BoxDecoration(gradient: primaryGradient),
+      child: CustomScrollView(
+        controller: scrollController,
+        shrinkWrap: true,
+        clipBehavior: Clip.antiAlias,
+        slivers: <Widget>[
+          const SliverToBoxAdapter(child: SizedBox(height: 64)),
+          SliverToBoxAdapter(
+            child: Container(
+              constraints: const BoxConstraints(
+                minHeight: 250,
+                maxHeight: 350,
+              ),
+              height: 350 / 852 * mediaQuery.size.height,
+              padding: const EdgeInsets.symmetric(horizontal: 24),
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: assets.medicalmonitoringofhumanhealth1.provider(),
+                  fit: BoxFit.scaleDown,
+                ),
               ),
             ),
           ),
-        ),
-        SliverToBoxAdapter(
-          child: Container(
-            height: 344,
-            padding: const EdgeInsets.symmetric(
-              vertical: 48,
-              horizontal: 24,
-            ),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                Text.rich(
-                  TextSpan(
-                    children: <InlineSpan>[
-                      TextSpan(
-                        text: i18n.username(name: name),
-                        style: TextStyle(
-                          color: theme.colorScheme.secondary,
-                        ),
-                      ),
-                      const TextSpan(text: ' '),
-                      TextSpan(text: i18n.thanksForSharing),
-                    ],
-                  ),
-                  textAlign: TextAlign.center,
-                  style: theme.textTheme.headlineLarge,
-                ),
-                const SizedBox(height: 48),
-                SizedBox(
-                  height: 128,
-                  child: Text.rich(
+          SliverToBoxAdapter(
+            child: Container(
+              height: 344,
+              padding: const EdgeInsets.symmetric(
+                vertical: 48,
+                horizontal: 24,
+              ),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  Text.rich(
                     TextSpan(
                       children: <InlineSpan>[
-                        TextSpan(text: i18n.your),
-                        const TextSpan(text: ' '),
                         TextSpan(
-                          text: i18n.mentalHealthState,
+                          text: i18n.username(name: name),
                           style: TextStyle(
                             color: theme.colorScheme.secondary,
                           ),
                         ),
                         const TextSpan(text: ' '),
-                        TextSpan(text: i18n.isGenerallyFavourable),
-                        const TextSpan(text: ' '),
-                        TextSpan(
-                          text: i18n.canBeBetter,
-                          style: TextStyle(
-                            color: theme.colorScheme.secondary,
-                          ),
-                        ),
-                        const TextSpan(text: ' '),
-                        TextSpan(
-                          text: i18n.withSomeSpecificInstruments,
-                        ),
+                        TextSpan(text: i18n.thanksForSharing),
                       ],
                     ),
                     textAlign: TextAlign.center,
-                    style: theme.textTheme.titleMedium,
+                    style: theme.textTheme.headlineLarge,
                   ),
-                ),
-              ],
-            ),
-          ),
-        ),
-        const SliverToBoxAdapter(child: SizedBox(height: 82)),
-        SliverPadding(
-          padding: const EdgeInsets.symmetric(horizontal: 24),
-          sliver: SliverFillRemaining(
-            hasScrollBody: false,
-            fillOverscroll: true,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: <Widget>[
-                Container(
-                  width: 450,
-                  height: 48,
-                  clipBehavior: Clip.antiAlias,
-                  decoration: ShapeDecoration(
-                    color: theme.colorScheme.secondary,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(25),
-                    ),
-                    shadows: const <BoxShadow>[buttonShadow],
-                  ),
-                  child: TextButton(
-                    onPressed: next,
-                    child: Text(
-                      i18n.buttonText,
+                  const SizedBox(height: 48),
+                  SizedBox(
+                    height: 128,
+                    child: Text.rich(
+                      TextSpan(
+                        children: <InlineSpan>[
+                          TextSpan(text: i18n.your),
+                          const TextSpan(text: ' '),
+                          TextSpan(
+                            text: i18n.mentalHealthState,
+                            style: TextStyle(
+                              color: theme.colorScheme.secondary,
+                            ),
+                          ),
+                          const TextSpan(text: ' '),
+                          TextSpan(text: i18n.isGenerallyFavourable),
+                          const TextSpan(text: ' '),
+                          TextSpan(
+                            text: i18n.canBeBetter,
+                            style: TextStyle(
+                              color: theme.colorScheme.secondary,
+                            ),
+                          ),
+                          const TextSpan(text: ' '),
+                          TextSpan(
+                            text: i18n.withSomeSpecificInstruments,
+                          ),
+                        ],
+                      ),
                       textAlign: TextAlign.center,
-                      style: theme.textTheme.labelLarge,
+                      style: theme.textTheme.titleMedium,
                     ),
                   ),
-                ),
-                const SizedBox(height: 24),
-              ],
+                ],
+              ),
             ),
           ),
-        ),
-      ],
+          const SliverToBoxAdapter(child: SizedBox(height: 82)),
+          SliverPadding(
+            padding: const EdgeInsets.symmetric(horizontal: 24),
+            sliver: SliverFillRemaining(
+              hasScrollBody: false,
+              fillOverscroll: true,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: <Widget>[
+                  Container(
+                    width: 450,
+                    height: 48,
+                    clipBehavior: Clip.antiAlias,
+                    decoration: ShapeDecoration(
+                      color: theme.colorScheme.secondary,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(25),
+                      ),
+                      shadows: const <BoxShadow>[buttonShadow],
+                    ),
+                    child: TextButton(
+                      onPressed: next,
+                      child: Text(
+                        i18n.buttonText,
+                        textAlign: TextAlign.center,
+                        style: theme.textTheme.labelLarge,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 24),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

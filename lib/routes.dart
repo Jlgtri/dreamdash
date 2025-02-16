@@ -41,7 +41,6 @@ import 'widgets/onboarding/onboarding_27_notification_screen.dart';
 import 'widgets/onboarding/onboarding_28_promise_screen.dart';
 import 'widgets/onboarding/onboarding_29_chat_screen.dart';
 import 'widgets/onboarding/onboarding_30_paywall_screen.dart';
-import 'widgets/utils.dart';
 
 part 'routes.g.dart';
 
@@ -980,32 +979,21 @@ class RoutesApp extends HookConsumerWidget {
           data: mediaQuery.copyWith(textScaler: TextScaler.noScaling),
           child: DefaultTextStyle(
             style: theme.textTheme.titleMedium ?? const TextStyle(),
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
             textAlign: TextAlign.center,
             child: AnnotatedRegion<SystemUiOverlayStyle>(
               value: const SystemUiOverlayStyle(
                 statusBarColor: Colors.transparent,
                 systemNavigationBarColor: Colors.transparent,
+                statusBarBrightness: Brightness.light,
+                statusBarIconBrightness: Brightness.light,
+                systemNavigationBarIconBrightness: Brightness.light,
               ),
               child: ScrollConfiguration(
                 behavior:
                     const MaterialScrollBehavior().copyWith(overscroll: false),
-                child: Material(
-                  child: DecoratedBox(
-                    decoration: const BoxDecoration(gradient: primaryGradient),
-                    child: SafeArea(
-                      child: ConstrainedBox(
-                        constraints: BoxConstraints.tightFor(
-                          width: mediaQuery.size.width -
-                              mediaQuery.padding.horizontal,
-                          height: mediaQuery.size.height -
-                              mediaQuery.padding.vertical,
-                        ),
-                        child: child,
-                      ),
-                    ),
-                  ),
+                child: ConstrainedBox(
+                  constraints: BoxConstraints.tight(mediaQuery.size),
+                  child: Material(child: child),
                 ),
               ),
             ),

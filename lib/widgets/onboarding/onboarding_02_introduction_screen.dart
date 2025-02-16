@@ -112,140 +112,144 @@ class Onboarding02IntroductionScreen extends HookConsumerWidget {
       left: mediaQuery.padding.left + 24,
       right: mediaQuery.padding.right + 24,
     );
-    return CustomScrollView(
-      controller: scrollController,
-      shrinkWrap: true,
-      clipBehavior: Clip.antiAlias,
-      slivers: <Widget>[
-        const SliverToBoxAdapter(child: SizedBox(height: 24)),
-        SliverToBoxAdapter(
-          child: Container(
-            padding: horizontalPadding,
-            constraints: const BoxConstraints(
-              minHeight: 220,
-              maxHeight: 400,
-            ),
-            height: 400 / 852 * mediaQuery.size.height,
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: assets.introduction.provider(),
-                fit: BoxFit.scaleDown,
+    return Container(
+      padding: mediaQuery.viewPadding + mediaQuery.viewInsets,
+      decoration: const BoxDecoration(gradient: primaryGradient),
+      child: CustomScrollView(
+        controller: scrollController,
+        shrinkWrap: true,
+        clipBehavior: Clip.antiAlias,
+        slivers: <Widget>[
+          const SliverToBoxAdapter(child: SizedBox(height: 24)),
+          SliverToBoxAdapter(
+            child: Container(
+              padding: horizontalPadding,
+              constraints: const BoxConstraints(
+                minHeight: 220,
+                maxHeight: 400,
+              ),
+              height: 400 / 852 * mediaQuery.size.height,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: assets.introduction.provider(),
+                  fit: BoxFit.scaleDown,
+                ),
               ),
             ),
           ),
-        ),
-        const SliverToBoxAdapter(child: SizedBox(height: 30)),
-        SliverPadding(
-          padding: const EdgeInsets.all(24),
-          sliver: SliverToBoxAdapter(
-            child: Text.rich(
-              TextSpan(
-                children: <InlineSpan>[
-                  TextSpan(text: i18n.whatIs),
-                  const TextSpan(text: ' '),
-                  TextSpan(
-                    text: i18n.yourName,
-                    style: TextStyle(
-                      color: theme.colorScheme.secondary,
-                    ),
-                  ),
-                  const TextSpan(text: '?'),
-                ],
-              ),
-              textAlign: TextAlign.center,
-              style: theme.textTheme.headlineLarge,
-            ),
-          ),
-        ),
-        const SliverToBoxAdapter(child: SizedBox(height: 16)),
-        SliverPadding(
-          padding: horizontalPadding,
-          sliver: SliverToBoxAdapter(
-            child: SizedBox(
-              height: 44,
-              width: 450,
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: <Widget>[
-                  TextField(
-                    controller: nameController,
-                    focusNode: nameFocusNode,
-                    clipBehavior: Clip.antiAlias,
-                    style: theme.textTheme.bodyMedium,
-                    cursorColor:
-                        theme.colorScheme.onSurface.withValues(alpha: 0.3),
-                    onTapOutside: (final _) =>
-                        FocusManager.instance.primaryFocus?.unfocus(),
-                    decoration: InputDecoration(
-                      hintText: i18n.placeholder,
-                      hintStyle: theme.textTheme.bodyMedium?.copyWith(
-                        color:
-                            theme.colorScheme.onSurface.withValues(alpha: 0.3),
-                      ),
-                      constraints: const BoxConstraints(maxWidth: 450),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ),
-        const SliverToBoxAdapter(child: SizedBox(height: 64)),
-        SliverPadding(
-          padding: horizontalPadding,
-          sliver: SliverFillRemaining(
-            hasScrollBody: false,
-            fillOverscroll: true,
-            child: SizedBox(
-              height: 100,
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: <Widget>[
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      assets.lock.svg(),
-                      const SizedBox(width: 8),
-                      Text(
-                        i18n.respectPrivacy,
-                        textAlign: TextAlign.center,
-                        style: theme.textTheme.bodySmall
-                            ?.copyWith(fontWeight: FontWeight.w800),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 12),
-                  Opacity(
-                    opacity: nameValid.value ? 1 : 0.80,
-                    child: Container(
-                      width: 450,
-                      height: 48,
-                      clipBehavior: Clip.antiAlias,
-                      decoration: ShapeDecoration(
+          const SliverToBoxAdapter(child: SizedBox(height: 30)),
+          SliverPadding(
+            padding: const EdgeInsets.all(24),
+            sliver: SliverToBoxAdapter(
+              child: Text.rich(
+                TextSpan(
+                  children: <InlineSpan>[
+                    TextSpan(text: i18n.whatIs),
+                    const TextSpan(text: ' '),
+                    TextSpan(
+                      text: i18n.yourName,
+                      style: TextStyle(
                         color: theme.colorScheme.secondary,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(25),
-                        ),
-                      ),
-                      child: TextButton(
-                        onPressed: nameValid.value ? next : null,
-                        child: Text(
-                          i18n.submit,
-                          textAlign: TextAlign.center,
-                          style: theme.textTheme.labelLarge,
-                        ),
                       ),
                     ),
-                  ),
-                  const SizedBox(height: 24),
-                ],
+                    const TextSpan(text: '?'),
+                  ],
+                ),
+                textAlign: TextAlign.center,
+                style: theme.textTheme.headlineLarge,
               ),
             ),
           ),
-        ),
-      ],
+          const SliverToBoxAdapter(child: SizedBox(height: 16)),
+          SliverPadding(
+            padding: horizontalPadding,
+            sliver: SliverToBoxAdapter(
+              child: SizedBox(
+                height: 44,
+                width: 450,
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: <Widget>[
+                    TextField(
+                      controller: nameController,
+                      focusNode: nameFocusNode,
+                      clipBehavior: Clip.antiAlias,
+                      style: theme.textTheme.bodyMedium,
+                      cursorColor:
+                          theme.colorScheme.onSurface.withValues(alpha: 0.3),
+                      // onTapOutside: (final _) =>
+                      //     FocusManager.instance.primaryFocus?.unfocus(),
+                      decoration: InputDecoration(
+                        hintText: i18n.placeholder,
+                        hintStyle: theme.textTheme.bodyMedium?.copyWith(
+                          color: theme.colorScheme.onSurface
+                              .withValues(alpha: 0.3),
+                        ),
+                        constraints: const BoxConstraints(maxWidth: 450),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          const SliverToBoxAdapter(child: SizedBox(height: 64)),
+          SliverPadding(
+            padding: horizontalPadding,
+            sliver: SliverFillRemaining(
+              hasScrollBody: false,
+              fillOverscroll: true,
+              child: SizedBox(
+                height: 100,
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: <Widget>[
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        assets.lock.svg(),
+                        const SizedBox(width: 8),
+                        Text(
+                          i18n.respectPrivacy,
+                          textAlign: TextAlign.center,
+                          style: theme.textTheme.bodySmall
+                              ?.copyWith(fontWeight: FontWeight.w800),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 12),
+                    Opacity(
+                      opacity: nameValid.value ? 1 : 0.80,
+                      child: Container(
+                        width: 450,
+                        height: 48,
+                        clipBehavior: Clip.antiAlias,
+                        decoration: ShapeDecoration(
+                          color: theme.colorScheme.secondary,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(25),
+                          ),
+                        ),
+                        child: TextButton(
+                          onPressed: nameValid.value ? next : null,
+                          child: Text(
+                            i18n.submit,
+                            textAlign: TextAlign.center,
+                            style: theme.textTheme.labelLarge,
+                          ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 24),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

@@ -109,393 +109,371 @@ class Onboarding00SplashScreen extends HookConsumerWidget {
         await Future<void>.delayed(showSecond);
         final Routes<RouteData> route = await Routes.current(container);
         if (context.mounted) {
-          route.go(context);
+          await route.pushReplacement(context);
         }
       }),
     );
 
-    return AnnotatedRegion<SystemUiOverlayStyle>(
-      value: const SystemUiOverlayStyle(
-        statusBarColor: Colors.transparent,
-        systemNavigationBarColor: Colors.transparent,
-      ),
-      child: ScrollConfiguration(
-        behavior: const MaterialScrollBehavior().copyWith(overscroll: false),
-        child: Scaffold(
-          body: Listener(
-            behavior: HitTestBehavior.opaque,
-            onPointerDown: (final _) =>
-                FocusManager.instance.primaryFocus?.unfocus(),
-            child: Container(
-              padding: mediaQuery.padding +
-                  const EdgeInsets.symmetric(horizontal: 20, vertical: 85),
-              constraints: BoxConstraints(
-                minHeight: mediaQuery.size.height,
-                maxWidth: mediaQuery.size.width,
-              ),
-              clipBehavior: Clip.antiAlias,
-              decoration: const BoxDecoration(gradient: primaryGradient),
-              child: Stack(
-                alignment: Alignment.center,
-                children: <Widget>[
-                  Opacity(
-                    opacity: opacity.value,
-                    child: Stack(
-                      children: <Widget>[
-                        Positioned(
-                          top: 15 / 852 * mediaQuery.size.height,
-                          left: 269 / (393 - 40) * (mediaQuery.size.width - 40),
-                          child: assets.star34.svg(),
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 85),
+      decoration: const BoxDecoration(gradient: primaryGradient),
+      child: Stack(
+        alignment: Alignment.center,
+        children: <Widget>[
+          Opacity(
+            opacity: opacity.value,
+            child: Stack(
+              children: <Widget>[
+                Positioned(
+                  top: 15 / 852 * mediaQuery.size.height,
+                  left: 269 / (393 - 40) * (mediaQuery.size.width - 40),
+                  child: assets.star34.svg(),
+                ),
+                Positioned(
+                  top: 85 / 852 * mediaQuery.size.height,
+                  left: 139 / (393 - 40) * (mediaQuery.size.width - 40),
+                  child: assets.star35.svg(),
+                ),
+                Positioned(
+                  top: 558 / 852 * mediaQuery.size.height,
+                  left: 165 / (393 - 40) * (mediaQuery.size.width - 40),
+                  child: assets.star36.svg(),
+                ),
+                Positioned(
+                  left: 154 / (393 - 40) * (mediaQuery.size.width - 40),
+                  top: 187 / 852 * mediaQuery.size.height,
+                  child: Opacity(
+                    opacity: 0.68,
+                    child: Container(
+                      width: 71,
+                      height: 68.91,
+                      decoration: ShapeDecoration(
+                        color: theme.colorScheme.secondary,
+                        shape: const StarBorder(
+                          innerRadiusRatio: 0.01,
                         ),
-                        Positioned(
-                          top: 85 / 852 * mediaQuery.size.height,
-                          left: 139 / (393 - 40) * (mediaQuery.size.width - 40),
-                          child: assets.star35.svg(),
-                        ),
-                        Positioned(
-                          top: 558 / 852 * mediaQuery.size.height,
-                          left: 165 / (393 - 40) * (mediaQuery.size.width - 40),
-                          child: assets.star36.svg(),
-                        ),
-                        Positioned(
-                          left: 154 / (393 - 40) * (mediaQuery.size.width - 40),
-                          top: 187 / 852 * mediaQuery.size.height,
-                          child: Opacity(
-                            opacity: 0.68,
-                            child: Container(
-                              width: 71,
-                              height: 68.91,
-                              decoration: ShapeDecoration(
-                                color: theme.colorScheme.secondary,
-                                shape: const StarBorder(
-                                  innerRadiusRatio: 0.01,
-                                ),
-                                shadows: <BoxShadow>[
-                                  BoxShadow(
-                                    color: theme.colorScheme.secondary,
-                                    blurRadius: 15.45,
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                        Positioned(
-                          left: 277 / (393 - 40) * (mediaQuery.size.width - 40),
-                          top: 418 / 852 * mediaQuery.size.height,
-                          child: Opacity(
-                            opacity: 0.68,
-                            child: Container(
-                              width: 71,
-                              height: 68.91,
-                              decoration: ShapeDecoration(
-                                color: theme.colorScheme.secondary,
-                                shape: const StarBorder(
-                                  innerRadiusRatio: 0.01,
-                                ),
-                                shadows: <BoxShadow>[
-                                  BoxShadow(
-                                    color: theme.colorScheme.secondary,
-                                    blurRadius: 15.45,
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                        Positioned(
-                          left: 18 / (393 - 40) * (mediaQuery.size.width - 40),
-                          top: 590 / 852 * mediaQuery.size.height,
-                          child: Opacity(
-                            opacity: 0.68,
-                            child: Container(
-                              width: 71,
-                              height: 68.91,
-                              decoration: ShapeDecoration(
-                                color: theme.colorScheme.secondary,
-                                shape: const StarBorder(
-                                  innerRadiusRatio: 0.01,
-                                ),
-                                shadows: <BoxShadow>[
-                                  BoxShadow(
-                                    color: theme.colorScheme.secondary,
-                                    blurRadius: 15.45,
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                        Positioned(
-                          left: 233 / (393 - 40) * (mediaQuery.size.width - 40),
-                          top: 600 / 852 * mediaQuery.size.height,
-                          child: Opacity(
-                            opacity: 0.68,
-                            child: Container(
-                              width: 71,
-                              height: 68.91,
-                              decoration: ShapeDecoration(
-                                color: theme.colorScheme.secondary,
-                                shape: const StarBorder(
-                                  innerRadiusRatio: 0.01,
-                                ),
-                                shadows: <BoxShadow>[
-                                  BoxShadow(
-                                    color: theme.colorScheme.secondary,
-                                    blurRadius: 15.45,
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                        Positioned(
-                          left: 277 / (393 - 40) * (mediaQuery.size.width - 40),
-                          top: 123 / 852 * mediaQuery.size.height,
-                          child: Opacity(
-                            opacity: 0.68,
-                            child: Container(
-                              width: 35.03,
-                              height: 34,
-                              decoration: ShapeDecoration(
-                                color: theme.colorScheme.secondary,
-                                shape: const StarBorder(
-                                  innerRadiusRatio: 0.01,
-                                ),
-                                shadows: <BoxShadow>[
-                                  BoxShadow(
-                                    color: theme.colorScheme.secondary,
-                                    blurRadius: 7.62,
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                        Positioned(
-                          left: 163 / (393 - 40) * (mediaQuery.size.width - 40),
-                          top: 447 / 852 * mediaQuery.size.height,
-                          child: Opacity(
-                            opacity: 0.68,
-                            child: Container(
-                              width: 35.03,
-                              height: 34,
-                              decoration: ShapeDecoration(
-                                color: theme.colorScheme.secondary,
-                                shape: const StarBorder(
-                                  innerRadiusRatio: 0.01,
-                                ),
-                                shadows: <BoxShadow>[
-                                  BoxShadow(
-                                    color: theme.colorScheme.secondary,
-                                    blurRadius: 7.62,
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                        Positioned(
-                          left: 83 / (393 - 40) * (mediaQuery.size.width - 40),
-                          top: 512 / 852 * mediaQuery.size.height,
-                          child: Opacity(
-                            opacity: 0.68,
-                            child: Container(
-                              width: 35.03,
-                              height: 34,
-                              decoration: ShapeDecoration(
-                                color: theme.colorScheme.secondary,
-                                shape: const StarBorder(
-                                  innerRadiusRatio: 0.01,
-                                ),
-                                shadows: <BoxShadow>[
-                                  BoxShadow(
-                                    color: theme.colorScheme.secondary,
-                                    blurRadius: 7.62,
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                        Positioned(
-                          left: 6 / (393 - 40) * (mediaQuery.size.width - 40),
-                          top: 112 / 852 * mediaQuery.size.height,
-                          child: Opacity(
-                            opacity: 0.68,
-                            child: Container(
-                              width: 71,
-                              height: 68.91,
-                              decoration: ShapeDecoration(
-                                gradient: secondaryGradient,
-                                shape: const StarBorder(
-                                  innerRadiusRatio: 0.01,
-                                ),
-                                shadows: <BoxShadow>[
-                                  BoxShadow(
-                                    color: theme.colorScheme.secondary,
-                                    blurRadius: 15.45,
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                        Positioned(
-                          left: 164 / (393 - 40) * (mediaQuery.size.width - 40),
-                          top: 7 / 852 * mediaQuery.size.height,
-                          child: Opacity(
-                            opacity: 0.68,
-                            child: Container(
-                              width: 35.03,
-                              height: 34,
-                              decoration: ShapeDecoration(
-                                color: theme.colorScheme.secondary,
-                                shape: const StarBorder(
-                                  innerRadiusRatio: 0.01,
-                                ),
-                                shadows: <BoxShadow>[
-                                  BoxShadow(
-                                    color: theme.colorScheme.secondary,
-                                    blurRadius: 7.62,
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                        Positioned(
-                          left: 50 / (393 - 40) * (mediaQuery.size.width - 40),
-                          top: 449 / 852 * mediaQuery.size.height,
-                          child: Opacity(
-                            opacity: 0.68,
-                            child: Container(
-                              width: 7,
-                              height: 6,
-                              decoration: const ShapeDecoration(
-                                color: Color(0xFFFFF1B8),
-                                shape: OvalBorder(),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Positioned(
-                          left: 165 / (393 - 40) * (mediaQuery.size.width - 40),
-                          top: 669 / 852 * mediaQuery.size.height,
-                          child: Opacity(
-                            opacity: 0.33,
-                            child: Container(
-                              width: 7,
-                              height: 6,
-                              decoration: const ShapeDecoration(
-                                color: Color(0xFFFFF1B8),
-                                shape: OvalBorder(),
-                              ),
-                            ),
-                          ),
-                        ),
-                        Positioned(
-                          left: 317 / (393 - 40) * (mediaQuery.size.width - 40),
-                          top: 540 / 852 * mediaQuery.size.height,
-                          child: Opacity(
-                            opacity: 0.68,
-                            child: Container(
-                              width: 7,
-                              height: 6,
-                              decoration: const ShapeDecoration(
-                                color: Color(0xFFFFF1B8),
-                                shape: OvalBorder(),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-
-                  Opacity(
-                    opacity: 1 - opacity.value,
-                    child: RiveAnimation.direct(this.animation),
-                  ),
-                  // Opacity(
-                  //   opacity: 1 - opacity.value,
-                  //   child: Row(
-                  //     mainAxisAlignment: MainAxisAlignment.center,
-                  //     children: <Widget>[
-                  //       const SizedBox(width: 24),
-                  //       SimpleShadow(
-                  //         opacity: 0.1,
-                  //         offset: const Offset(12, 15),
-                  //         sigma: 4,
-                  //         child: assets.star31.svg(),
-                  //       ),
-                  //       const SizedBox(width: 14),
-                  //       Text.rich(
-                  //         TextSpan(
-                  //           children: <InlineSpan>[
-                  //             TextSpan(text: i18n.dream),
-                  //             TextSpan(
-                  //               text: i18n.dash,
-                  //               style: TextStyle(
-                  //                 color: theme.colorScheme.secondary,
-                  //               ),
-                  //             ),
-                  //           ],
-                  //         ),
-                  //         textAlign: TextAlign.center,
-                  //         style: theme.textTheme.headlineLarge
-                  //             ?.copyWith(fontWeight: FontWeight.bold),
-                  //       ),
-                  //       const SizedBox(width: 24 * 3.5),
-                  //     ],
-                  //   ),
-                  // ),
-                  Opacity(
-                    opacity: opacity.value,
-                    child: SizedBox(
-                      height: 72.98,
-                      width: double.infinity,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          const SizedBox(width: 24),
-                          SimpleShadow(
-                            opacity: 0.1,
-                            offset: const Offset(12, 15),
-                            sigma: 4,
-                            child: assets.star31.svg(),
-                          ),
-                          const SizedBox(width: 14),
-                          SizedBox(
-                            width: 273,
-                            child: Text.rich(
-                              TextSpan(
-                                children: <InlineSpan>[
-                                  TextSpan(text: i18n.become),
-                                  const TextSpan(text: ' '),
-                                  TextSpan(
-                                    text: i18n.aStar,
-                                    style: TextStyle(
-                                      color: theme.colorScheme.secondary,
-                                    ),
-                                  ),
-                                  const TextSpan(text: ' '),
-                                  TextSpan(text: i18n.you),
-                                  const TextSpan(text: ' '),
-                                  TextSpan(
-                                    text: i18n.deserve,
-                                    style: TextStyle(
-                                      color: theme.colorScheme.secondary,
-                                    ),
-                                  ),
-                                  const TextSpan(text: ' '),
-                                  TextSpan(text: i18n.toBe),
-                                ],
-                                style: theme.textTheme.headlineLarge,
-                              ),
-                            ),
+                        shadows: <BoxShadow>[
+                          BoxShadow(
+                            color: theme.colorScheme.secondary,
+                            blurRadius: 15.45,
                           ),
                         ],
+                      ),
+                    ),
+                  ),
+                ),
+                Positioned(
+                  left: 277 / (393 - 40) * (mediaQuery.size.width - 40),
+                  top: 418 / 852 * mediaQuery.size.height,
+                  child: Opacity(
+                    opacity: 0.68,
+                    child: Container(
+                      width: 71,
+                      height: 68.91,
+                      decoration: ShapeDecoration(
+                        color: theme.colorScheme.secondary,
+                        shape: const StarBorder(
+                          innerRadiusRatio: 0.01,
+                        ),
+                        shadows: <BoxShadow>[
+                          BoxShadow(
+                            color: theme.colorScheme.secondary,
+                            blurRadius: 15.45,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                Positioned(
+                  left: 18 / (393 - 40) * (mediaQuery.size.width - 40),
+                  top: 590 / 852 * mediaQuery.size.height,
+                  child: Opacity(
+                    opacity: 0.68,
+                    child: Container(
+                      width: 71,
+                      height: 68.91,
+                      decoration: ShapeDecoration(
+                        color: theme.colorScheme.secondary,
+                        shape: const StarBorder(
+                          innerRadiusRatio: 0.01,
+                        ),
+                        shadows: <BoxShadow>[
+                          BoxShadow(
+                            color: theme.colorScheme.secondary,
+                            blurRadius: 15.45,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                Positioned(
+                  left: 233 / (393 - 40) * (mediaQuery.size.width - 40),
+                  top: 600 / 852 * mediaQuery.size.height,
+                  child: Opacity(
+                    opacity: 0.68,
+                    child: Container(
+                      width: 71,
+                      height: 68.91,
+                      decoration: ShapeDecoration(
+                        color: theme.colorScheme.secondary,
+                        shape: const StarBorder(
+                          innerRadiusRatio: 0.01,
+                        ),
+                        shadows: <BoxShadow>[
+                          BoxShadow(
+                            color: theme.colorScheme.secondary,
+                            blurRadius: 15.45,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                Positioned(
+                  left: 277 / (393 - 40) * (mediaQuery.size.width - 40),
+                  top: 123 / 852 * mediaQuery.size.height,
+                  child: Opacity(
+                    opacity: 0.68,
+                    child: Container(
+                      width: 35.03,
+                      height: 34,
+                      decoration: ShapeDecoration(
+                        color: theme.colorScheme.secondary,
+                        shape: const StarBorder(
+                          innerRadiusRatio: 0.01,
+                        ),
+                        shadows: <BoxShadow>[
+                          BoxShadow(
+                            color: theme.colorScheme.secondary,
+                            blurRadius: 7.62,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                Positioned(
+                  left: 163 / (393 - 40) * (mediaQuery.size.width - 40),
+                  top: 447 / 852 * mediaQuery.size.height,
+                  child: Opacity(
+                    opacity: 0.68,
+                    child: Container(
+                      width: 35.03,
+                      height: 34,
+                      decoration: ShapeDecoration(
+                        color: theme.colorScheme.secondary,
+                        shape: const StarBorder(
+                          innerRadiusRatio: 0.01,
+                        ),
+                        shadows: <BoxShadow>[
+                          BoxShadow(
+                            color: theme.colorScheme.secondary,
+                            blurRadius: 7.62,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                Positioned(
+                  left: 83 / (393 - 40) * (mediaQuery.size.width - 40),
+                  top: 512 / 852 * mediaQuery.size.height,
+                  child: Opacity(
+                    opacity: 0.68,
+                    child: Container(
+                      width: 35.03,
+                      height: 34,
+                      decoration: ShapeDecoration(
+                        color: theme.colorScheme.secondary,
+                        shape: const StarBorder(
+                          innerRadiusRatio: 0.01,
+                        ),
+                        shadows: <BoxShadow>[
+                          BoxShadow(
+                            color: theme.colorScheme.secondary,
+                            blurRadius: 7.62,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                Positioned(
+                  left: 6 / (393 - 40) * (mediaQuery.size.width - 40),
+                  top: 112 / 852 * mediaQuery.size.height,
+                  child: Opacity(
+                    opacity: 0.68,
+                    child: Container(
+                      width: 71,
+                      height: 68.91,
+                      decoration: ShapeDecoration(
+                        gradient: secondaryGradient,
+                        shape: const StarBorder(
+                          innerRadiusRatio: 0.01,
+                        ),
+                        shadows: <BoxShadow>[
+                          BoxShadow(
+                            color: theme.colorScheme.secondary,
+                            blurRadius: 15.45,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                Positioned(
+                  left: 164 / (393 - 40) * (mediaQuery.size.width - 40),
+                  top: 7 / 852 * mediaQuery.size.height,
+                  child: Opacity(
+                    opacity: 0.68,
+                    child: Container(
+                      width: 35.03,
+                      height: 34,
+                      decoration: ShapeDecoration(
+                        color: theme.colorScheme.secondary,
+                        shape: const StarBorder(
+                          innerRadiusRatio: 0.01,
+                        ),
+                        shadows: <BoxShadow>[
+                          BoxShadow(
+                            color: theme.colorScheme.secondary,
+                            blurRadius: 7.62,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                Positioned(
+                  left: 50 / (393 - 40) * (mediaQuery.size.width - 40),
+                  top: 449 / 852 * mediaQuery.size.height,
+                  child: Opacity(
+                    opacity: 0.68,
+                    child: Container(
+                      width: 7,
+                      height: 6,
+                      decoration: const ShapeDecoration(
+                        color: Color(0xFFFFF1B8),
+                        shape: OvalBorder(),
+                      ),
+                    ),
+                  ),
+                ),
+                Positioned(
+                  left: 165 / (393 - 40) * (mediaQuery.size.width - 40),
+                  top: 669 / 852 * mediaQuery.size.height,
+                  child: Opacity(
+                    opacity: 0.33,
+                    child: Container(
+                      width: 7,
+                      height: 6,
+                      decoration: const ShapeDecoration(
+                        color: Color(0xFFFFF1B8),
+                        shape: OvalBorder(),
+                      ),
+                    ),
+                  ),
+                ),
+                Positioned(
+                  left: 317 / (393 - 40) * (mediaQuery.size.width - 40),
+                  top: 540 / 852 * mediaQuery.size.height,
+                  child: Opacity(
+                    opacity: 0.68,
+                    child: Container(
+                      width: 7,
+                      height: 6,
+                      decoration: const ShapeDecoration(
+                        color: Color(0xFFFFF1B8),
+                        shape: OvalBorder(),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+
+          Opacity(
+            opacity: 1 - opacity.value,
+            child: RiveAnimation.direct(this.animation),
+          ),
+          // Opacity(
+          //   opacity: 1 - opacity.value,
+          //   child: Row(
+          //     mainAxisAlignment: MainAxisAlignment.center,
+          //     children: <Widget>[
+          //       const SizedBox(width: 24),
+          //       SimpleShadow(
+          //         opacity: 0.1,
+          //         offset: const Offset(12, 15),
+          //         sigma: 4,
+          //         child: assets.star31.svg(),
+          //       ),
+          //       const SizedBox(width: 14),
+          //       Text.rich(
+          //         TextSpan(
+          //           children: <InlineSpan>[
+          //             TextSpan(text: i18n.dream),
+          //             TextSpan(
+          //               text: i18n.dash,
+          //               style: TextStyle(
+          //                 color: theme.colorScheme.secondary,
+          //               ),
+          //             ),
+          //           ],
+          //         ),
+          //         textAlign: TextAlign.center,
+          //         style: theme.textTheme.headlineLarge
+          //             ?.copyWith(fontWeight: FontWeight.bold),
+          //       ),
+          //       const SizedBox(width: 24 * 3.5),
+          //     ],
+          //   ),
+          // ),
+          Opacity(
+            opacity: opacity.value,
+            child: SizedBox(
+              height: 72.98,
+              width: double.infinity,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  const SizedBox(width: 24),
+                  SimpleShadow(
+                    opacity: 0.1,
+                    offset: const Offset(12, 15),
+                    sigma: 4,
+                    child: assets.star31.svg(),
+                  ),
+                  const SizedBox(width: 14),
+                  SizedBox(
+                    width: 273,
+                    child: Text.rich(
+                      TextSpan(
+                        children: <InlineSpan>[
+                          TextSpan(text: i18n.become),
+                          const TextSpan(text: ' '),
+                          TextSpan(
+                            text: i18n.aStar,
+                            style: TextStyle(
+                              color: theme.colorScheme.secondary,
+                            ),
+                          ),
+                          const TextSpan(text: ' '),
+                          TextSpan(text: i18n.you),
+                          const TextSpan(text: ' '),
+                          TextSpan(
+                            text: i18n.deserve,
+                            style: TextStyle(
+                              color: theme.colorScheme.secondary,
+                            ),
+                          ),
+                          const TextSpan(text: ' '),
+                          TextSpan(text: i18n.toBe),
+                        ],
+                        style: theme.textTheme.headlineLarge,
                       ),
                     ),
                   ),
@@ -503,7 +481,7 @@ class Onboarding00SplashScreen extends HookConsumerWidget {
               ),
             ),
           ),
-        ),
+        ],
       ),
     );
   }

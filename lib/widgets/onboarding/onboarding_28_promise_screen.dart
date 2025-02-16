@@ -93,175 +93,179 @@ class Onboarding28PromiseScreen extends HookConsumerWidget {
       }
     }
 
-    return CustomScrollView(
-      controller: scrollController,
-      shrinkWrap: true,
-      clipBehavior: Clip.antiAlias,
-      slivers: <Widget>[
-        const SliverToBoxAdapter(child: SizedBox(height: 100)),
-        SliverToBoxAdapter(
-          child: Text(
-            i18n.areYouReady,
-            textAlign: TextAlign.center,
-            style: theme.textTheme.displayMedium
-                ?.copyWith(color: theme.colorScheme.secondary),
-          ),
-        ),
-        const SliverToBoxAdapter(child: SizedBox(height: 80)),
-        SliverPadding(
-          padding: const EdgeInsets.symmetric(horizontal: 24),
-          sliver: SliverToBoxAdapter(
-            child: Text.rich(
-              TextSpan(
-                children: <InlineSpan>[
-                  TextSpan(text: i18n.commitmentIntro),
-                  const TextSpan(text: ' '),
-                  TextSpan(
-                    text: i18n.userName(name: name),
-                    style: TextStyle(
-                      color: theme.colorScheme.secondary,
-                    ),
-                  ),
-                  TextSpan(text: i18n.commitmentStatement),
-                  const TextSpan(text: ' '),
-                  TextSpan(
-                    text: i18n.boldCommitmentStatement,
-                    style: TextStyle(
-                      color: theme.colorScheme.secondary,
-                    ),
-                  ),
-                ],
-              ),
-              textAlign: TextAlign.justify,
-              style: theme.textTheme.titleMedium,
+    return Container(
+      padding: mediaQuery.viewPadding + mediaQuery.viewInsets,
+      decoration: const BoxDecoration(gradient: primaryGradient),
+      child: CustomScrollView(
+        controller: scrollController,
+        shrinkWrap: true,
+        clipBehavior: Clip.antiAlias,
+        slivers: <Widget>[
+          const SliverToBoxAdapter(child: SizedBox(height: 100)),
+          SliverToBoxAdapter(
+            child: Text(
+              i18n.areYouReady,
+              textAlign: TextAlign.center,
+              style: theme.textTheme.displayMedium
+                  ?.copyWith(color: theme.colorScheme.secondary),
             ),
           ),
-        ),
-        const SliverToBoxAdapter(child: SizedBox(height: 80)),
-        SliverPadding(
-          padding: const EdgeInsets.symmetric(horizontal: 24),
-          sliver: SliverFillRemaining(
-            hasScrollBody: false,
-            fillOverscroll: true,
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: <Widget>[
-                Text(
-                  i18n.tapToCommit,
-                  textAlign: TextAlign.center,
-                  style: theme.textTheme.bodyMedium?.copyWith(
-                    color: theme.colorScheme.onSurface.withValues(alpha: 0.3),
-                  ),
+          const SliverToBoxAdapter(child: SizedBox(height: 80)),
+          SliverPadding(
+            padding: const EdgeInsets.symmetric(horizontal: 24),
+            sliver: SliverToBoxAdapter(
+              child: Text.rich(
+                TextSpan(
+                  children: <InlineSpan>[
+                    TextSpan(text: i18n.commitmentIntro),
+                    const TextSpan(text: ' '),
+                    TextSpan(
+                      text: i18n.userName(name: name),
+                      style: TextStyle(
+                        color: theme.colorScheme.secondary,
+                      ),
+                    ),
+                    TextSpan(text: i18n.commitmentStatement),
+                    const TextSpan(text: ' '),
+                    TextSpan(
+                      text: i18n.boldCommitmentStatement,
+                      style: TextStyle(
+                        color: theme.colorScheme.secondary,
+                      ),
+                    ),
+                  ],
                 ),
-                const SizedBox(height: 18),
-                SizedBox(
-                  width: 127.77,
-                  height: 126,
-                  child: HoldTimeoutDetector(
-                    holdTimeout: const Duration(seconds: 4),
-                    onTimerInitiated: () => isLoading.value = true,
-                    onTap: () => isLoading.value = false,
-                    onCancel: () => isLoading.value = false,
-                    onTimeout: () async {
-                      if (context.mounted) {
-                        isLoading.value = false;
-                      }
-                      await next();
-                    },
-                    enableHapticFeedback: true,
-                    child: Stack(
-                      children: <Widget>[
-                        Positioned(
-                          left: 0,
-                          top: 0,
-                          child: SizedBox(
-                            width: 127.77,
-                            height: 126,
-                            child: Stack(
-                              children: <Widget>[
-                                Positioned(
-                                  top: 28,
-                                  left: 32,
-                                  child: assets.vector.svg(),
-                                ),
-                                Positioned(
-                                  left: 11.54,
-                                  top: 11.54,
-                                  child: Container(
-                                    width: 104.70,
-                                    height: 102.93,
-                                    decoration: ShapeDecoration(
-                                      color: theme.colorScheme.secondary,
-                                      shape: const OvalBorder(),
-                                      shadows: const <BoxShadow>[
-                                        BoxShadow(
-                                          color: Color(0x3F000000),
-                                          blurRadius: 6.55,
-                                          offset: Offset(0, 6.55),
-                                        ),
-                                      ],
+                textAlign: TextAlign.justify,
+                style: theme.textTheme.titleMedium,
+              ),
+            ),
+          ),
+          const SliverToBoxAdapter(child: SizedBox(height: 80)),
+          SliverPadding(
+            padding: const EdgeInsets.symmetric(horizontal: 24),
+            sliver: SliverFillRemaining(
+              hasScrollBody: false,
+              fillOverscroll: true,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: <Widget>[
+                  Text(
+                    i18n.tapToCommit,
+                    textAlign: TextAlign.center,
+                    style: theme.textTheme.bodyMedium?.copyWith(
+                      color: theme.colorScheme.onSurface.withValues(alpha: 0.3),
+                    ),
+                  ),
+                  const SizedBox(height: 18),
+                  SizedBox(
+                    width: 127.77,
+                    height: 126,
+                    child: HoldTimeoutDetector(
+                      holdTimeout: const Duration(seconds: 4),
+                      onTimerInitiated: () => isLoading.value = true,
+                      onTap: () => isLoading.value = false,
+                      onCancel: () => isLoading.value = false,
+                      onTimeout: () async {
+                        if (context.mounted) {
+                          isLoading.value = false;
+                        }
+                        await next();
+                      },
+                      enableHapticFeedback: true,
+                      child: Stack(
+                        children: <Widget>[
+                          Positioned(
+                            left: 0,
+                            top: 0,
+                            child: SizedBox(
+                              width: 127.77,
+                              height: 126,
+                              child: Stack(
+                                children: <Widget>[
+                                  Positioned(
+                                    top: 28,
+                                    left: 32,
+                                    child: assets.vector.svg(),
+                                  ),
+                                  Positioned(
+                                    left: 11.54,
+                                    top: 11.54,
+                                    child: Container(
+                                      width: 104.70,
+                                      height: 102.93,
+                                      decoration: ShapeDecoration(
+                                        color: theme.colorScheme.secondary,
+                                        shape: const OvalBorder(),
+                                        shadows: const <BoxShadow>[
+                                          BoxShadow(
+                                            color: Color(0x3F000000),
+                                            blurRadius: 6.55,
+                                            offset: Offset(0, 6.55),
+                                          ),
+                                        ],
+                                      ),
                                     ),
                                   ),
-                                ),
-                                Positioned(
-                                  left: 0,
-                                  top: 0,
-                                  child: Container(
-                                    width: 127.77,
-                                    height: 126,
-                                    decoration: const ShapeDecoration(
-                                      color: Color(0x7FFACD77),
-                                      shape: OvalBorder(),
-                                      shadows: <BoxShadow>[
-                                        BoxShadow(
-                                          color: Color(0x3F000000),
-                                          blurRadius: 6.55,
-                                          offset: Offset(0, 6.55),
-                                        ),
-                                      ],
+                                  Positioned(
+                                    left: 0,
+                                    top: 0,
+                                    child: Container(
+                                      width: 127.77,
+                                      height: 126,
+                                      decoration: const ShapeDecoration(
+                                        color: Color(0x7FFACD77),
+                                        shape: OvalBorder(),
+                                        shadows: <BoxShadow>[
+                                          BoxShadow(
+                                            color: Color(0x3F000000),
+                                            blurRadius: 6.55,
+                                            offset: Offset(0, 6.55),
+                                          ),
+                                        ],
+                                      ),
                                     ),
                                   ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(
-                                    bottom: 3.3,
-                                    left: 1,
-                                    top: 1.5,
-                                    right: 1,
-                                  ),
-                                  child: Opacity(
-                                    opacity: isLoading.value ? 1 : 0,
-                                    child: RiveAnimation.asset(
-                                      assets.fingerprintRiv,
-                                      animations: const <String>[
-                                        'loop',
-                                      ],
+                                  Padding(
+                                    padding: const EdgeInsets.only(
+                                      bottom: 3.3,
+                                      left: 1,
+                                      top: 1.5,
+                                      right: 1,
+                                    ),
+                                    child: Opacity(
+                                      opacity: isLoading.value ? 1 : 0,
+                                      child: RiveAnimation.asset(
+                                        assets.fingerprintRiv,
+                                        animations: const <String>[
+                                          'loop',
+                                        ],
+                                      ),
                                     ),
                                   ),
-                                ),
-                                Positioned(
-                                  left: 4,
-                                  top: 2,
-                                  child: Opacity(
-                                    opacity: isLoading.value ? 0 : 1,
-                                    child: assets.fingerprintPng.image(),
+                                  Positioned(
+                                    left: 4,
+                                    top: 2,
+                                    child: Opacity(
+                                      opacity: isLoading.value ? 0 : 1,
+                                      child: assets.fingerprintPng.image(),
+                                    ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
-                ),
-                const SizedBox(height: 64),
-              ],
+                  const SizedBox(height: 64),
+                ],
+              ),
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

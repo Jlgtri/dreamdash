@@ -88,191 +88,195 @@ class Onboarding05AgeScreen extends HookConsumerWidget {
       }
     }
 
-    return CustomScrollView(
-      controller: scrollController,
-      shrinkWrap: true,
-      clipBehavior: Clip.antiAlias,
-      slivers: <Widget>[
-        SliverToBoxAdapter(
-          child: Container(
-            height: 414 / 852 * mediaQuery.size.height,
-            constraints: const BoxConstraints(minHeight: 300, maxHeight: 450),
-            margin: const EdgeInsets.all(24).copyWith(bottom: 0),
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: assets.pencilandnotepadplanningconductingasurvey1
-                    .provider(),
-                fit: BoxFit.contain,
+    return Container(
+      padding: mediaQuery.viewPadding + mediaQuery.viewInsets,
+      decoration: const BoxDecoration(gradient: primaryGradient),
+      child: CustomScrollView(
+        controller: scrollController,
+        shrinkWrap: true,
+        clipBehavior: Clip.antiAlias,
+        slivers: <Widget>[
+          SliverToBoxAdapter(
+            child: Container(
+              height: 414 / 852 * mediaQuery.size.height,
+              constraints: const BoxConstraints(minHeight: 300, maxHeight: 450),
+              margin: const EdgeInsets.all(24).copyWith(bottom: 0),
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: assets.pencilandnotepadplanningconductingasurvey1
+                      .provider(),
+                  fit: BoxFit.contain,
+                ),
               ),
             ),
           ),
-        ),
-        SliverToBoxAdapter(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 24),
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Text.rich(
-                  TextSpan(
-                    children: <InlineSpan>[
-                      TextSpan(text: i18n.question),
-                      const TextSpan(text: ' '),
-                      TextSpan(
-                        text: i18n.your,
-                        style: TextStyle(
-                          color: theme.colorScheme.secondary,
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 24),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Text.rich(
+                    TextSpan(
+                      children: <InlineSpan>[
+                        TextSpan(text: i18n.question),
+                        const TextSpan(text: ' '),
+                        TextSpan(
+                          text: i18n.your,
+                          style: TextStyle(
+                            color: theme.colorScheme.secondary,
+                          ),
                         ),
-                      ),
-                      const TextSpan(text: ' '),
-                      TextSpan(
-                        text: i18n.age,
-                        style: TextStyle(
-                          color: theme.colorScheme.secondary,
+                        const TextSpan(text: ' '),
+                        TextSpan(
+                          text: i18n.age,
+                          style: TextStyle(
+                            color: theme.colorScheme.secondary,
+                          ),
                         ),
-                      ),
-                      TextSpan(text: i18n.questionMark),
-                    ],
+                        TextSpan(text: i18n.questionMark),
+                      ],
+                    ),
+                    textAlign: TextAlign.center,
+                    style: theme.textTheme.headlineLarge,
                   ),
-                  textAlign: TextAlign.center,
-                  style: theme.textTheme.headlineLarge,
-                ),
-              ],
+                ],
+              ),
             ),
           ),
-        ),
-        const SliverToBoxAdapter(child: SizedBox(height: 12)),
-        SliverFillRemaining(
-          hasScrollBody: false,
-          fillOverscroll: true,
-          child: Padding(
-            padding: const EdgeInsets.all(24),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                Container(
-                  width: 450,
-                  height: 48,
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 24,
-                  ),
-                  clipBehavior: Clip.antiAlias,
-                  decoration: ShapeDecoration(
-                    color: theme.colorScheme.primaryContainer,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(25),
+          const SliverToBoxAdapter(child: SizedBox(height: 12)),
+          SliverFillRemaining(
+            hasScrollBody: false,
+            fillOverscroll: true,
+            child: Padding(
+              padding: const EdgeInsets.all(24),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  Container(
+                    width: 450,
+                    height: 48,
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 24,
+                    ),
+                    clipBehavior: Clip.antiAlias,
+                    decoration: ShapeDecoration(
+                      color: theme.colorScheme.primaryContainer,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(25),
+                      ),
+                    ),
+                    child: TextButton(
+                      onPressed: () async => next(Age.a18_25),
+                      style: TextButton.styleFrom(
+                        overlayColor: theme.colorScheme.onSurface,
+                      ),
+                      child: Text(
+                        i18n.options.age1825,
+                        textAlign: TextAlign.center,
+                        style: theme.textTheme.labelLarge,
+                      ),
                     ),
                   ),
-                  child: TextButton(
-                    onPressed: () async => next(Age.a18_25),
-                    style: TextButton.styleFrom(
-                      overlayColor: theme.colorScheme.onSurface,
+                  const SizedBox(height: 24),
+                  Container(
+                    width: 450,
+                    height: 48,
+                    clipBehavior: Clip.antiAlias,
+                    decoration: ShapeDecoration(
+                      color: theme.colorScheme.primaryContainer,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(25),
+                      ),
                     ),
-                    child: Text(
-                      i18n.options.age1825,
-                      textAlign: TextAlign.center,
-                      style: theme.textTheme.labelLarge,
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 24),
-                Container(
-                  width: 450,
-                  height: 48,
-                  clipBehavior: Clip.antiAlias,
-                  decoration: ShapeDecoration(
-                    color: theme.colorScheme.primaryContainer,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(25),
-                    ),
-                  ),
-                  child: TextButton(
-                    onPressed: () async => next(Age.a26_35),
-                    style: TextButton.styleFrom(
-                      overlayColor: theme.colorScheme.onSurface,
-                    ),
-                    child: Text(
-                      i18n.options.age2635,
-                      textAlign: TextAlign.center,
-                      style: theme.textTheme.labelLarge,
+                    child: TextButton(
+                      onPressed: () async => next(Age.a26_35),
+                      style: TextButton.styleFrom(
+                        overlayColor: theme.colorScheme.onSurface,
+                      ),
+                      child: Text(
+                        i18n.options.age2635,
+                        textAlign: TextAlign.center,
+                        style: theme.textTheme.labelLarge,
+                      ),
                     ),
                   ),
-                ),
-                const SizedBox(height: 24),
-                Container(
-                  width: 450,
-                  height: 48,
-                  clipBehavior: Clip.antiAlias,
-                  decoration: ShapeDecoration(
-                    color: theme.colorScheme.primaryContainer,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(25),
+                  const SizedBox(height: 24),
+                  Container(
+                    width: 450,
+                    height: 48,
+                    clipBehavior: Clip.antiAlias,
+                    decoration: ShapeDecoration(
+                      color: theme.colorScheme.primaryContainer,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(25),
+                      ),
+                    ),
+                    child: TextButton(
+                      onPressed: () async => next(Age.a36_45),
+                      style: TextButton.styleFrom(
+                        overlayColor: theme.colorScheme.onSurface,
+                      ),
+                      child: Text(
+                        i18n.options.age3645,
+                        textAlign: TextAlign.center,
+                        style: theme.textTheme.labelLarge,
+                      ),
                     ),
                   ),
-                  child: TextButton(
-                    onPressed: () async => next(Age.a36_45),
-                    style: TextButton.styleFrom(
-                      overlayColor: theme.colorScheme.onSurface,
+                  const SizedBox(height: 24),
+                  Container(
+                    width: 450,
+                    height: 48,
+                    clipBehavior: Clip.antiAlias,
+                    decoration: ShapeDecoration(
+                      color: theme.colorScheme.primaryContainer,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(25),
+                      ),
                     ),
-                    child: Text(
-                      i18n.options.age3645,
-                      textAlign: TextAlign.center,
-                      style: theme.textTheme.labelLarge,
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 24),
-                Container(
-                  width: 450,
-                  height: 48,
-                  clipBehavior: Clip.antiAlias,
-                  decoration: ShapeDecoration(
-                    color: theme.colorScheme.primaryContainer,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(25),
-                    ),
-                  ),
-                  child: TextButton(
-                    onPressed: () async => next(Age.a46_55),
-                    style: TextButton.styleFrom(
-                      overlayColor: theme.colorScheme.onSurface,
-                    ),
-                    child: Text(
-                      i18n.options.age4655,
-                      textAlign: TextAlign.center,
-                      style: theme.textTheme.labelLarge,
+                    child: TextButton(
+                      onPressed: () async => next(Age.a46_55),
+                      style: TextButton.styleFrom(
+                        overlayColor: theme.colorScheme.onSurface,
+                      ),
+                      child: Text(
+                        i18n.options.age4655,
+                        textAlign: TextAlign.center,
+                        style: theme.textTheme.labelLarge,
+                      ),
                     ),
                   ),
-                ),
-                const SizedBox(height: 24),
-                Container(
-                  width: 450,
-                  height: 48,
-                  clipBehavior: Clip.antiAlias,
-                  decoration: ShapeDecoration(
-                    color: theme.colorScheme.primaryContainer,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(25),
+                  const SizedBox(height: 24),
+                  Container(
+                    width: 450,
+                    height: 48,
+                    clipBehavior: Clip.antiAlias,
+                    decoration: ShapeDecoration(
+                      color: theme.colorScheme.primaryContainer,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(25),
+                      ),
+                    ),
+                    child: TextButton(
+                      onPressed: () async => next(Age.a55_),
+                      style: TextButton.styleFrom(
+                        overlayColor: theme.colorScheme.onSurface,
+                      ),
+                      child: Text(
+                        i18n.options.age56Plus,
+                        textAlign: TextAlign.center,
+                        style: theme.textTheme.labelLarge,
+                      ),
                     ),
                   ),
-                  child: TextButton(
-                    onPressed: () async => next(Age.a55_),
-                    style: TextButton.styleFrom(
-                      overlayColor: theme.colorScheme.onSurface,
-                    ),
-                    child: Text(
-                      i18n.options.age56Plus,
-                      textAlign: TextAlign.center,
-                      style: theme.textTheme.labelLarge,
-                    ),
-                  ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

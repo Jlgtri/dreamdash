@@ -243,372 +243,376 @@ class Onboarding29ChatScreen extends HookConsumerWidget {
               theme.colorScheme.onSurface.withValues(alpha: 0.2),
         ),
       ),
-      child: ChatView(
-        chatController: chatController,
-        onSendTap: onMessageSent,
-        sendMessageConfig: sendMessageConfig,
-        chatViewState: ChatViewState.hasMessages,
-        chatBackgroundConfig: const ChatBackgroundConfiguration(
-          backgroundColor: Colors.transparent,
-          // height: mediaQuery.size.height - (273 + 24 + 12),
-          padding: EdgeInsets.zero,
-          margin: EdgeInsets.zero,
-        ),
-        chatBubbleConfig: ChatBubbleConfiguration(
-          maxWidth: mediaQuery.size.width * 0.8,
-          padding: EdgeInsets.zero,
-          outgoingChatBubbleConfig: ChatBubble(
-            color: theme.colorScheme.primaryContainer,
-            textStyle: theme.textTheme.labelMedium,
-            padding: const EdgeInsets.all(12),
-            borderRadius: BorderRadius.circular(15),
-            margin: const EdgeInsets.symmetric(horizontal: 16),
+      child: Container(
+        padding: mediaQuery.viewPadding + mediaQuery.viewInsets,
+        decoration: const BoxDecoration(gradient: primaryGradient),
+        child: ChatView(
+          chatController: chatController,
+          onSendTap: onMessageSent,
+          sendMessageConfig: sendMessageConfig,
+          chatViewState: ChatViewState.hasMessages,
+          chatBackgroundConfig: const ChatBackgroundConfiguration(
+            backgroundColor: Colors.transparent,
+            // height: mediaQuery.size.height - (273 + 24 + 12),
+            padding: EdgeInsets.zero,
+            margin: EdgeInsets.zero,
           ),
-          inComingChatBubbleConfig: ChatBubble(
-            color: theme.colorScheme.onSurface.withValues(alpha: 0.2),
-            textStyle: theme.textTheme.labelMedium,
-            padding: const EdgeInsets.all(12),
-            borderRadius: BorderRadius.circular(15),
-            margin: const EdgeInsets.symmetric(horizontal: 16),
-          ),
-        ),
-        featureActiveConfig: FeatureActiveConfig(
-          enableChatSeparator: false,
-          enableDoubleTapToLike: false,
-          enableOtherUserName: false,
-          enableOtherUserProfileAvatar: false,
-          enableReactionPopup: false,
-          enableReplySnackBar: false,
-          enableSwipeToReply: false,
-          enableSwipeToSeeTime: false,
-          enableTextField: !answerGiven.value,
-          lastSeenAgoBuilderVisibility: false,
-          receiptsBuilderVisibility: false,
-        ),
-        sendMessageBuilder: (final ReplyMessage? replyMessage) => SizedBox(
-          width: mediaQuery.size.width,
-          child: Padding(
-            padding: EdgeInsets.fromLTRB(
-              bottomPadding4,
-              bottomPadding4,
-              bottomPadding4,
-              (!kIsWeb && Platform.isIOS)
-                  ? (focusNode.hasFocus
-                      ? bottomPadding1
-                      : mediaQuery.viewPadding.bottom > 0
-                          ? bottomPadding2
-                          : bottomPadding3)
-                  : bottomPadding3,
+          chatBubbleConfig: ChatBubbleConfiguration(
+            maxWidth: mediaQuery.size.width * 0.8,
+            padding: EdgeInsets.zero,
+            outgoingChatBubbleConfig: ChatBubble(
+              color: theme.colorScheme.primaryContainer,
+              textStyle: theme.textTheme.labelMedium,
+              padding: const EdgeInsets.all(12),
+              borderRadius: BorderRadius.circular(15),
+              margin: const EdgeInsets.symmetric(horizontal: 16),
             ),
-            child: ChatUITextField(
-              key: chatTextFieldViewKey.value,
-              focusNode: focusNode,
-              textEditingController: textController,
-              sendMessageConfig: sendMessageConfig,
-              onPressed: () async {
-                final String messageText = textController.text.trim();
-                textController.clear();
-                if (messageText.isEmpty) {
-                  return;
-                }
-                await onMessageSent(
-                  messageText.trim(),
-                  const ReplyMessage(),
-                  MessageType.text,
-                );
-              },
-              onRecordingComplete: (final _) {},
-              onImageSelected: (final _, final __) {},
+            inComingChatBubbleConfig: ChatBubble(
+              color: theme.colorScheme.onSurface.withValues(alpha: 0.2),
+              textStyle: theme.textTheme.labelMedium,
+              padding: const EdgeInsets.all(12),
+              borderRadius: BorderRadius.circular(15),
+              margin: const EdgeInsets.symmetric(horizontal: 16),
             ),
           ),
-        ),
-        messageConfig: MessageConfiguration(
-          customMessageBuilder: (final Message message) => message.id != '0'
-              ? Stack(
-                  alignment: Alignment.center,
-                  children: <Widget>[
-                    ImageFiltered(
-                      imageFilter: ImageFilter.blur(
-                        sigmaX: 4,
-                        sigmaY: 4,
-                        tileMode: TileMode.decal,
+          featureActiveConfig: FeatureActiveConfig(
+            enableChatSeparator: false,
+            enableDoubleTapToLike: false,
+            enableOtherUserName: false,
+            enableOtherUserProfileAvatar: false,
+            enableReactionPopup: false,
+            enableReplySnackBar: false,
+            enableSwipeToReply: false,
+            enableSwipeToSeeTime: false,
+            enableTextField: !answerGiven.value,
+            lastSeenAgoBuilderVisibility: false,
+            receiptsBuilderVisibility: false,
+          ),
+          sendMessageBuilder: (final ReplyMessage? replyMessage) => SizedBox(
+            width: mediaQuery.size.width,
+            child: Padding(
+              padding: EdgeInsets.fromLTRB(
+                bottomPadding4,
+                bottomPadding4,
+                bottomPadding4,
+                (!kIsWeb && Platform.isIOS)
+                    ? (focusNode.hasFocus
+                        ? bottomPadding1
+                        : mediaQuery.viewPadding.bottom > 0
+                            ? bottomPadding2
+                            : bottomPadding3)
+                    : bottomPadding3,
+              ),
+              child: ChatUITextField(
+                key: chatTextFieldViewKey.value,
+                focusNode: focusNode,
+                textEditingController: textController,
+                sendMessageConfig: sendMessageConfig,
+                onPressed: () async {
+                  final String messageText = textController.text.trim();
+                  textController.clear();
+                  if (messageText.isEmpty) {
+                    return;
+                  }
+                  await onMessageSent(
+                    messageText.trim(),
+                    const ReplyMessage(),
+                    MessageType.text,
+                  );
+                },
+                onRecordingComplete: (final _) {},
+                onImageSelected: (final _, final __) {},
+              ),
+            ),
+          ),
+          messageConfig: MessageConfiguration(
+            customMessageBuilder: (final Message message) => message.id != '0'
+                ? Stack(
+                    alignment: Alignment.center,
+                    children: <Widget>[
+                      ImageFiltered(
+                        imageFilter: ImageFilter.blur(
+                          sigmaX: 4,
+                          sigmaY: 4,
+                          tileMode: TileMode.decal,
+                        ),
+                        child: Container(
+                          constraints: BoxConstraints(
+                            maxWidth: mediaQuery.size.width * 0.8,
+                          ),
+                          decoration: BoxDecoration(
+                            color: theme.colorScheme.onSurface
+                                .withValues(alpha: 0.2),
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                          padding: const EdgeInsets.all(12),
+                          margin: const EdgeInsets.symmetric(
+                            horizontal: 16,
+                          ),
+                          child: Text(
+                            message.message,
+                            style: theme.textTheme.labelMedium,
+                          ),
+                        ),
                       ),
-                      child: Container(
-                        constraints: BoxConstraints(
-                          maxWidth: mediaQuery.size.width * 0.8,
-                        ),
-                        decoration: BoxDecoration(
-                          color: theme.colorScheme.onSurface
-                              .withValues(alpha: 0.2),
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                        padding: const EdgeInsets.all(12),
-                        margin: const EdgeInsets.symmetric(
-                          horizontal: 16,
-                        ),
-                        child: Text(
-                          message.message,
-                          style: theme.textTheme.labelMedium,
-                        ),
-                      ),
-                    ),
-                    DecoratedBox(
-                      decoration: const BoxDecoration(
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(15),
-                          topRight: Radius.circular(15),
-                          bottomLeft: Radius.circular(15),
-                          bottomRight: Radius.circular(15),
-                        ),
-                        boxShadow: <BoxShadow>[
-                          BoxShadow(
-                            color: Color.fromRGBO(
-                              0,
-                              0,
-                              0,
-                              0.1,
+                      DecoratedBox(
+                        decoration: const BoxDecoration(
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(15),
+                            topRight: Radius.circular(15),
+                            bottomLeft: Radius.circular(15),
+                            bottomRight: Radius.circular(15),
+                          ),
+                          boxShadow: <BoxShadow>[
+                            BoxShadow(
+                              color: Color.fromRGBO(
+                                0,
+                                0,
+                                0,
+                                0.1,
+                              ),
+                              offset: Offset(5, 4),
+                              blurRadius: 4,
                             ),
-                            offset: Offset(5, 4),
-                            blurRadius: 4,
+                          ],
+                          gradient: LinearGradient(
+                            begin: Alignment(
+                              0.5162850022315979,
+                              1.1666361093521118,
+                            ),
+                            end: Alignment(
+                              -0.9032666087150574,
+                              0.8645972609519958,
+                            ),
+                            colors: <Color>[
+                              Color.fromRGBO(16, 75, 142, 1),
+                              Color.fromRGBO(48, 106, 172, 1),
+                            ],
+                          ),
+                        ),
+                        child: TextButton(
+                          onPressed: next,
+                          style: TextButton.styleFrom(
+                            shape: const RoundedRectangleBorder(
+                              borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(15),
+                                topRight: Radius.circular(15),
+                                bottomLeft: Radius.circular(15),
+                                bottomRight: Radius.circular(15),
+                              ),
+                            ),
+                            overlayColor: theme.colorScheme.onSurface
+                                .withValues(alpha: 0.2),
+                            padding: EdgeInsets.zero,
+                            visualDensity: const VisualDensity(
+                              horizontal: -4,
+                              vertical: -4,
+                            ),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(12),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: <Widget>[
+                                SizedBox(
+                                  width: 131,
+                                  child: Text(
+                                    i18n.buttonText,
+                                    textAlign: TextAlign.center,
+                                    style: theme.textTheme.labelLarge,
+                                  ),
+                                ),
+                                const SizedBox(width: 36),
+                                SizedBox(
+                                  width: 20,
+                                  height: 20,
+                                  child: assets.arrowRight.svg(),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  )
+                : Padding(
+                    padding: const EdgeInsets.only(top: 24, bottom: 12),
+                    child: SizedBox(
+                      height: 273,
+                      child: Stack(
+                        children: <Widget>[
+                          Positioned(
+                            top: 0,
+                            left: 0,
+                            child: SizedBox(
+                              height: 273,
+                              child: assets.vector1.svg(
+                                width: mediaQuery.size.width,
+                                fit: BoxFit.fill,
+                              ),
+                            ),
+                          ),
+                          Positioned(
+                            left: mediaQuery.size.width / 2 - 300 / 2,
+                            top: 106,
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: <Widget>[
+                                assets.star31.svg(),
+                                const SizedBox(width: 12),
+                                Text.rich(
+                                  TextSpan(
+                                    children: <InlineSpan>[
+                                      TextSpan(
+                                        text: i18n.dream,
+                                        style: TextStyle(
+                                          color: theme.colorScheme.onSurface,
+                                        ),
+                                      ),
+                                      TextSpan(text: i18n.coach),
+                                    ],
+                                  ),
+                                  textAlign: TextAlign.center,
+                                  style: const TextStyle(
+                                    color: Color(0xFFFBD080),
+                                    fontSize: 27.94,
+                                    fontFamily: 'Verdana',
+                                    fontWeight: FontWeight.w700,
+                                    height: 0.01,
+                                    letterSpacing: -0.19,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Positioned(
+                            top: 34,
+                            left: 114 / 393 * mediaQuery.size.width,
+                            child: assets.star32.svg(),
+                          ),
+                          Positioned(
+                            top: 160,
+                            left: 259 / 393 * mediaQuery.size.width,
+                            child: assets.star33.svg(),
+                          ),
+                          Positioned(
+                            top: 202,
+                            left: 201 / 393 * mediaQuery.size.width,
+                            child: assets.star34.svg(),
+                          ),
+                          Positioned(
+                            left: 76 / 393 * mediaQuery.size.width,
+                            top: 78,
+                            child: Container(
+                              width: 29,
+                              height: 28.15,
+                              decoration: ShapeDecoration(
+                                color: theme.colorScheme.secondary,
+                                shape: const StarBorder(
+                                  innerRadiusRatio: 0.01,
+                                ),
+                                shadows: <BoxShadow>[
+                                  BoxShadow(
+                                    color: theme.colorScheme.secondary,
+                                    blurRadius: 6.31,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          Positioned(
+                            left: 175 / 393 * mediaQuery.size.width,
+                            top: 70,
+                            child: Container(
+                              width: 6,
+                              height: 5.14,
+                              decoration: const ShapeDecoration(
+                                color: Color(0xFFFFF1B8),
+                                shape: OvalBorder(),
+                              ),
+                            ),
+                          ),
+                          Positioned(
+                            left: 20 / 393 * mediaQuery.size.width,
+                            top: 90,
+                            child: Container(
+                              width: 3,
+                              height: 3,
+                              decoration: const ShapeDecoration(
+                                color: Color(0xFFFFF1B8),
+                                shape: OvalBorder(),
+                              ),
+                            ),
+                          ),
+                          Positioned(
+                            left: 257 / 393 * mediaQuery.size.width,
+                            top: 220,
+                            child: Container(
+                              width: 42,
+                              height: 40.76,
+                              decoration: ShapeDecoration(
+                                color: theme.colorScheme.secondary,
+                                shape: const StarBorder(
+                                  innerRadiusRatio: 0.01,
+                                ),
+                                shadows: <BoxShadow>[
+                                  BoxShadow(
+                                    color: theme.colorScheme.secondary,
+                                    blurRadius: 9.14,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          Positioned(
+                            left: 337 / 393 * mediaQuery.size.width,
+                            top: 148,
+                            child: Container(
+                              width: 35.03,
+                              height: 34,
+                              decoration: ShapeDecoration(
+                                color: theme.colorScheme.secondary,
+                                shape: const StarBorder(
+                                  innerRadiusRatio: 0.01,
+                                ),
+                                shadows: <BoxShadow>[
+                                  BoxShadow(
+                                    color: theme.colorScheme.secondary,
+                                    blurRadius: 7.62,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          Positioned(
+                            left: 146 / 393 * mediaQuery.size.width,
+                            top: 186,
+                            child: Container(
+                              width: 4,
+                              height: 4,
+                              decoration: const ShapeDecoration(
+                                color: Color(0xFFFFF1B8),
+                                shape: OvalBorder(),
+                              ),
+                            ),
+                          ),
+                          Positioned(
+                            left: 327 / 393 * mediaQuery.size.width,
+                            top: 197,
+                            child: Container(
+                              width: 6,
+                              height: 5.14,
+                              decoration: const ShapeDecoration(
+                                color: Color(0xFFFFF1B8),
+                                shape: OvalBorder(),
+                              ),
+                            ),
                           ),
                         ],
-                        gradient: LinearGradient(
-                          begin: Alignment(
-                            0.5162850022315979,
-                            1.1666361093521118,
-                          ),
-                          end: Alignment(
-                            -0.9032666087150574,
-                            0.8645972609519958,
-                          ),
-                          colors: <Color>[
-                            Color.fromRGBO(16, 75, 142, 1),
-                            Color.fromRGBO(48, 106, 172, 1),
-                          ],
-                        ),
                       ),
-                      child: TextButton(
-                        onPressed: next,
-                        style: TextButton.styleFrom(
-                          shape: const RoundedRectangleBorder(
-                            borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(15),
-                              topRight: Radius.circular(15),
-                              bottomLeft: Radius.circular(15),
-                              bottomRight: Radius.circular(15),
-                            ),
-                          ),
-                          overlayColor: theme.colorScheme.onSurface
-                              .withValues(alpha: 0.2),
-                          padding: EdgeInsets.zero,
-                          visualDensity: const VisualDensity(
-                            horizontal: -4,
-                            vertical: -4,
-                          ),
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.all(12),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: <Widget>[
-                              SizedBox(
-                                width: 131,
-                                child: Text(
-                                  i18n.buttonText,
-                                  textAlign: TextAlign.center,
-                                  style: theme.textTheme.labelLarge,
-                                ),
-                              ),
-                              const SizedBox(width: 36),
-                              SizedBox(
-                                width: 20,
-                                height: 20,
-                                child: assets.arrowRight.svg(),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                )
-              : Padding(
-                  padding: const EdgeInsets.only(top: 24, bottom: 12),
-                  child: SizedBox(
-                    height: 273,
-                    child: Stack(
-                      children: <Widget>[
-                        Positioned(
-                          top: 0,
-                          left: 0,
-                          child: SizedBox(
-                            height: 273,
-                            child: assets.vector1.svg(
-                              width: mediaQuery.size.width,
-                              fit: BoxFit.fill,
-                            ),
-                          ),
-                        ),
-                        Positioned(
-                          left: mediaQuery.size.width / 2 - 300 / 2,
-                          top: 106,
-                          child: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: <Widget>[
-                              assets.star31.svg(),
-                              const SizedBox(width: 12),
-                              Text.rich(
-                                TextSpan(
-                                  children: <InlineSpan>[
-                                    TextSpan(
-                                      text: i18n.dream,
-                                      style: TextStyle(
-                                        color: theme.colorScheme.onSurface,
-                                      ),
-                                    ),
-                                    TextSpan(text: i18n.coach),
-                                  ],
-                                ),
-                                textAlign: TextAlign.center,
-                                style: const TextStyle(
-                                  color: Color(0xFFFBD080),
-                                  fontSize: 27.94,
-                                  fontFamily: 'Verdana',
-                                  fontWeight: FontWeight.w700,
-                                  height: 0.01,
-                                  letterSpacing: -0.19,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Positioned(
-                          top: 34,
-                          left: 114 / 393 * mediaQuery.size.width,
-                          child: assets.star32.svg(),
-                        ),
-                        Positioned(
-                          top: 160,
-                          left: 259 / 393 * mediaQuery.size.width,
-                          child: assets.star33.svg(),
-                        ),
-                        Positioned(
-                          top: 202,
-                          left: 201 / 393 * mediaQuery.size.width,
-                          child: assets.star34.svg(),
-                        ),
-                        Positioned(
-                          left: 76 / 393 * mediaQuery.size.width,
-                          top: 78,
-                          child: Container(
-                            width: 29,
-                            height: 28.15,
-                            decoration: ShapeDecoration(
-                              color: theme.colorScheme.secondary,
-                              shape: const StarBorder(
-                                innerRadiusRatio: 0.01,
-                              ),
-                              shadows: <BoxShadow>[
-                                BoxShadow(
-                                  color: theme.colorScheme.secondary,
-                                  blurRadius: 6.31,
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                        Positioned(
-                          left: 175 / 393 * mediaQuery.size.width,
-                          top: 70,
-                          child: Container(
-                            width: 6,
-                            height: 5.14,
-                            decoration: const ShapeDecoration(
-                              color: Color(0xFFFFF1B8),
-                              shape: OvalBorder(),
-                            ),
-                          ),
-                        ),
-                        Positioned(
-                          left: 20 / 393 * mediaQuery.size.width,
-                          top: 90,
-                          child: Container(
-                            width: 3,
-                            height: 3,
-                            decoration: const ShapeDecoration(
-                              color: Color(0xFFFFF1B8),
-                              shape: OvalBorder(),
-                            ),
-                          ),
-                        ),
-                        Positioned(
-                          left: 257 / 393 * mediaQuery.size.width,
-                          top: 220,
-                          child: Container(
-                            width: 42,
-                            height: 40.76,
-                            decoration: ShapeDecoration(
-                              color: theme.colorScheme.secondary,
-                              shape: const StarBorder(
-                                innerRadiusRatio: 0.01,
-                              ),
-                              shadows: <BoxShadow>[
-                                BoxShadow(
-                                  color: theme.colorScheme.secondary,
-                                  blurRadius: 9.14,
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                        Positioned(
-                          left: 337 / 393 * mediaQuery.size.width,
-                          top: 148,
-                          child: Container(
-                            width: 35.03,
-                            height: 34,
-                            decoration: ShapeDecoration(
-                              color: theme.colorScheme.secondary,
-                              shape: const StarBorder(
-                                innerRadiusRatio: 0.01,
-                              ),
-                              shadows: <BoxShadow>[
-                                BoxShadow(
-                                  color: theme.colorScheme.secondary,
-                                  blurRadius: 7.62,
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                        Positioned(
-                          left: 146 / 393 * mediaQuery.size.width,
-                          top: 186,
-                          child: Container(
-                            width: 4,
-                            height: 4,
-                            decoration: const ShapeDecoration(
-                              color: Color(0xFFFFF1B8),
-                              shape: OvalBorder(),
-                            ),
-                          ),
-                        ),
-                        Positioned(
-                          left: 327 / 393 * mediaQuery.size.width,
-                          top: 197,
-                          child: Container(
-                            width: 6,
-                            height: 5.14,
-                            decoration: const ShapeDecoration(
-                              color: Color(0xFFFFF1B8),
-                              shape: OvalBorder(),
-                            ),
-                          ),
-                        ),
-                      ],
                     ),
                   ),
-                ),
+          ),
         ),
       ),
     );

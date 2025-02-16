@@ -103,281 +103,288 @@ class Onboarding26CommitmentScreen extends HookConsumerWidget {
       ),
       <Object?>[stopwatch],
     );
+    useEffect(() => timer.cancel, <Object?>[timer]);
     final Timer? previousTimer = usePrevious(timer);
-    if (previousTimer != null && previousTimer != timer) {
-      previousTimer.cancel();
-    }
+    useMemoized(
+      () => previousTimer?.cancel(),
+      <Object?>[previousTimer != null && previousTimer != timer],
+    );
 
-    return CustomScrollView(
-      controller: scrollController,
-      shrinkWrap: true,
-      clipBehavior: Clip.antiAlias,
-      slivers: <Widget>[
-        const SliverToBoxAdapter(child: OnboardingStarHeader()),
-        const SliverToBoxAdapter(child: SizedBox(height: 60)),
-        SliverToBoxAdapter(
-          child: Container(
-            height: 167,
-            padding: const EdgeInsets.symmetric(horizontal: 24),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                Text(
-                  i18n.watchProgress,
-                  textAlign: TextAlign.center,
-                  style: theme.textTheme.titleLarge?.copyWith(
-                    color: theme.colorScheme.secondary,
+    return Container(
+      padding:
+          (mediaQuery.viewPadding + mediaQuery.viewInsets).copyWith(top: 0),
+      decoration: const BoxDecoration(gradient: primaryGradient),
+      child: CustomScrollView(
+        controller: scrollController,
+        shrinkWrap: true,
+        clipBehavior: Clip.antiAlias,
+        slivers: <Widget>[
+          const SliverToBoxAdapter(child: OnboardingStarHeader()),
+          const SliverToBoxAdapter(child: SizedBox(height: 60)),
+          SliverToBoxAdapter(
+            child: Container(
+              height: 167,
+              padding: const EdgeInsets.symmetric(horizontal: 24),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  Text(
+                    i18n.watchProgress,
+                    textAlign: TextAlign.center,
+                    style: theme.textTheme.titleLarge?.copyWith(
+                      color: theme.colorScheme.secondary,
+                    ),
                   ),
-                ),
-                const SizedBox(height: 18),
-                Text(
-                  '${currentTime.value.inMinutes % 60}:'
-                  '${currentTime.value.inSeconds % 60}',
-                  textAlign: TextAlign.center,
-                  style: theme.textTheme.displayMedium?.copyWith(
-                    color: theme.colorScheme.secondary,
+                  const SizedBox(height: 18),
+                  Text(
+                    '${currentTime.value.inMinutes % 60}:'
+                    '${(currentTime.value.inSeconds % 60).toString().padLeft(2, '0')}',
+                    textAlign: TextAlign.center,
+                    style: theme.textTheme.displayMedium?.copyWith(
+                      color: theme.colorScheme.secondary,
+                    ),
                   ),
-                ),
-                const SizedBox(height: 18),
-                Text(
-                  i18n.movingTowardsDreams,
-                  textAlign: TextAlign.center,
-                  style: theme.textTheme.bodyMedium,
-                ),
-                const SizedBox(height: 18),
-                Text(
-                  i18n.keepUp,
-                  textAlign: TextAlign.center,
-                  style: theme.textTheme.titleLarge?.copyWith(
-                    color: theme.colorScheme.secondary,
+                  const SizedBox(height: 18),
+                  Text(
+                    i18n.movingTowardsDreams,
+                    textAlign: TextAlign.center,
+                    style: theme.textTheme.bodyMedium,
                   ),
-                ),
-              ],
+                  const SizedBox(height: 18),
+                  Text(
+                    i18n.keepUp,
+                    textAlign: TextAlign.center,
+                    style: theme.textTheme.titleLarge?.copyWith(
+                      color: theme.colorScheme.secondary,
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
-        ),
-        const SliverToBoxAdapter(child: SizedBox(height: 60)),
-        SliverFillRemaining(
-          hasScrollBody: false,
-          fillOverscroll: true,
-          child: Container(
-            padding: const EdgeInsets.symmetric(horizontal: 24),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                Text.rich(
-                  TextSpan(
-                    children: <InlineSpan>[
-                      TextSpan(text: i18n.setYour),
-                      const TextSpan(text: ' '),
-                      TextSpan(
-                        text: i18n.dailyGoal,
-                        style: TextStyle(
-                          color: theme.colorScheme.secondary,
+          const SliverToBoxAdapter(child: SizedBox(height: 60)),
+          SliverFillRemaining(
+            hasScrollBody: false,
+            fillOverscroll: true,
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 24),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  Text.rich(
+                    TextSpan(
+                      children: <InlineSpan>[
+                        TextSpan(text: i18n.setYour),
+                        const TextSpan(text: ' '),
+                        TextSpan(
+                          text: i18n.dailyGoal,
+                          style: TextStyle(
+                            color: theme.colorScheme.secondary,
+                          ),
+                        ),
+                      ],
+                    ),
+                    textAlign: TextAlign.center,
+                    style: theme.textTheme.headlineLarge,
+                  ),
+                  const SizedBox(height: 24),
+                  Container(
+                    width: 450,
+                    clipBehavior: Clip.antiAlias,
+                    decoration: ShapeDecoration(
+                      color: theme.colorScheme.primaryContainer,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(25),
+                      ),
+                      shadows: const <BoxShadow>[buttonShadow],
+                    ),
+                    child: TextButton(
+                      onPressed: () async => next(DailyGoal.min5),
+                      style: TextButton.styleFrom(
+                        overlayColor: theme.colorScheme.onSurface,
+                        visualDensity: const VisualDensity(
+                          horizontal: -4,
+                          vertical: -4,
                         ),
                       ),
-                    ],
-                  ),
-                  textAlign: TextAlign.center,
-                  style: theme.textTheme.headlineLarge,
-                ),
-                const SizedBox(height: 24),
-                Container(
-                  width: 450,
-                  clipBehavior: Clip.antiAlias,
-                  decoration: ShapeDecoration(
-                    color: theme.colorScheme.primaryContainer,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(25),
-                    ),
-                    shadows: const <BoxShadow>[buttonShadow],
-                  ),
-                  child: TextButton(
-                    onPressed: () async => next(DailyGoal.min5),
-                    style: TextButton.styleFrom(
-                      overlayColor: theme.colorScheme.onSurface,
-                      visualDensity: const VisualDensity(
-                        horizontal: -4,
-                        vertical: -4,
-                      ),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 48,
-                        vertical: 13,
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[
-                          Text(
-                            i18n.dailyGoals.a5Min,
-                            style: theme.textTheme.labelLarge,
-                          ),
-                          const SizedBox(width: 24),
-                          SizedBox(
-                            width: 78,
-                            child: Text(
-                              i18n.dailyGoals.a5MinLabel,
-                              style: theme.textTheme.labelLarge?.copyWith(
-                                color: theme.colorScheme.onSurface
-                                    .withValues(alpha: 0.3),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 48,
+                          vertical: 13,
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            Text(
+                              i18n.dailyGoals.a5Min,
+                              style: theme.textTheme.labelLarge,
+                            ),
+                            const SizedBox(width: 24),
+                            SizedBox(
+                              width: 78,
+                              child: Text(
+                                i18n.dailyGoals.a5MinLabel,
+                                style: theme.textTheme.labelLarge?.copyWith(
+                                  color: theme.colorScheme.onSurface
+                                      .withValues(alpha: 0.3),
+                                ),
                               ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                   ),
-                ),
-                const SizedBox(height: 20),
-                Container(
-                  width: 450,
-                  clipBehavior: Clip.antiAlias,
-                  decoration: ShapeDecoration(
-                    color: theme.colorScheme.primaryContainer,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(25),
-                    ),
-                    shadows: const <BoxShadow>[buttonShadow],
-                  ),
-                  child: TextButton(
-                    onPressed: () async => next(DailyGoal.min10),
-                    style: TextButton.styleFrom(
-                      overlayColor: theme.colorScheme.onSurface,
-                      visualDensity: const VisualDensity(
-                        horizontal: -4,
-                        vertical: -4,
+                  const SizedBox(height: 20),
+                  Container(
+                    width: 450,
+                    clipBehavior: Clip.antiAlias,
+                    decoration: ShapeDecoration(
+                      color: theme.colorScheme.primaryContainer,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(25),
                       ),
+                      shadows: const <BoxShadow>[buttonShadow],
                     ),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 48,
-                        vertical: 13,
+                    child: TextButton(
+                      onPressed: () async => next(DailyGoal.min10),
+                      style: TextButton.styleFrom(
+                        overlayColor: theme.colorScheme.onSurface,
+                        visualDensity: const VisualDensity(
+                          horizontal: -4,
+                          vertical: -4,
+                        ),
                       ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[
-                          Text(
-                            i18n.dailyGoals.a10Min,
-                            style: theme.textTheme.labelLarge,
-                          ),
-                          const SizedBox(width: 24),
-                          SizedBox(
-                            width: 78,
-                            child: Text(
-                              i18n.dailyGoals.a10MinLabel,
-                              style: theme.textTheme.labelLarge?.copyWith(
-                                color: theme.colorScheme.onSurface
-                                    .withValues(alpha: 0.3),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 48,
+                          vertical: 13,
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            Text(
+                              i18n.dailyGoals.a10Min,
+                              style: theme.textTheme.labelLarge,
+                            ),
+                            const SizedBox(width: 24),
+                            SizedBox(
+                              width: 78,
+                              child: Text(
+                                i18n.dailyGoals.a10MinLabel,
+                                style: theme.textTheme.labelLarge?.copyWith(
+                                  color: theme.colorScheme.onSurface
+                                      .withValues(alpha: 0.3),
+                                ),
                               ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                   ),
-                ),
-                const SizedBox(height: 20),
-                Container(
-                  width: 450,
-                  clipBehavior: Clip.antiAlias,
-                  decoration: ShapeDecoration(
-                    color: theme.colorScheme.primaryContainer,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(25),
-                    ),
-                    shadows: const <BoxShadow>[buttonShadow],
-                  ),
-                  child: TextButton(
-                    onPressed: () async => next(DailyGoal.min15),
-                    style: TextButton.styleFrom(
-                      overlayColor: theme.colorScheme.onSurface,
-                      visualDensity: const VisualDensity(
-                        horizontal: -4,
-                        vertical: -4,
+                  const SizedBox(height: 20),
+                  Container(
+                    width: 450,
+                    clipBehavior: Clip.antiAlias,
+                    decoration: ShapeDecoration(
+                      color: theme.colorScheme.primaryContainer,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(25),
                       ),
+                      shadows: const <BoxShadow>[buttonShadow],
                     ),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 48,
-                        vertical: 13,
+                    child: TextButton(
+                      onPressed: () async => next(DailyGoal.min15),
+                      style: TextButton.styleFrom(
+                        overlayColor: theme.colorScheme.onSurface,
+                        visualDensity: const VisualDensity(
+                          horizontal: -4,
+                          vertical: -4,
+                        ),
                       ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[
-                          Text(
-                            i18n.dailyGoals.a15Min,
-                            style: theme.textTheme.labelLarge,
-                          ),
-                          const SizedBox(width: 24),
-                          SizedBox(
-                            width: 80,
-                            child: Text(
-                              i18n.dailyGoals.a15MinLabel,
-                              style: theme.textTheme.labelLarge?.copyWith(
-                                color: theme.colorScheme.onSurface
-                                    .withValues(alpha: 0.3),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 48,
+                          vertical: 13,
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            Text(
+                              i18n.dailyGoals.a15Min,
+                              style: theme.textTheme.labelLarge,
+                            ),
+                            const SizedBox(width: 24),
+                            SizedBox(
+                              width: 80,
+                              child: Text(
+                                i18n.dailyGoals.a15MinLabel,
+                                style: theme.textTheme.labelLarge?.copyWith(
+                                  color: theme.colorScheme.onSurface
+                                      .withValues(alpha: 0.3),
+                                ),
                               ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                   ),
-                ),
-                const SizedBox(height: 20),
-                Container(
-                  width: 450,
-                  clipBehavior: Clip.antiAlias,
-                  decoration: ShapeDecoration(
-                    color: theme.colorScheme.primaryContainer,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(25),
-                    ),
-                    shadows: const <BoxShadow>[buttonShadow],
-                  ),
-                  child: TextButton(
-                    onPressed: () async => next(DailyGoal.min20),
-                    style: TextButton.styleFrom(
-                      overlayColor: theme.colorScheme.onSurface,
-                      visualDensity: const VisualDensity(
-                        horizontal: -4,
-                        vertical: -4,
+                  const SizedBox(height: 20),
+                  Container(
+                    width: 450,
+                    clipBehavior: Clip.antiAlias,
+                    decoration: ShapeDecoration(
+                      color: theme.colorScheme.primaryContainer,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(25),
                       ),
+                      shadows: const <BoxShadow>[buttonShadow],
                     ),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 48,
-                        vertical: 13,
+                    child: TextButton(
+                      onPressed: () async => next(DailyGoal.min20),
+                      style: TextButton.styleFrom(
+                        overlayColor: theme.colorScheme.onSurface,
+                        visualDensity: const VisualDensity(
+                          horizontal: -4,
+                          vertical: -4,
+                        ),
                       ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[
-                          Text(
-                            i18n.dailyGoals.a20Min,
-                            style: theme.textTheme.labelLarge,
-                          ),
-                          const SizedBox(width: 24),
-                          SizedBox(
-                            width: 78,
-                            child: Text(
-                              i18n.dailyGoals.a20MinLabel,
-                              style: theme.textTheme.labelLarge?.copyWith(
-                                color: theme.colorScheme.onSurface
-                                    .withValues(alpha: 0.3),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 48,
+                          vertical: 13,
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            Text(
+                              i18n.dailyGoals.a20Min,
+                              style: theme.textTheme.labelLarge,
+                            ),
+                            const SizedBox(width: 24),
+                            SizedBox(
+                              width: 78,
+                              child: Text(
+                                i18n.dailyGoals.a20MinLabel,
+                                style: theme.textTheme.labelLarge?.copyWith(
+                                  color: theme.colorScheme.onSurface
+                                      .withValues(alpha: 0.3),
+                                ),
                               ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

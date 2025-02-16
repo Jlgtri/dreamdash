@@ -92,131 +92,135 @@ class Onboarding11ProgressScreen extends HookConsumerWidget {
 
     final String name = ref.read(nameProvider);
 
-    return CustomScrollView(
-      controller: scrollController,
-      shrinkWrap: true,
-      clipBehavior: Clip.antiAlias,
-      slivers: <Widget>[
-        SliverToBoxAdapter(
-          child: Container(
-            constraints: const BoxConstraints(
-              minHeight: 250,
-              maxHeight: 450,
-            ),
-            padding: const EdgeInsets.symmetric(horizontal: 24),
-            height: 371 / 852 * mediaQuery.size.height,
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: assets.progress.provider(),
-                fit: BoxFit.scaleDown,
+    return Container(
+      padding: mediaQuery.viewPadding + mediaQuery.viewInsets,
+      decoration: const BoxDecoration(gradient: primaryGradient),
+      child: CustomScrollView(
+        controller: scrollController,
+        shrinkWrap: true,
+        clipBehavior: Clip.antiAlias,
+        slivers: <Widget>[
+          SliverToBoxAdapter(
+            child: Container(
+              constraints: const BoxConstraints(
+                minHeight: 250,
+                maxHeight: 450,
+              ),
+              padding: const EdgeInsets.symmetric(horizontal: 24),
+              height: 371 / 852 * mediaQuery.size.height,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: assets.progress.provider(),
+                  fit: BoxFit.scaleDown,
+                ),
               ),
             ),
           ),
-        ),
-        const SliverToBoxAdapter(child: SizedBox(height: 24)),
-        SliverPadding(
-          padding: const EdgeInsets.all(24),
-          sliver: SliverToBoxAdapter(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Text.rich(
-                  TextSpan(
-                    children: <InlineSpan>[
-                      TextSpan(text: i18n.greeting.thanks),
-                      const TextSpan(text: ' '),
-                      TextSpan(
-                        text: i18n.greeting.name(name: name),
-                        style: TextStyle(
-                          color: theme.colorScheme.secondary,
+          const SliverToBoxAdapter(child: SizedBox(height: 24)),
+          SliverPadding(
+            padding: const EdgeInsets.all(24),
+            sliver: SliverToBoxAdapter(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Text.rich(
+                    TextSpan(
+                      children: <InlineSpan>[
+                        TextSpan(text: i18n.greeting.thanks),
+                        const TextSpan(text: ' '),
+                        TextSpan(
+                          text: i18n.greeting.name(name: name),
+                          style: TextStyle(
+                            color: theme.colorScheme.secondary,
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
+                    textAlign: TextAlign.center,
+                    style: theme.textTheme.displayMedium,
                   ),
-                  textAlign: TextAlign.center,
-                  style: theme.textTheme.displayMedium,
-                ),
-                const SizedBox(height: 48),
-                Text.rich(
-                  TextSpan(
-                    children: <InlineSpan>[
-                      TextSpan(text: i18n.profileReady.message),
-                      const TextSpan(text: ' '),
-                      TextSpan(
-                        text: i18n.profileReady.completion(percent: 65),
-                        style: TextStyle(
-                          color: theme.colorScheme.secondary,
+                  const SizedBox(height: 48),
+                  Text.rich(
+                    TextSpan(
+                      children: <InlineSpan>[
+                        TextSpan(text: i18n.profileReady.message),
+                        const TextSpan(text: ' '),
+                        TextSpan(
+                          text: i18n.profileReady.completion(percent: 65),
+                          style: TextStyle(
+                            color: theme.colorScheme.secondary,
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
+                    textAlign: TextAlign.center,
+                    style: theme.textTheme.headlineLarge,
                   ),
-                  textAlign: TextAlign.center,
-                  style: theme.textTheme.headlineLarge,
-                ),
-                const SizedBox(height: 48),
-                Text.rich(
-                  TextSpan(
-                    children: <InlineSpan>[
-                      TextSpan(
-                        text: i18n.lastStep.prompt,
-                        style: theme.textTheme.labelLarge?.copyWith(
-                          color: theme.colorScheme.secondary,
+                  const SizedBox(height: 48),
+                  Text.rich(
+                    TextSpan(
+                      children: <InlineSpan>[
+                        TextSpan(
+                          text: i18n.lastStep.prompt,
+                          style: theme.textTheme.labelLarge?.copyWith(
+                            color: theme.colorScheme.secondary,
+                          ),
                         ),
-                      ),
-                      const TextSpan(text: ' '),
-                      TextSpan(
-                        text: i18n.lastStep.assessment,
-                        style: theme.textTheme.labelMedium,
-                      ),
-                    ],
+                        const TextSpan(text: ' '),
+                        TextSpan(
+                          text: i18n.lastStep.assessment,
+                          style: theme.textTheme.labelMedium,
+                        ),
+                      ],
+                    ),
+                    textAlign: TextAlign.center,
                   ),
-                  textAlign: TextAlign.center,
-                ),
-                const SizedBox(height: 48),
-                Text(
-                  i18n.motivationMessage,
-                  textAlign: TextAlign.center,
-                  style: theme.textTheme.labelMedium,
-                ),
-              ],
+                  const SizedBox(height: 48),
+                  Text(
+                    i18n.motivationMessage,
+                    textAlign: TextAlign.center,
+                    style: theme.textTheme.labelMedium,
+                  ),
+                ],
+              ),
             ),
           ),
-        ),
-        const SliverToBoxAdapter(child: SizedBox(height: 24)),
-        SliverPadding(
-          padding: const EdgeInsets.symmetric(horizontal: 24),
-          sliver: SliverFillRemaining(
-            hasScrollBody: false,
-            fillOverscroll: true,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: <Widget>[
-                Container(
-                  width: 450,
-                  height: 48,
-                  clipBehavior: Clip.antiAlias,
-                  decoration: ShapeDecoration(
-                    color: theme.colorScheme.secondary,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(25),
+          const SliverToBoxAdapter(child: SizedBox(height: 24)),
+          SliverPadding(
+            padding: const EdgeInsets.symmetric(horizontal: 24),
+            sliver: SliverFillRemaining(
+              hasScrollBody: false,
+              fillOverscroll: true,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: <Widget>[
+                  Container(
+                    width: 450,
+                    height: 48,
+                    clipBehavior: Clip.antiAlias,
+                    decoration: ShapeDecoration(
+                      color: theme.colorScheme.secondary,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(25),
+                      ),
+                      shadows: const <BoxShadow>[buttonShadow],
                     ),
-                    shadows: const <BoxShadow>[buttonShadow],
-                  ),
-                  child: TextButton(
-                    onPressed: next,
-                    child: Text(
-                      i18n.buttonText,
-                      textAlign: TextAlign.center,
-                      style: theme.textTheme.labelLarge,
+                    child: TextButton(
+                      onPressed: next,
+                      child: Text(
+                        i18n.buttonText,
+                        textAlign: TextAlign.center,
+                        style: theme.textTheme.labelLarge,
+                      ),
                     ),
                   ),
-                ),
-                const SizedBox(height: 24),
-              ],
+                  const SizedBox(height: 24),
+                ],
+              ),
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

@@ -110,342 +110,346 @@ class Onboarding27NotificationScreen extends HookConsumerWidget {
       }
     }
 
-    return CustomScrollView(
-      controller: scrollController,
-      shrinkWrap: true,
-      clipBehavior: Clip.antiAlias,
-      slivers: <Widget>[
-        const SliverToBoxAdapter(child: SizedBox(height: 80)),
-        SliverToBoxAdapter(
-          child: Container(
-            width: 393,
-            height: 188,
-            clipBehavior: Clip.antiAlias,
-            decoration: const BoxDecoration(),
-            child: Stack(
-              children: <Widget>[
-                Positioned(
-                  top: 19,
-                  left: 0,
-                  child: SizedBox(
-                    height: 169,
-                    child: assets.vector4.svg(
-                      width: mediaQuery.size.width,
-                      fit: BoxFit.fill,
+    return Container(
+      padding: mediaQuery.viewPadding + mediaQuery.viewInsets,
+      decoration: const BoxDecoration(gradient: primaryGradient),
+      child: CustomScrollView(
+        controller: scrollController,
+        shrinkWrap: true,
+        clipBehavior: Clip.antiAlias,
+        slivers: <Widget>[
+          const SliverToBoxAdapter(child: SizedBox(height: 80)),
+          SliverToBoxAdapter(
+            child: Container(
+              width: 393,
+              height: 188,
+              clipBehavior: Clip.antiAlias,
+              decoration: const BoxDecoration(),
+              child: Stack(
+                children: <Widget>[
+                  Positioned(
+                    top: 19,
+                    left: 0,
+                    child: SizedBox(
+                      height: 169,
+                      child: assets.vector4.svg(
+                        width: mediaQuery.size.width,
+                        fit: BoxFit.fill,
+                      ),
                     ),
                   ),
-                ),
-                Positioned(
-                  left: 111 / 393 * mediaQuery.size.width,
-                  top: 35,
-                  child: SizedBox(
-                    width: 177,
-                    child: Text(
-                      i18n.remarkable,
-                      textAlign: TextAlign.center,
-                      style: theme.textTheme.titleLarge?.copyWith(
+                  Positioned(
+                    left: 111 / 393 * mediaQuery.size.width,
+                    top: 35,
+                    child: SizedBox(
+                      width: 177,
+                      child: Text(
+                        i18n.remarkable,
+                        textAlign: TextAlign.center,
+                        style: theme.textTheme.titleLarge?.copyWith(
+                          color: theme.colorScheme.secondary,
+                        ),
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    right: -70 / 2,
+                    top: 0,
+                    child: SizedBox(
+                      width: 78.08,
+                      height: 77,
+                      child: Stack(
+                        children: <Widget>[
+                          Positioned(
+                            top: 138,
+                            left: 37,
+                            child: assets.star34.svg(),
+                          ),
+                          Positioned(
+                            top: 146,
+                            left: 126,
+                            child: assets.star33.svg(),
+                          ),
+                          Positioned(
+                            top: 54,
+                            left: 105,
+                            child: assets.star32.svg(),
+                          ),
+                          Positioned(
+                            left: 7.05,
+                            top: 7.05,
+                            child: Container(
+                              width: 63.99,
+                              height: 62.90,
+                              decoration: ShapeDecoration(
+                                color: theme.colorScheme.secondary,
+                                shape: const OvalBorder(),
+                                shadows: const <BoxShadow>[
+                                  BoxShadow(
+                                    color: Color(0x3F000000),
+                                    blurRadius: 4,
+                                    offset: Offset(0, 4),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          Positioned(
+                            left: 0,
+                            top: 0,
+                            child: Container(
+                              width: 78.08,
+                              height: 77,
+                              decoration: const ShapeDecoration(
+                                color: Color(0x7FFACD77),
+                                shape: OvalBorder(),
+                                shadows: <BoxShadow>[
+                                  BoxShadow(
+                                    color: Color(0x3F000000),
+                                    blurRadius: 4,
+                                    offset: Offset(0, 4),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    left: 301 / 393 * mediaQuery.size.width,
+                    top: 70,
+                    child: Container(
+                      width: 42,
+                      height: 40.76,
+                      decoration: ShapeDecoration(
                         color: theme.colorScheme.secondary,
+                        shape: const StarBorder(
+                          innerRadiusRatio: 0.01,
+                        ),
+                        shadows: <BoxShadow>[
+                          BoxShadow(
+                            color: theme.colorScheme.secondary,
+                            blurRadius: 9.14,
+                          ),
+                        ],
                       ),
                     ),
                   ),
-                ),
-                Positioned(
-                  right: -70 / 2,
-                  top: 0,
-                  child: SizedBox(
-                    width: 78.08,
-                    height: 77,
-                    child: Stack(
-                      children: <Widget>[
-                        Positioned(
-                          top: 138,
-                          left: 37,
-                          child: assets.star34.svg(),
+                  Positioned(
+                    left: 359 / 393 * mediaQuery.size.width,
+                    top: 112,
+                    child: Container(
+                      width: 35.03,
+                      height: 34,
+                      decoration: ShapeDecoration(
+                        color: theme.colorScheme.secondary,
+                        shape: const StarBorder(
+                          innerRadiusRatio: 0.01,
                         ),
-                        Positioned(
-                          top: 146,
-                          left: 126,
-                          child: assets.star33.svg(),
+                        shadows: <BoxShadow>[
+                          BoxShadow(
+                            color: theme.colorScheme.secondary,
+                            blurRadius: 7.62,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    left: 334 / 393 * mediaQuery.size.width,
+                    top: 48,
+                    child: Container(
+                      width: 4,
+                      height: 4,
+                      decoration: const ShapeDecoration(
+                        gradient: secondaryGradient,
+                        shape: OvalBorder(),
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    left: 75 / 393 * mediaQuery.size.width,
+                    top: 121,
+                    child: Container(
+                      width: 35.03,
+                      height: 34,
+                      decoration: ShapeDecoration(
+                        color: theme.colorScheme.secondary,
+                        shape: const StarBorder(
+                          innerRadiusRatio: 0.01,
                         ),
-                        Positioned(
-                          top: 54,
-                          left: 105,
-                          child: assets.star32.svg(),
+                        shadows: <BoxShadow>[
+                          BoxShadow(
+                            color: theme.colorScheme.secondary,
+                            blurRadius: 7.62,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    left: 61 / 393 * mediaQuery.size.width,
+                    top: 76,
+                    child: Container(
+                      width: 29,
+                      height: 28.15,
+                      decoration: ShapeDecoration(
+                        color: theme.colorScheme.secondary,
+                        shape: const StarBorder(
+                          innerRadiusRatio: 0.01,
                         ),
-                        Positioned(
-                          left: 7.05,
-                          top: 7.05,
-                          child: Container(
-                            width: 63.99,
-                            height: 62.90,
-                            decoration: ShapeDecoration(
-                              color: theme.colorScheme.secondary,
-                              shape: const OvalBorder(),
-                              shadows: const <BoxShadow>[
-                                BoxShadow(
-                                  color: Color(0x3F000000),
-                                  blurRadius: 4,
-                                  offset: Offset(0, 4),
-                                ),
-                              ],
-                            ),
+                        shadows: <BoxShadow>[
+                          BoxShadow(
+                            color: theme.colorScheme.secondary,
+                            blurRadius: 6.31,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    left: 287 / 393 * mediaQuery.size.width,
+                    top: 33,
+                    child: Container(
+                      width: 23,
+                      height: 22,
+                      decoration: ShapeDecoration(
+                        color: theme.colorScheme.secondary,
+                        shape: const StarBorder(
+                          innerRadiusRatio: 0.01,
+                        ),
+                        shadows: <BoxShadow>[
+                          BoxShadow(
+                            color: theme.colorScheme.secondary,
+                            blurRadius: 7.62,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    left: 25 / 393 * mediaQuery.size.width,
+                    top: 109,
+                    child: Container(
+                      width: 3,
+                      height: 3,
+                      decoration: const ShapeDecoration(
+                        gradient: secondaryGradient,
+                        shape: OvalBorder(),
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    left: 123 / 393 * mediaQuery.size.width,
+                    top: 99,
+                    child: SizedBox(
+                      width: 146,
+                      child: Text(
+                        i18n.welcomeMessage,
+                        textAlign: TextAlign.center,
+                        style: theme.textTheme.bodySmall,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          const SliverToBoxAdapter(child: SizedBox(height: 64)),
+          SliverToBoxAdapter(
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 24),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  Container(
+                    width: 178 / 393 * mediaQuery.size.width,
+                    height: 178 / 393 * mediaQuery.size.width,
+                    constraints: const BoxConstraints(
+                      minWidth: 150,
+                      maxWidth: 300,
+                    ),
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: assets.happyvalentinesdaygreetingsandgift1
+                            .provider(),
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 36),
+                  Text.rich(
+                    TextSpan(
+                      children: <InlineSpan>[
+                        TextSpan(
+                          text: i18n.notifications.turnOn,
+                          style: theme.textTheme.titleLarge?.copyWith(
+                            color: theme.colorScheme.secondary,
                           ),
                         ),
-                        Positioned(
-                          left: 0,
-                          top: 0,
-                          child: Container(
-                            width: 78.08,
-                            height: 77,
-                            decoration: const ShapeDecoration(
-                              color: Color(0x7FFACD77),
-                              shape: OvalBorder(),
-                              shadows: <BoxShadow>[
-                                BoxShadow(
-                                  color: Color(0x3F000000),
-                                  blurRadius: 4,
-                                  offset: Offset(0, 4),
-                                ),
-                              ],
-                            ),
+                        const TextSpan(text: ' '),
+                        TextSpan(
+                          text: i18n.notifications.toGetResults,
+                        ),
+                        const TextSpan(text: ' '),
+                        TextSpan(
+                          text: i18n.notifications.motivationalTips,
+                          style: theme.textTheme.titleLarge?.copyWith(
+                            color: theme.colorScheme.secondary,
                           ),
                         ),
-                      ],
-                    ),
-                  ),
-                ),
-                Positioned(
-                  left: 301 / 393 * mediaQuery.size.width,
-                  top: 70,
-                  child: Container(
-                    width: 42,
-                    height: 40.76,
-                    decoration: ShapeDecoration(
-                      color: theme.colorScheme.secondary,
-                      shape: const StarBorder(
-                        innerRadiusRatio: 0.01,
-                      ),
-                      shadows: <BoxShadow>[
-                        BoxShadow(
-                          color: theme.colorScheme.secondary,
-                          blurRadius: 9.14,
+                        const TextSpan(text: ' '),
+                        TextSpan(
+                          text: i18n.notifications.fromYourCoach,
                         ),
                       ],
                     ),
+                    textAlign: TextAlign.center,
+                    style: theme.textTheme.titleMedium,
                   ),
-                ),
-                Positioned(
-                  left: 359 / 393 * mediaQuery.size.width,
-                  top: 112,
-                  child: Container(
-                    width: 35.03,
-                    height: 34,
-                    decoration: ShapeDecoration(
-                      color: theme.colorScheme.secondary,
-                      shape: const StarBorder(
-                        innerRadiusRatio: 0.01,
-                      ),
-                      shadows: <BoxShadow>[
-                        BoxShadow(
-                          color: theme.colorScheme.secondary,
-                          blurRadius: 7.62,
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                Positioned(
-                  left: 334 / 393 * mediaQuery.size.width,
-                  top: 48,
-                  child: Container(
-                    width: 4,
-                    height: 4,
-                    decoration: const ShapeDecoration(
-                      gradient: secondaryGradient,
-                      shape: OvalBorder(),
-                    ),
-                  ),
-                ),
-                Positioned(
-                  left: 75 / 393 * mediaQuery.size.width,
-                  top: 121,
-                  child: Container(
-                    width: 35.03,
-                    height: 34,
-                    decoration: ShapeDecoration(
-                      color: theme.colorScheme.secondary,
-                      shape: const StarBorder(
-                        innerRadiusRatio: 0.01,
-                      ),
-                      shadows: <BoxShadow>[
-                        BoxShadow(
-                          color: theme.colorScheme.secondary,
-                          blurRadius: 7.62,
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                Positioned(
-                  left: 61 / 393 * mediaQuery.size.width,
-                  top: 76,
-                  child: Container(
-                    width: 29,
-                    height: 28.15,
-                    decoration: ShapeDecoration(
-                      color: theme.colorScheme.secondary,
-                      shape: const StarBorder(
-                        innerRadiusRatio: 0.01,
-                      ),
-                      shadows: <BoxShadow>[
-                        BoxShadow(
-                          color: theme.colorScheme.secondary,
-                          blurRadius: 6.31,
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                Positioned(
-                  left: 287 / 393 * mediaQuery.size.width,
-                  top: 33,
-                  child: Container(
-                    width: 23,
-                    height: 22,
-                    decoration: ShapeDecoration(
-                      color: theme.colorScheme.secondary,
-                      shape: const StarBorder(
-                        innerRadiusRatio: 0.01,
-                      ),
-                      shadows: <BoxShadow>[
-                        BoxShadow(
-                          color: theme.colorScheme.secondary,
-                          blurRadius: 7.62,
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                Positioned(
-                  left: 25 / 393 * mediaQuery.size.width,
-                  top: 109,
-                  child: Container(
-                    width: 3,
-                    height: 3,
-                    decoration: const ShapeDecoration(
-                      gradient: secondaryGradient,
-                      shape: OvalBorder(),
-                    ),
-                  ),
-                ),
-                Positioned(
-                  left: 123 / 393 * mediaQuery.size.width,
-                  top: 99,
-                  child: SizedBox(
-                    width: 146,
-                    child: Text(
-                      i18n.welcomeMessage,
-                      textAlign: TextAlign.center,
-                      style: theme.textTheme.bodySmall,
-                    ),
-                  ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
-        ),
-        const SliverToBoxAdapter(child: SizedBox(height: 64)),
-        SliverToBoxAdapter(
-          child: Container(
-            padding: const EdgeInsets.symmetric(horizontal: 24),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                Container(
-                  width: 178 / 393 * mediaQuery.size.width,
-                  height: 178 / 393 * mediaQuery.size.width,
-                  constraints: const BoxConstraints(
-                    minWidth: 150,
-                    maxWidth: 300,
-                  ),
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image:
-                          assets.happyvalentinesdaygreetingsandgift1.provider(),
-                      fit: BoxFit.contain,
+          const SliverToBoxAdapter(child: SizedBox(height: 64)),
+          SliverFillRemaining(
+            hasScrollBody: false,
+            fillOverscroll: true,
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 24),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: <Widget>[
+                  Container(
+                    width: 450,
+                    height: 48,
+                    clipBehavior: Clip.antiAlias,
+                    decoration: ShapeDecoration(
+                      color: theme.colorScheme.secondary,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(25),
+                      ),
+                      shadows: const <BoxShadow>[buttonShadow],
+                    ),
+                    child: TextButton(
+                      onPressed: next,
+                      child: Text(
+                        i18n.buttonText,
+                        textAlign: TextAlign.center,
+                        style: theme.textTheme.labelLarge,
+                      ),
                     ),
                   ),
-                ),
-                const SizedBox(height: 36),
-                Text.rich(
-                  TextSpan(
-                    children: <InlineSpan>[
-                      TextSpan(
-                        text: i18n.notifications.turnOn,
-                        style: theme.textTheme.titleLarge?.copyWith(
-                          color: theme.colorScheme.secondary,
-                        ),
-                      ),
-                      const TextSpan(text: ' '),
-                      TextSpan(
-                        text: i18n.notifications.toGetResults,
-                      ),
-                      const TextSpan(text: ' '),
-                      TextSpan(
-                        text: i18n.notifications.motivationalTips,
-                        style: theme.textTheme.titleLarge?.copyWith(
-                          color: theme.colorScheme.secondary,
-                        ),
-                      ),
-                      const TextSpan(text: ' '),
-                      TextSpan(
-                        text: i18n.notifications.fromYourCoach,
-                      ),
-                    ],
-                  ),
-                  textAlign: TextAlign.center,
-                  style: theme.textTheme.titleMedium,
-                ),
-              ],
+                  const SizedBox(height: 24),
+                ],
+              ),
             ),
           ),
-        ),
-        const SliverToBoxAdapter(child: SizedBox(height: 64)),
-        SliverFillRemaining(
-          hasScrollBody: false,
-          fillOverscroll: true,
-          child: Container(
-            padding: const EdgeInsets.symmetric(horizontal: 24),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: <Widget>[
-                Container(
-                  width: 450,
-                  height: 48,
-                  clipBehavior: Clip.antiAlias,
-                  decoration: ShapeDecoration(
-                    color: theme.colorScheme.secondary,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(25),
-                    ),
-                    shadows: const <BoxShadow>[buttonShadow],
-                  ),
-                  child: TextButton(
-                    onPressed: next,
-                    child: Text(
-                      i18n.buttonText,
-                      textAlign: TextAlign.center,
-                      style: theme.textTheme.labelLarge,
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 24),
-              ],
-            ),
-          ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

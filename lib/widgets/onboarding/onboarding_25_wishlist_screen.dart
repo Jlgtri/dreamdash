@@ -139,196 +139,203 @@ class Onboarding25WishlistScreen extends HookConsumerWidget {
       }
     }
 
-    return CustomScrollView(
-      controller: scrollController,
-      shrinkWrap: true,
-      clipBehavior: Clip.antiAlias,
-      slivers: <Widget>[
-        const SliverToBoxAdapter(child: SizedBox(height: 80)),
-        SliverPadding(
-          padding: const EdgeInsets.symmetric(horizontal: 24),
-          sliver: SliverToBoxAdapter(
-            child: SizedBox(
-              width: 293,
-              height: 47,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+    return Container(
+      padding: mediaQuery.viewPadding + mediaQuery.viewInsets,
+      decoration: const BoxDecoration(gradient: primaryGradient),
+      child: CustomScrollView(
+        controller: scrollController,
+        shrinkWrap: true,
+        clipBehavior: Clip.antiAlias,
+        slivers: <Widget>[
+          const SliverToBoxAdapter(child: SizedBox(height: 80)),
+          SliverPadding(
+            padding: const EdgeInsets.symmetric(horizontal: 24),
+            sliver: SliverToBoxAdapter(
+              child: SizedBox(
+                width: 293,
+                height: 47,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    SizedBox(
+                      width: 246,
+                      child: Text(
+                        i18n.createWishlist,
+                        style: theme.textTheme.headlineLarge?.copyWith(
+                          color: theme.colorScheme.secondary,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(width: 4),
+                    assets.star31.svg(),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          const SliverToBoxAdapter(child: SizedBox(height: 48)),
+          SliverPadding(
+            padding: const EdgeInsets.symmetric(horizontal: 24),
+            sliver: SliverToBoxAdapter(
+              child: Text(
+                i18n.lifeAdvice,
+                textAlign: TextAlign.center,
+                style: theme.textTheme.labelLarge,
+              ),
+            ),
+          ),
+          const SliverToBoxAdapter(child: SizedBox(height: 48)),
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: const EdgeInsets.all(24),
+              child: Column(
                 children: <Widget>[
-                  SizedBox(
-                    width: 246,
-                    child: Text(
-                      i18n.createWishlist,
-                      style: theme.textTheme.headlineLarge?.copyWith(
-                        color: theme.colorScheme.secondary,
+                  TextField(
+                    controller: textController1,
+                    focusNode: focusNode1,
+                    clipBehavior: Clip.antiAlias,
+                    style: theme.textTheme.bodyMedium,
+                    cursorColor:
+                        theme.colorScheme.onSurface.withValues(alpha: 0.3),
+                    // onTapOutside: (final _) =>
+                    //     FocusManager.instance.primaryFocus?.unfocus(),
+                    decoration: InputDecoration(
+                      prefixIcon: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Container(
+                            width: 18,
+                            height: 22,
+                            clipBehavior: Clip.antiAlias,
+                            decoration: const BoxDecoration(),
+                            child: assets.star32.svg(),
+                          ),
+                        ],
+                      ),
+                      hintText: i18n.wishListItems.item1,
+                      hintStyle: theme.textTheme.bodyMedium?.copyWith(
+                        color:
+                            theme.colorScheme.onSurface.withValues(alpha: 0.3),
                       ),
                     ),
                   ),
-                  const SizedBox(width: 4),
-                  assets.star31.svg(),
+                  const SizedBox(height: 24),
+                  TextField(
+                    controller: textController2,
+                    focusNode: focusNode2,
+                    clipBehavior: Clip.antiAlias,
+                    style: theme.textTheme.bodyMedium,
+                    cursorColor:
+                        theme.colorScheme.onSurface.withValues(alpha: 0.3),
+                    // onTapOutside: (final _) =>
+                    //     FocusManager.instance.primaryFocus?.unfocus(),
+                    decoration: InputDecoration(
+                      hintText: i18n.wishListItems.item2,
+                      hintStyle: theme.textTheme.bodyMedium?.copyWith(
+                        color:
+                            theme.colorScheme.onSurface.withValues(alpha: 0.3),
+                      ),
+                      prefixIcon: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Container(
+                            width: 18,
+                            height: 22,
+                            clipBehavior: Clip.antiAlias,
+                            decoration: const BoxDecoration(),
+                            child: assets.star32.svg(),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 24),
+                  TextField(
+                    controller: textController3,
+                    focusNode: focusNode3,
+                    clipBehavior: Clip.antiAlias,
+                    style: theme.textTheme.bodyMedium,
+                    cursorColor:
+                        theme.colorScheme.onSurface.withValues(alpha: 0.3),
+                    // onTapOutside: (final _) =>
+                    //     FocusManager.instance.primaryFocus?.unfocus(),
+                    decoration: InputDecoration(
+                      hintText: i18n.wishListItems.item3,
+                      hintStyle: theme.textTheme.bodyMedium?.copyWith(
+                        color:
+                            theme.colorScheme.onSurface.withValues(alpha: 0.3),
+                      ),
+                      prefixIcon: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Container(
+                            width: 18,
+                            height: 22,
+                            clipBehavior: Clip.antiAlias,
+                            decoration: const BoxDecoration(),
+                            child: assets.star32.svg(),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
           ),
-        ),
-        const SliverToBoxAdapter(child: SizedBox(height: 48)),
-        SliverPadding(
-          padding: const EdgeInsets.symmetric(horizontal: 24),
-          sliver: SliverToBoxAdapter(
-            child: Text(
-              i18n.lifeAdvice,
-              textAlign: TextAlign.center,
-              style: theme.textTheme.labelLarge,
+          const SliverToBoxAdapter(child: SizedBox(height: 48)),
+          SliverPadding(
+            padding: const EdgeInsets.symmetric(horizontal: 24),
+            sliver: SliverToBoxAdapter(
+              child: Text(
+                i18n.helpQuestions,
+                textAlign: TextAlign.center,
+                style: theme.textTheme.bodyMedium,
+              ),
             ),
           ),
-        ),
-        const SliverToBoxAdapter(child: SizedBox(height: 48)),
-        SliverToBoxAdapter(
-          child: Padding(
-            padding: const EdgeInsets.all(24),
+          const SliverToBoxAdapter(child: SizedBox(height: 48)),
+          SliverFillRemaining(
+            hasScrollBody: false,
+            fillOverscroll: true,
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.end,
               children: <Widget>[
-                TextField(
-                  controller: textController1,
-                  focusNode: focusNode1,
-                  clipBehavior: Clip.antiAlias,
-                  style: theme.textTheme.bodyMedium,
-                  cursorColor:
-                      theme.colorScheme.onSurface.withValues(alpha: 0.3),
-                  onTapOutside: (final _) =>
-                      FocusManager.instance.primaryFocus?.unfocus(),
-                  decoration: InputDecoration(
-                    prefixIcon: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Container(
-                          width: 18,
-                          height: 22,
-                          clipBehavior: Clip.antiAlias,
-                          decoration: const BoxDecoration(),
-                          child: assets.star32.svg(),
-                        ),
-                      ],
+                Opacity(
+                  opacity: isValid.value ? 1 : 0.8,
+                  child: Container(
+                    width: 450,
+                    height: 48,
+                    clipBehavior: Clip.antiAlias,
+                    margin: const EdgeInsets.symmetric(horizontal: 24),
+                    decoration: ShapeDecoration(
+                      color: theme.colorScheme.secondary,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(25),
+                      ),
                     ),
-                    hintText: i18n.wishListItems.item1,
-                    hintStyle: theme.textTheme.bodyMedium?.copyWith(
-                      color: theme.colorScheme.onSurface.withValues(alpha: 0.3),
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 24),
-                TextField(
-                  controller: textController2,
-                  focusNode: focusNode2,
-                  clipBehavior: Clip.antiAlias,
-                  style: theme.textTheme.bodyMedium,
-                  cursorColor:
-                      theme.colorScheme.onSurface.withValues(alpha: 0.3),
-                  onTapOutside: (final _) =>
-                      FocusManager.instance.primaryFocus?.unfocus(),
-                  decoration: InputDecoration(
-                    hintText: i18n.wishListItems.item2,
-                    hintStyle: theme.textTheme.bodyMedium?.copyWith(
-                      color: theme.colorScheme.onSurface.withValues(alpha: 0.3),
-                    ),
-                    prefixIcon: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Container(
-                          width: 18,
-                          height: 22,
-                          clipBehavior: Clip.antiAlias,
-                          decoration: const BoxDecoration(),
-                          child: assets.star32.svg(),
-                        ),
-                      ],
+                    child: TextButton(
+                      onPressed: isValid.value
+                          ? () async => next(<String>[
+                                textController1.text,
+                                textController2.text,
+                                textController3.text,
+                              ])
+                          : null,
+                      child: Text(
+                        i18n.buttonText,
+                        textAlign: TextAlign.center,
+                        style: theme.textTheme.labelLarge,
+                      ),
                     ),
                   ),
                 ),
                 const SizedBox(height: 24),
-                TextField(
-                  controller: textController3,
-                  focusNode: focusNode3,
-                  clipBehavior: Clip.antiAlias,
-                  style: theme.textTheme.bodyMedium,
-                  cursorColor:
-                      theme.colorScheme.onSurface.withValues(alpha: 0.3),
-                  onTapOutside: (final _) =>
-                      FocusManager.instance.primaryFocus?.unfocus(),
-                  decoration: InputDecoration(
-                    hintText: i18n.wishListItems.item3,
-                    hintStyle: theme.textTheme.bodyMedium?.copyWith(
-                      color: theme.colorScheme.onSurface.withValues(alpha: 0.3),
-                    ),
-                    prefixIcon: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Container(
-                          width: 18,
-                          height: 22,
-                          clipBehavior: Clip.antiAlias,
-                          decoration: const BoxDecoration(),
-                          child: assets.star32.svg(),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
               ],
             ),
           ),
-        ),
-        const SliverToBoxAdapter(child: SizedBox(height: 48)),
-        SliverPadding(
-          padding: const EdgeInsets.symmetric(horizontal: 24),
-          sliver: SliverToBoxAdapter(
-            child: Text(
-              i18n.helpQuestions,
-              textAlign: TextAlign.center,
-              style: theme.textTheme.bodyMedium,
-            ),
-          ),
-        ),
-        const SliverToBoxAdapter(child: SizedBox(height: 48)),
-        SliverFillRemaining(
-          hasScrollBody: false,
-          fillOverscroll: true,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: <Widget>[
-              Opacity(
-                opacity: isValid.value ? 1 : 0.8,
-                child: Container(
-                  width: 450,
-                  height: 48,
-                  clipBehavior: Clip.antiAlias,
-                  margin: const EdgeInsets.symmetric(horizontal: 24),
-                  decoration: ShapeDecoration(
-                    color: theme.colorScheme.secondary,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(25),
-                    ),
-                  ),
-                  child: TextButton(
-                    onPressed: isValid.value
-                        ? () async => next(<String>[
-                              textController1.text,
-                              textController2.text,
-                              textController3.text,
-                            ])
-                        : null,
-                    child: Text(
-                      i18n.buttonText,
-                      textAlign: TextAlign.center,
-                      style: theme.textTheme.labelLarge,
-                    ),
-                  ),
-                ),
-              ),
-              const SizedBox(height: 24),
-            ],
-          ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
