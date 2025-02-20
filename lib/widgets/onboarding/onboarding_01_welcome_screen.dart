@@ -149,7 +149,7 @@ class Onboarding01WelcomeScreen extends HookConsumerWidget {
           const SliverToBoxAdapter(child: SizedBox(height: 24)),
           SliverToBoxAdapter(
             child: Container(
-              height: 530,
+              height: 463,
               clipBehavior: Clip.antiAlias,
               decoration: const BoxDecoration(),
               child: Stack(
@@ -166,7 +166,7 @@ class Onboarding01WelcomeScreen extends HookConsumerWidget {
                     ),
                   ),
                   Positioned(
-                    top: 390.9716491699219,
+                    top: 330.9716491699219,
                     left: 0.9999999403953552,
                     child: SizedBox(
                       height: 131.03,
@@ -433,18 +433,6 @@ class Onboarding01WelcomeScreen extends HookConsumerWidget {
                       ),
                     ),
                   ),
-                  Positioned(
-                    left: 371 / 393 * mediaQuery.size.width,
-                    top: 449,
-                    child: Container(
-                      width: 7,
-                      height: 6,
-                      decoration: const ShapeDecoration(
-                        color: Color(0xFFFFF1B8),
-                        shape: OvalBorder(),
-                      ),
-                    ),
-                  ),
                 ],
               ),
             ),
@@ -453,11 +441,9 @@ class Onboarding01WelcomeScreen extends HookConsumerWidget {
           SliverFillRemaining(
             hasScrollBody: false,
             fillOverscroll: true,
-            child: Container(
-              height: 306,
+            child: Padding(
               padding: const EdgeInsets.only(top: 12, left: 24, right: 24),
               child: Column(
-                mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: <Widget>[
                   SizedBox(
