@@ -42,19 +42,6 @@ import 'widgets/onboarding/onboarding_28_promise_screen.dart';
 import 'widgets/onboarding/onboarding_29_chat_screen.dart';
 import 'widgets/onboarding/onboarding_30_paywall_screen.dart';
 
-part 'routes.g.dart';
-
-/// The welcome screen of the onboarding flow.
-@TypedGoRoute<RootRoute>(path: '/')
-class RootRoute extends GoRouteData {
-  /// The welcome screen of the onboarding flow.
-  const RootRoute();
-
-  @override
-  Widget build(final BuildContext context, final GoRouterState state) =>
-      throw UnimplementedError();
-}
-
 /// The route in the app.
 enum Routes<Route extends RouteData> {
   authorization01Prompt(

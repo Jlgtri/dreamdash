@@ -8,7 +8,6 @@ import 'package:rive/rive.dart';
 import 'package:talker_flutter/talker_flutter.dart';
 import 'package:talker_riverpod_logger/talker_riverpod_logger.dart';
 
-// import 'providers/provider_overrides.dart';
 import 'generated/assets.gen.dart';
 import 'generated/i18n.g.dart';
 import 'providers/analytics.dart';
@@ -32,6 +31,7 @@ void main() async {
           DeviceOrientation.portraitDown,
         ]),
       ]);
+      await RiveFile.initialize();
       final ProviderContainer container = ProviderContainer(
         overrides: await Future.wait(<Future<Override>>[$amplitude, $supabase]),
         observers: <ProviderObserver>[
