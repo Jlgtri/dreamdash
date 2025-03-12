@@ -34,18 +34,17 @@ class Authorization02VerificationRoute extends GoRouteData {
   CustomTransitionPage<void> buildPage(
     final BuildContext context,
     final GoRouterState state,
-  ) =>
-      CustomTransitionPage<void>(
-        key: state.pageKey,
-        child: build(context, state),
-        transitionsBuilder: (
+  ) => CustomTransitionPage<void>(
+    key: state.pageKey,
+    child: build(context, state),
+    transitionsBuilder:
+        (
           final BuildContext context,
           final Animation<double> animation,
           final Animation<double> secondaryAnimation,
           final Widget child,
-        ) =>
-            FadeTransition(opacity: animation, child: child),
-      );
+        ) => FadeTransition(opacity: animation, child: child),
+  );
 }
 
 /// The welcome screen of the onboarding flow.
@@ -78,7 +77,9 @@ class Authorization02VerificationScreen extends HookConsumerWidget {
       if (!isLoading.value) {
         isLoading.value = true;
         try {
-          await ref.read(analyticsProvider.notifier).track(
+          await ref
+              .read(analyticsProvider.notifier)
+              .track(
                 BaseEvent(
                   'code_entered',
                   eventProperties: <String, String>{'placement': 'login'},
@@ -118,16 +119,19 @@ class Authorization02VerificationScreen extends HookConsumerWidget {
         if (pinController.text.length >= pinLength) {
           await verifyOTP();
         }
-        if (hasError.value = errorText.value.isNotEmpty &&
+        if (hasError.value =
+            errorText.value.isNotEmpty &&
             pinController.text.length >= pinLength) {
-          WidgetsBinding.instance
-              .addPostFrameCallback((final _) => pinFocusNode.requestFocus());
+          WidgetsBinding.instance.addPostFrameCallback(
+            (final _) => pinFocusNode.requestFocus(),
+          );
         }
       });
       pinFocusNode.addListener(
-        () async => pinFocusNode.hasFocus
-            ? await scrollController.scrollToBottom()
-            : null,
+        () async =>
+            pinFocusNode.hasFocus
+                ? await scrollController.scrollToBottom()
+                : null,
       );
     });
 
@@ -167,6 +171,10 @@ class Authorization02VerificationScreen extends HookConsumerWidget {
                         child: assets.arrowLeft.svg(
                           width: 24,
                           height: 24,
+                          colorFilter: const ColorFilter.mode(
+                            Colors.white,
+                            BlendMode.srcIn,
+                          ),
                         ),
                       ),
                     ),
@@ -232,9 +240,7 @@ class Authorization02VerificationScreen extends HookConsumerWidget {
                       height: 28.15,
                       decoration: ShapeDecoration(
                         color: theme.colorScheme.secondary,
-                        shape: const StarBorder(
-                          innerRadiusRatio: 0.01,
-                        ),
+                        shape: const StarBorder(innerRadiusRatio: 0.01),
                         shadows: <BoxShadow>[
                           BoxShadow(
                             color: theme.colorScheme.secondary,
@@ -276,9 +282,7 @@ class Authorization02VerificationScreen extends HookConsumerWidget {
                       height: 40.76,
                       decoration: ShapeDecoration(
                         color: theme.colorScheme.secondary,
-                        shape: const StarBorder(
-                          innerRadiusRatio: 0.01,
-                        ),
+                        shape: const StarBorder(innerRadiusRatio: 0.01),
                         shadows: <BoxShadow>[
                           BoxShadow(
                             color: theme.colorScheme.secondary,
@@ -296,9 +300,7 @@ class Authorization02VerificationScreen extends HookConsumerWidget {
                       height: 34,
                       decoration: ShapeDecoration(
                         color: theme.colorScheme.secondary,
-                        shape: const StarBorder(
-                          innerRadiusRatio: 0.01,
-                        ),
+                        shape: const StarBorder(innerRadiusRatio: 0.01),
                         shadows: <BoxShadow>[
                           BoxShadow(
                             color: theme.colorScheme.secondary,
@@ -359,8 +361,9 @@ class Authorization02VerificationScreen extends HookConsumerWidget {
                           TextSpan(
                             text: i18n.pleaseEnterCode,
                             style: theme.textTheme.bodyMedium?.copyWith(
-                              color: theme.colorScheme.onSurface
-                                  .withValues(alpha: 0.3),
+                              color: theme.colorScheme.onSurface.withValues(
+                                alpha: 0.3,
+                              ),
                             ),
                           ),
                           const TextSpan(text: '\n'),
@@ -386,38 +389,40 @@ class Authorization02VerificationScreen extends HookConsumerWidget {
                       inputFormatters: <TextInputFormatter>[
                         FilteringTextInputFormatter.digitsOnly,
                       ],
-                      defaultPinTheme: defaultPinTheme = PinTheme(
-                        width: hasError.value ? 36 + 4 * 2 : 36,
-                        height: hasError.value ? 48 + 4 * 2 : 48,
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 10,
-                          vertical: 10,
-                        ),
-                        decoration: BoxDecoration(
-                          color: theme.colorScheme.onSurface
-                              .withValues(alpha: 0.3),
-                          borderRadius: BorderRadius.circular(9.10),
-                        ),
-                        textStyle: theme.textTheme.titleLarge?.copyWith(
-                            // color: hasError.value
-                            //     ? theme.colorScheme.error
-                            //     : null,
+                      defaultPinTheme:
+                          defaultPinTheme = PinTheme(
+                            width: hasError.value ? 36 : 36,
+                            height: hasError.value ? 48 : 48,
+                            padding: EdgeInsets.all(hasError.value ? 6 : 10),
+                            decoration: BoxDecoration(
+                              color: theme.colorScheme.onSurface.withValues(
+                                alpha: 0.3,
+                              ),
+                              borderRadius: BorderRadius.circular(9.10),
                             ),
-                      ),
+                            textStyle: theme.textTheme.titleLarge?.copyWith(
+                              // color: hasError.value
+                              //     ? theme.colorScheme.error
+                              //     : null,
+                            ),
+                          ),
                       focusedPinTheme: defaultPinTheme.copyDecorationWith(
-                        color:
-                            theme.colorScheme.onSurface.withValues(alpha: 0.5),
+                        color: theme.colorScheme.onSurface.withValues(
+                          alpha: 0.5,
+                        ),
                       ),
                       submittedPinTheme: defaultPinTheme.copyDecorationWith(
-                        color:
-                            theme.colorScheme.onSurface.withValues(alpha: 0.4),
+                        color: theme.colorScheme.onSurface.withValues(
+                          alpha: 0.4,
+                        ),
                       ),
                       separatorBuilder: (final _) => const SizedBox(width: 12),
                       errorPinTheme: defaultPinTheme.copyDecorationWith(
                         border: Border.all(
                           width: 4,
-                          color:
-                              theme.colorScheme.error.withValues(alpha: 0.33),
+                          color: theme.colorScheme.error.withValues(
+                            alpha: 0.33,
+                          ),
                         ),
                       ),
                       errorText:
@@ -425,20 +430,17 @@ class Authorization02VerificationScreen extends HookConsumerWidget {
                       forceErrorState: hasError.value,
                       errorBuilder:
                           (final String? errorText, final String pin) =>
-                              SizedBox(
-                        width: double.infinity,
-                        child: Padding(
-                          padding: const EdgeInsets.only(top: 6),
-                          child: Text(
-                            errorText ?? '',
-                            style: theme.textTheme.bodyMedium?.copyWith(
-                                // color: theme.colorScheme.error
-                                //     .withValues(alpha: 0.9),
+                              Padding(
+                                padding: const EdgeInsets.only(top: 6),
+                                child: Text(
+                                  errorText ?? '',
+                                  style: theme.textTheme.bodyMedium?.copyWith(
+                                    // color: theme.colorScheme.error
+                                    //     .withValues(alpha: 0.9),
+                                  ),
+                                  textAlign: TextAlign.center,
                                 ),
-                            textAlign: TextAlign.center,
-                          ),
-                        ),
-                      ),
+                              ),
                     ),
                   ),
                   const SizedBox(height: 24),

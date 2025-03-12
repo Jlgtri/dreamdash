@@ -27,19 +27,18 @@ class Onboarding10MotivationLevelRoute extends GoRouteData {
   CustomTransitionPage<void> buildPage(
     final BuildContext context,
     final GoRouterState state,
-  ) =>
-      CustomTransitionPage<void>(
-        key: state.pageKey,
-        child: build(context, state),
-        transitionDuration: const Duration(milliseconds: 600),
-        transitionsBuilder: (
+  ) => CustomTransitionPage<void>(
+    key: state.pageKey,
+    child: build(context, state),
+    transitionDuration: const Duration(milliseconds: 600),
+    transitionsBuilder:
+        (
           final BuildContext context,
           final Animation<double> animation,
           final Animation<double> secondaryAnimation,
           final Widget child,
-        ) =>
-            FadeTransition(opacity: animation, child: child),
-      );
+        ) => FadeTransition(opacity: animation, child: child),
+  );
 }
 
 /// The welcome screen of the onboarding flow.
@@ -68,7 +67,9 @@ class Onboarding10MotivationLevelScreen extends HookConsumerWidget {
       if (!isLoading.value) {
         isLoading.value = true;
         try {
-          await ref.read(analyticsProvider.notifier).track(
+          await ref
+              .read(analyticsProvider.notifier)
+              .track(
                 BaseEvent(
                   'onboarding_screen_9_clicked',
                   eventProperties: <String, String>{
@@ -96,8 +97,9 @@ class Onboarding10MotivationLevelScreen extends HookConsumerWidget {
         ),
       ),
     );
-    final double? prevMotivationLevel =
-        usePrevious<double?>($motivationLevel.valueOrNull);
+    final double? prevMotivationLevel = usePrevious<double?>(
+      $motivationLevel.valueOrNull,
+    );
     final double motivationLevel =
         $motivationLevel.valueOrNull ?? prevMotivationLevel ?? 0;
     return Container(
@@ -108,22 +110,26 @@ class Onboarding10MotivationLevelScreen extends HookConsumerWidget {
         shrinkWrap: true,
         clipBehavior: Clip.antiAlias,
         slivers: <Widget>[
-          const SliverToBoxAdapter(child: SizedBox(height: 80)),
+          const SliverToBoxAdapter(child: SizedBox(height: 40)),
           SliverToBoxAdapter(
             child: Container(
               height: 350 / 852 * mediaQuery.size.height,
               padding: const EdgeInsets.symmetric(horizontal: 24),
-              constraints: const BoxConstraints(minHeight: 250, maxHeight: 350),
+              constraints: const BoxConstraints(
+                minHeight: 250,
+                maxHeight: 350,
+              ),
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: assets.thehandholdingthesalesignwithitsfingers1
-                      .provider(),
+                  image:
+                      assets.thehandholdingthesalesignwithitsfingers1
+                          .provider(),
                   fit: BoxFit.contain,
                 ),
               ),
             ),
           ),
-          const SliverToBoxAdapter(child: SizedBox(height: 75)),
+          const SliverToBoxAdapter(child: SizedBox(height: 48)),
           SliverPadding(
             padding: const EdgeInsets.symmetric(horizontal: 24),
             sliver: SliverToBoxAdapter(
@@ -140,15 +146,11 @@ class Onboarding10MotivationLevelScreen extends HookConsumerWidget {
                   Text.rich(
                     TextSpan(
                       children: <InlineSpan>[
-                        TextSpan(
-                          text: i18n.motivationStatus.start,
-                        ),
+                        TextSpan(text: i18n.motivationStatus.start),
                         const TextSpan(text: ' '),
                         TextSpan(
                           text: i18n.motivationStatus.level,
-                          style: TextStyle(
-                            color: theme.colorScheme.secondary,
-                          ),
+                          style: TextStyle(color: theme.colorScheme.secondary),
                         ),
                         const TextSpan(text: ' '),
                         TextSpan(
@@ -159,9 +161,7 @@ class Onboarding10MotivationLevelScreen extends HookConsumerWidget {
                         const TextSpan(text: ' '),
                         TextSpan(
                           text: i18n.motivationStatus.state,
-                          style: TextStyle(
-                            color: theme.colorScheme.secondary,
-                          ),
+                          style: TextStyle(color: theme.colorScheme.secondary),
                         ),
                       ],
                     ),
@@ -178,7 +178,7 @@ class Onboarding10MotivationLevelScreen extends HookConsumerWidget {
               ),
             ),
           ),
-          const SliverToBoxAdapter(child: SizedBox(height: 75)),
+          const SliverToBoxAdapter(child: SizedBox(height: 48)),
           SliverPadding(
             padding: const EdgeInsets.symmetric(horizontal: 24),
             sliver: SliverFillRemaining(

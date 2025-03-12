@@ -27,19 +27,18 @@ class Onboarding12MentalHealthQ1Route extends GoRouteData {
   CustomTransitionPage<void> buildPage(
     final BuildContext context,
     final GoRouterState state,
-  ) =>
-      CustomTransitionPage<void>(
-        key: state.pageKey,
-        child: build(context, state),
-        transitionDuration: const Duration(milliseconds: 600),
-        transitionsBuilder: (
+  ) => CustomTransitionPage<void>(
+    key: state.pageKey,
+    child: build(context, state),
+    transitionDuration: const Duration(milliseconds: 600),
+    transitionsBuilder:
+        (
           final BuildContext context,
           final Animation<double> animation,
           final Animation<double> secondaryAnimation,
           final Widget child,
-        ) =>
-            FadeTransition(opacity: animation, child: child),
-      );
+        ) => FadeTransition(opacity: animation, child: child),
+  );
 }
 
 /// The welcome screen of the onboarding flow.
@@ -69,7 +68,9 @@ class Onboarding12MentalHealthQ1Screen extends HookConsumerWidget {
       if (!isLoading.value) {
         isLoading.value = true;
         try {
-          await ref.read(analyticsProvider.notifier).track(
+          await ref
+              .read(analyticsProvider.notifier)
+              .track(
                 BaseEvent(
                   'onboarding_screen_11_clicked',
                   eventProperties: <String, String>{
@@ -91,8 +92,9 @@ class Onboarding12MentalHealthQ1Screen extends HookConsumerWidget {
     }
 
     return Container(
-      padding:
-          (mediaQuery.viewPadding + mediaQuery.viewInsets).copyWith(top: 0),
+      padding: (mediaQuery.viewPadding + mediaQuery.viewInsets).copyWith(
+        top: 0,
+      ),
       decoration: const BoxDecoration(gradient: primaryGradient),
       child: CustomScrollView(
         controller: scrollController,
@@ -119,9 +121,7 @@ class Onboarding12MentalHealthQ1Screen extends HookConsumerWidget {
                         const TextSpan(text: ' '),
                         TextSpan(
                           text: i18n.feelAnxious,
-                          style: TextStyle(
-                            color: theme.colorScheme.secondary,
-                          ),
+                          style: TextStyle(color: theme.colorScheme.secondary),
                         ),
                         const TextSpan(text: ' '),
                         TextSpan(text: i18n.aboutStartingTasks),
@@ -147,7 +147,8 @@ class Onboarding12MentalHealthQ1Screen extends HookConsumerWidget {
                             ),
                           ),
                           child: TextButton(
-                            onPressed: () async => next(Frequency.almostAlways),
+                            onPressed:
+                                () async => next(Frequency.almostAlways),
                             style: TextButton.styleFrom(
                               overlayColor: theme.colorScheme.onSurface,
                             ),

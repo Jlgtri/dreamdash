@@ -30,18 +30,17 @@ class Authorization01PromptRoute extends GoRouteData {
   CustomTransitionPage<void> buildPage(
     final BuildContext context,
     final GoRouterState state,
-  ) =>
-      CustomTransitionPage<void>(
-        child: build(context, state),
-        transitionsBuilder: (
+  ) => CustomTransitionPage<void>(
+    child: build(context, state),
+    transitionsBuilder:
+        (
           final BuildContext context,
           final Animation<double> animation,
           final Animation<double> secondaryAnimation,
           final Widget child,
-        ) =>
-            FadeTransition(opacity: animation, child: child),
-        key: state.pageKey,
-      );
+        ) => FadeTransition(opacity: animation, child: child),
+    key: state.pageKey,
+  );
 }
 
 /// The welcome screen of the onboarding flow.
@@ -50,6 +49,12 @@ class Authorization01PromptScreen extends HookConsumerWidget {
   const Authorization01PromptScreen({super.key});
 
   static final RegExp emailRegex = RegExp('.+@.+');
+
+  static const Duration resendDelay = Duration(minutes: 10);
+  static final StateProviderFamily<DateTime?, String> emailLastSentAtProvider =
+      StateProvider.family<DateTime?, String>(
+        (final StateProviderRef<DateTime?> ref, final String email) => null,
+      );
 
   @override
   Widget build(final BuildContext context, final WidgetRef ref) {
@@ -62,64 +67,78 @@ class Authorization01PromptScreen extends HookConsumerWidget {
         Assets.source.assets.authorization.a01Prompt;
 
     final FocusNode emailFocusNode = useFocusNode();
-    final TextEditingController emailController =
-        useTextEditingController(text: '');
+    final TextEditingController emailController = useTextEditingController(
+      text: '',
+    );
     final ValueNotifier<String> hasError = useState('');
 
     final ScrollController scrollController = useScrollController();
     final ObjectRef<bool> isLoading = useRef(false);
 
-    final bool emailValid = ref
-        .watch(emailProvider.select((final String value) => value.isNotEmpty));
+    final bool emailValid = ref.watch(
+      emailProvider.select((final String value) => value.isNotEmpty),
+    );
 
     useMemoized(() {
       WidgetsBinding.instance.addPostFrameCallback(
         (final _) async => scrollController.scrollToBottom(),
       );
       emailController.addListener(
-        () => emailRegex.hasMatch(emailController.text)
-            ? ref.read(emailProvider.notifier).state = emailController.text
-            : null,
+        () =>
+            emailRegex.hasMatch(emailController.text)
+                ? ref.read(emailProvider.notifier).state = emailController.text
+                : null,
       );
       emailFocusNode.addListener(
-        () async => emailFocusNode.hasFocus
-            ? await scrollController.scrollToBottom()
-            : null,
+        () async =>
+            emailFocusNode.hasFocus
+                ? await scrollController.scrollToBottom()
+                : null,
       );
     });
 
     Future<void> signInWithGoogle() async {
       if (!isLoading.value) {
         isLoading.value = true;
-        final OnboardingState onboarding =
-            await ref.read(onboardingProvider.future);
+        final OnboardingState onboarding = await ref.read(
+          onboardingProvider.future,
+        );
         try {
-          await ref.read(analyticsProvider.notifier).track(
+          await ref
+              .read(analyticsProvider.notifier)
+              .track(
                 BaseEvent(
                   'sign_in_button_clicked',
                   eventProperties: <String, String>{
-                    'placement': onboarding.route == null ? 'profile' : 'login',
+                    'placement':
+                        onboarding.route == null ? 'profile' : 'login',
                     'way': 'google',
                   },
                 ),
               );
           await ref.read(authorizationProvider.notifier).signInWithGoogle();
-          await ref.read(analyticsProvider.notifier).track(
+          await ref
+              .read(analyticsProvider.notifier)
+              .track(
                 BaseEvent(
                   'login_success',
                   eventProperties: <String, String>{
-                    'placement': onboarding.route == null ? 'profile' : 'login',
+                    'placement':
+                        onboarding.route == null ? 'profile' : 'login',
                     'way': 'apple',
                   },
                 ),
               );
         } on AuthException catch (exception) {
           hasError.value = exception.message;
-          await ref.read(analyticsProvider.notifier).track(
+          await ref
+              .read(analyticsProvider.notifier)
+              .track(
                 BaseEvent(
                   'login_invalid',
                   eventProperties: <String, String>{
-                    'placement': onboarding.route == null ? 'profile' : 'login',
+                    'placement':
+                        onboarding.route == null ? 'profile' : 'login',
                     'way': 'apple',
                     'message': exception.message,
                   },
@@ -134,35 +153,45 @@ class Authorization01PromptScreen extends HookConsumerWidget {
     Future<void> signInWithApple() async {
       if (!isLoading.value) {
         isLoading.value = true;
-        final OnboardingState onboarding =
-            await ref.read(onboardingProvider.future);
+        final OnboardingState onboarding = await ref.read(
+          onboardingProvider.future,
+        );
         try {
-          await ref.read(analyticsProvider.notifier).track(
+          await ref
+              .read(analyticsProvider.notifier)
+              .track(
                 BaseEvent(
                   'sign_in_button_clicked',
                   eventProperties: <String, String>{
-                    'placement': onboarding.route == null ? 'profile' : 'login',
+                    'placement':
+                        onboarding.route == null ? 'profile' : 'login',
                     'way': 'apple',
                   },
                 ),
               );
           await ref.read(authorizationProvider.notifier).signInWithApple();
-          await ref.read(analyticsProvider.notifier).track(
+          await ref
+              .read(analyticsProvider.notifier)
+              .track(
                 BaseEvent(
                   'login_success',
                   eventProperties: <String, String>{
-                    'placement': onboarding.route == null ? 'profile' : 'login',
+                    'placement':
+                        onboarding.route == null ? 'profile' : 'login',
                     'way': 'apple',
                   },
                 ),
               );
         } on AuthException catch (exception) {
           hasError.value = exception.message;
-          await ref.read(analyticsProvider.notifier).track(
+          await ref
+              .read(analyticsProvider.notifier)
+              .track(
                 BaseEvent(
                   'login_invalid',
                   eventProperties: <String, String>{
-                    'placement': onboarding.route == null ? 'profile' : 'login',
+                    'placement':
+                        onboarding.route == null ? 'profile' : 'login',
                     'way': 'google',
                     'message': exception.message,
                   },
@@ -177,30 +206,46 @@ class Authorization01PromptScreen extends HookConsumerWidget {
     Future<void> signInWithEmail() async {
       if (!isLoading.value) {
         isLoading.value = true;
-        final OnboardingState onboarding =
-            await ref.read(onboardingProvider.future);
+        final OnboardingState onboarding = await ref.read(
+          onboardingProvider.future,
+        );
         try {
-          await ref.read(analyticsProvider.notifier).track(
+          await ref
+              .read(analyticsProvider.notifier)
+              .track(
                 BaseEvent(
                   'sign_in_button_clicked',
                   eventProperties: <String, String>{
-                    'placement': onboarding.route == null ? 'profile' : 'login',
+                    'placement':
+                        onboarding.route == null ? 'profile' : 'login',
                     'way': 'email',
                   },
                 ),
               );
-          final Authorization auth = ref.read(authorizationProvider.notifier);
-          await auth.signInWithOtp(emailController.text.trim());
+          final String email = emailController.text.toLowerCase().trim();
+          final DateTime? emailLastSentAt = ref.read(
+            emailLastSentAtProvider(email),
+          );
+          if (emailLastSentAt == null ||
+              DateTime.now().difference(emailLastSentAt) >= resendDelay) {
+            final Authorization auth = ref.read(
+              authorizationProvider.notifier,
+            );
+            await auth.signInWithOtp(email);
+          }
           if (context.mounted) {
             await Routes.authorization02Verification.push(context);
           }
         } on AuthException catch (exception) {
           hasError.value = exception.message;
-          await ref.read(analyticsProvider.notifier).track(
+          await ref
+              .read(analyticsProvider.notifier)
+              .track(
                 BaseEvent(
                   'login_invalid',
                   eventProperties: <String, String>{
-                    'placement': onboarding.route == null ? 'profile' : 'login',
+                    'placement':
+                        onboarding.route == null ? 'profile' : 'login',
                     'way': 'email',
                     'message': exception.message,
                   },
@@ -298,9 +343,7 @@ class Authorization01PromptScreen extends HookConsumerWidget {
                       height: 28.15,
                       decoration: ShapeDecoration(
                         color: theme.colorScheme.secondary,
-                        shape: const StarBorder(
-                          innerRadiusRatio: 0.01,
-                        ),
+                        shape: const StarBorder(innerRadiusRatio: 0.01),
                         shadows: <BoxShadow>[
                           BoxShadow(
                             color: theme.colorScheme.secondary,
@@ -342,9 +385,7 @@ class Authorization01PromptScreen extends HookConsumerWidget {
                       height: 40.76,
                       decoration: ShapeDecoration(
                         color: theme.colorScheme.secondary,
-                        shape: const StarBorder(
-                          innerRadiusRatio: 0.01,
-                        ),
+                        shape: const StarBorder(innerRadiusRatio: 0.01),
                         shadows: <BoxShadow>[
                           BoxShadow(
                             color: theme.colorScheme.secondary,
@@ -362,9 +403,7 @@ class Authorization01PromptScreen extends HookConsumerWidget {
                       height: 34,
                       decoration: ShapeDecoration(
                         color: theme.colorScheme.secondary,
-                        shape: const StarBorder(
-                          innerRadiusRatio: 0.01,
-                        ),
+                        shape: const StarBorder(innerRadiusRatio: 0.01),
                         shadows: <BoxShadow>[
                           BoxShadow(
                             color: theme.colorScheme.secondary,
@@ -405,11 +444,7 @@ class Authorization01PromptScreen extends HookConsumerWidget {
           const SliverToBoxAdapter(child: SizedBox(height: 48)),
           SliverToBoxAdapter(
             child: Padding(
-              padding: const EdgeInsets.only(
-                left: 24,
-                right: 24,
-                bottom: 24,
-              ),
+              padding: const EdgeInsets.only(left: 24, right: 24, bottom: 24),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -426,8 +461,9 @@ class Authorization01PromptScreen extends HookConsumerWidget {
                   Text(
                     i18n.signInToAccount,
                     textAlign: TextAlign.center,
-                    style: theme.textTheme.bodyMedium
-                        ?.copyWith(color: theme.colorScheme.secondary),
+                    style: theme.textTheme.bodyMedium?.copyWith(
+                      color: theme.colorScheme.secondary,
+                    ),
                   ),
                   const SizedBox(height: 24),
                   Column(
@@ -446,7 +482,8 @@ class Authorization01PromptScreen extends HookConsumerWidget {
                                   selectionColor: theme.colorScheme.onSurface
                                       .withValues(alpha: 0.3),
                                   selectionHandleColor: theme
-                                      .colorScheme.onSurface
+                                      .colorScheme
+                                      .onSurface
                                       .withValues(alpha: 0.3),
                                 ),
                               ),
@@ -457,20 +494,19 @@ class Authorization01PromptScreen extends HookConsumerWidget {
                                 style: theme.textTheme.bodyMedium,
                                 cursorColor: theme.colorScheme.onSurface
                                     .withValues(alpha: 0.3),
-                                onSubmitted: emailValid
-                                    ? (final _) async => signInWithEmail()
-                                    : null,
+                                onSubmitted:
+                                    emailValid
+                                        ? (final _) async => signInWithEmail()
+                                        : null,
                                 // onTapOutside: (final _) => FocusManager
                                 //     .instance.primaryFocus
                                 //     ?.unfocus(),
                                 decoration: InputDecoration(
-                                  errorStyle:
-                                      theme.textTheme.bodySmall?.copyWith(
-                                    color: theme.colorScheme.error,
-                                  ),
-                                  errorText: hasError.value.isEmpty
-                                      ? null
-                                      : hasError.value,
+                                  errorStyle: theme.textTheme.bodySmall,
+                                  errorText:
+                                      hasError.value.isEmpty
+                                          ? null
+                                          : hasError.value,
                                   prefixIconConstraints: const BoxConstraints(
                                     maxHeight: 18,
                                     maxWidth: 18 + 12 * 2,
@@ -483,11 +519,11 @@ class Authorization01PromptScreen extends HookConsumerWidget {
                                     ),
                                   ),
                                   hintText: i18n.email,
-                                  hintStyle:
-                                      theme.textTheme.bodyMedium?.copyWith(
-                                    color: theme.colorScheme.onSurface
-                                        .withValues(alpha: 0.3),
-                                  ),
+                                  hintStyle: theme.textTheme.bodyMedium
+                                      ?.copyWith(
+                                        color: theme.colorScheme.onSurface
+                                            .withValues(alpha: 0.3),
+                                      ),
                                   isDense: true,
                                   constraints: const BoxConstraints(
                                     maxWidth: 450,
@@ -497,7 +533,8 @@ class Authorization01PromptScreen extends HookConsumerWidget {
                                     vertical: 13,
                                   ),
                                   filled: true,
-                                  fillColor: theme.colorScheme.primaryContainer,
+                                  fillColor:
+                                      theme.colorScheme.primaryContainer,
                                   focusedBorder: OutlineInputBorder(
                                     borderSide: BorderSide.none,
                                     borderRadius: BorderRadius.circular(9.10),
@@ -563,8 +600,9 @@ class Authorization01PromptScreen extends HookConsumerWidget {
                         Expanded(
                           child: Divider(
                             height: 1,
-                            color: theme.colorScheme.onSurface
-                                .withValues(alpha: 0.3),
+                            color: theme.colorScheme.onSurface.withValues(
+                              alpha: 0.3,
+                            ),
                           ),
                         ),
                         const SizedBox(width: 5),
@@ -572,16 +610,18 @@ class Authorization01PromptScreen extends HookConsumerWidget {
                           i18n.orSignInVia,
                           textAlign: TextAlign.center,
                           style: theme.textTheme.bodyMedium?.copyWith(
-                            color: theme.colorScheme.onSurface
-                                .withValues(alpha: 0.3),
+                            color: theme.colorScheme.onSurface.withValues(
+                              alpha: 0.3,
+                            ),
                           ),
                         ),
                         const SizedBox(width: 5),
                         Expanded(
                           child: Divider(
                             height: 1,
-                            color: theme.colorScheme.onSurface
-                                .withValues(alpha: 0.3),
+                            color: theme.colorScheme.onSurface.withValues(
+                              alpha: 0.3,
+                            ),
                           ),
                         ),
                       ],

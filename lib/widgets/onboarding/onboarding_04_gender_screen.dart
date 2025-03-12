@@ -12,9 +12,7 @@ import '../utils.dart';
 
 part 'onboarding_04_gender_screen.g.dart';
 
-@TypedGoRoute<Onboarding04GenderRoute>(
-  path: '/onboarding/04_gender',
-)
+@TypedGoRoute<Onboarding04GenderRoute>(path: '/onboarding/04_gender')
 class Onboarding04GenderRoute extends GoRouteData {
   const Onboarding04GenderRoute();
 
@@ -26,19 +24,18 @@ class Onboarding04GenderRoute extends GoRouteData {
   CustomTransitionPage<void> buildPage(
     final BuildContext context,
     final GoRouterState state,
-  ) =>
-      CustomTransitionPage<void>(
-        key: state.pageKey,
-        child: build(context, state),
-        transitionDuration: const Duration(milliseconds: 600),
-        transitionsBuilder: (
+  ) => CustomTransitionPage<void>(
+    key: state.pageKey,
+    child: build(context, state),
+    transitionDuration: const Duration(milliseconds: 600),
+    transitionsBuilder:
+        (
           final BuildContext context,
           final Animation<double> animation,
           final Animation<double> secondaryAnimation,
           final Widget child,
-        ) =>
-            FadeTransition(opacity: animation, child: child),
-      );
+        ) => FadeTransition(opacity: animation, child: child),
+  );
 }
 
 /// The welcome screen of the onboarding flow.
@@ -68,7 +65,9 @@ class Onboarding04GenderScreen extends HookConsumerWidget {
       if (!isLoading.value) {
         isLoading.value = true;
         try {
-          await ref.read(analyticsProvider.notifier).track(
+          await ref
+              .read(analyticsProvider.notifier)
+              .track(
                 BaseEvent(
                   'onboarding_screen_3_clicked',
                   eventProperties: <String, String>{
@@ -99,13 +98,17 @@ class Onboarding04GenderScreen extends HookConsumerWidget {
         slivers: <Widget>[
           SliverToBoxAdapter(
             child: Container(
-              height: 414 / 852 * mediaQuery.size.height,
-              constraints: const BoxConstraints(minHeight: 300, maxHeight: 450),
+              height: 414 / 852 * mediaQuery.size.height - 24,
+              constraints: const BoxConstraints(
+                minHeight: 300,
+                maxHeight: 450,
+              ),
               margin: const EdgeInsets.all(24).copyWith(bottom: 0),
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: assets.pencilandnotepadplanningconductingasurvey1
-                      .provider(),
+                  image:
+                      assets.pencilandnotepadplanningconductingasurvey1
+                          .provider(),
                   fit: BoxFit.contain,
                 ),
               ),
@@ -121,22 +124,16 @@ class Onboarding04GenderScreen extends HookConsumerWidget {
                   Text.rich(
                     TextSpan(
                       children: <InlineSpan>[
-                        TextSpan(
-                          text: i18n.question,
-                        ),
+                        TextSpan(text: i18n.question),
                         const TextSpan(text: ' '),
                         TextSpan(
                           text: i18n.your,
-                          style: TextStyle(
-                            color: theme.colorScheme.secondary,
-                          ),
+                          style: TextStyle(color: theme.colorScheme.secondary),
                         ),
                         const TextSpan(text: ' '),
                         TextSpan(
                           text: i18n.gender,
-                          style: TextStyle(
-                            color: theme.colorScheme.secondary,
-                          ),
+                          style: TextStyle(color: theme.colorScheme.secondary),
                         ),
                         TextSpan(text: i18n.questionMark),
                       ],

@@ -15,9 +15,7 @@ import '../utils.dart';
 
 part 'onboarding_28_promise_screen.g.dart';
 
-@TypedGoRoute<Onboarding28PromiseRoute>(
-  path: '/onboarding/28_promise',
-)
+@TypedGoRoute<Onboarding28PromiseRoute>(path: '/onboarding/28_promise')
 class Onboarding28PromiseRoute extends GoRouteData {
   const Onboarding28PromiseRoute();
 
@@ -29,19 +27,18 @@ class Onboarding28PromiseRoute extends GoRouteData {
   CustomTransitionPage<void> buildPage(
     final BuildContext context,
     final GoRouterState state,
-  ) =>
-      CustomTransitionPage<void>(
-        key: state.pageKey,
-        child: build(context, state),
-        transitionDuration: const Duration(milliseconds: 600),
-        transitionsBuilder: (
+  ) => CustomTransitionPage<void>(
+    key: state.pageKey,
+    child: build(context, state),
+    transitionDuration: const Duration(milliseconds: 600),
+    transitionsBuilder:
+        (
           final BuildContext context,
           final Animation<double> animation,
           final Animation<double> secondaryAnimation,
           final Widget child,
-        ) =>
-            FadeTransition(opacity: animation, child: child),
-      );
+        ) => FadeTransition(opacity: animation, child: child),
+  );
 }
 
 /// The welcome screen of the onboarding flow.
@@ -60,7 +57,7 @@ class Onboarding28PromiseScreen extends HookConsumerWidget {
 
     final ScrollController scrollController = useScrollController();
     final ValueNotifier<bool> isLoading = useState(false);
-    final String name = ref.read(nameProvider);
+    final String name = ref.watch(nameProvider);
 
     useMemoized(() {
       WidgetsBinding.instance.addPostFrameCallback(
@@ -72,7 +69,9 @@ class Onboarding28PromiseScreen extends HookConsumerWidget {
       if (!isLoading.value) {
         isLoading.value = true;
         try {
-          await ref.read(analyticsProvider.notifier).track(
+          await ref
+              .read(analyticsProvider.notifier)
+              .track(
                 BaseEvent(
                   'onboarding_screen_27_clicked',
                   eventProperties: <String, Object?>{
@@ -101,60 +100,63 @@ class Onboarding28PromiseScreen extends HookConsumerWidget {
         shrinkWrap: true,
         clipBehavior: Clip.antiAlias,
         slivers: <Widget>[
-          const SliverToBoxAdapter(child: SizedBox(height: 100)),
+          const SliverToBoxAdapter(child: SizedBox(height: 80)),
           SliverToBoxAdapter(
             child: Text(
               i18n.areYouReady,
               textAlign: TextAlign.center,
-              style: theme.textTheme.displayMedium
-                  ?.copyWith(color: theme.colorScheme.secondary),
-            ),
-          ),
-          const SliverToBoxAdapter(child: SizedBox(height: 80)),
-          SliverPadding(
-            padding: const EdgeInsets.symmetric(horizontal: 24),
-            sliver: SliverToBoxAdapter(
-              child: Text.rich(
-                TextSpan(
-                  children: <InlineSpan>[
-                    TextSpan(text: i18n.commitmentIntro),
-                    const TextSpan(text: ' '),
-                    TextSpan(
-                      text: i18n.userName(name: name),
-                      style: TextStyle(
-                        color: theme.colorScheme.secondary,
-                      ),
-                    ),
-                    TextSpan(text: i18n.commitmentStatement),
-                    const TextSpan(text: ' '),
-                    TextSpan(
-                      text: i18n.boldCommitmentStatement,
-                      style: TextStyle(
-                        color: theme.colorScheme.secondary,
-                      ),
-                    ),
-                  ],
-                ),
-                textAlign: TextAlign.justify,
-                style: theme.textTheme.titleMedium,
+              style: theme.textTheme.displayMedium?.copyWith(
+                color: theme.colorScheme.secondary,
               ),
             ),
           ),
-          const SliverToBoxAdapter(child: SizedBox(height: 80)),
+          const SliverToBoxAdapter(child: SizedBox(height: 64)),
+          SliverPadding(
+            padding: const EdgeInsets.symmetric(horizontal: 24),
+            sliver: SliverToBoxAdapter(
+              child: Align(
+                child: Container(
+                  constraints: const BoxConstraints(maxWidth: 550),
+                  child: Text.rich(
+                    TextSpan(
+                      children: <InlineSpan>[
+                        TextSpan(text: i18n.commitmentIntro),
+                        const TextSpan(text: ' '),
+                        TextSpan(
+                          text: i18n.userName(name: name),
+                          style: TextStyle(color: theme.colorScheme.secondary),
+                        ),
+                        TextSpan(text: i18n.commitmentStatement),
+                        const TextSpan(text: ' '),
+                        TextSpan(
+                          text: i18n.boldCommitmentStatement,
+                          style: TextStyle(color: theme.colorScheme.secondary),
+                        ),
+                      ],
+                    ),
+                    textAlign: TextAlign.justify,
+                    style: theme.textTheme.titleMedium,
+                  ),
+                ),
+              ),
+            ),
+          ),
+          const SliverToBoxAdapter(child: SizedBox(height: 64)),
           SliverPadding(
             padding: const EdgeInsets.symmetric(horizontal: 24),
             sliver: SliverFillRemaining(
               hasScrollBody: false,
               fillOverscroll: true,
               child: Column(
-                mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: <Widget>[
                   Text(
                     i18n.tapToCommit,
                     textAlign: TextAlign.center,
                     style: theme.textTheme.bodyMedium?.copyWith(
-                      color: theme.colorScheme.onSurface.withValues(alpha: 0.3),
+                      color: theme.colorScheme.onSurface.withValues(
+                        alpha: 0.3,
+                      ),
                     ),
                   ),
                   const SizedBox(height: 18),
@@ -237,9 +239,7 @@ class Onboarding28PromiseScreen extends HookConsumerWidget {
                                       opacity: isLoading.value ? 1 : 0,
                                       child: RiveAnimation.asset(
                                         assets.fingerprintRiv,
-                                        animations: const <String>[
-                                          'loop',
-                                        ],
+                                        animations: const <String>['loop'],
                                       ),
                                     ),
                                   ),

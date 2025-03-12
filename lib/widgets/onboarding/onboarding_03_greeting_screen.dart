@@ -13,9 +13,7 @@ import '../utils.dart';
 
 part 'onboarding_03_greeting_screen.g.dart';
 
-@TypedGoRoute<Onboarding03GreetingRoute>(
-  path: '/onboarding/03_greeting',
-)
+@TypedGoRoute<Onboarding03GreetingRoute>(path: '/onboarding/03_greeting')
 class Onboarding03GreetingRoute extends GoRouteData {
   const Onboarding03GreetingRoute();
 
@@ -27,19 +25,18 @@ class Onboarding03GreetingRoute extends GoRouteData {
   CustomTransitionPage<void> buildPage(
     final BuildContext context,
     final GoRouterState state,
-  ) =>
-      CustomTransitionPage<void>(
-        key: state.pageKey,
-        child: build(context, state),
-        transitionDuration: const Duration(milliseconds: 600),
-        transitionsBuilder: (
+  ) => CustomTransitionPage<void>(
+    key: state.pageKey,
+    child: build(context, state),
+    transitionDuration: const Duration(milliseconds: 600),
+    transitionsBuilder:
+        (
           final BuildContext context,
           final Animation<double> animation,
           final Animation<double> secondaryAnimation,
           final Widget child,
-        ) =>
-            FadeTransition(opacity: animation, child: child),
-      );
+        ) => FadeTransition(opacity: animation, child: child),
+  );
 }
 
 /// The welcome screen of the onboarding flow.
@@ -71,7 +68,9 @@ class Onboarding03GreetingScreen extends HookConsumerWidget {
       if (!isLoading.value) {
         isLoading.value = true;
         try {
-          await ref.read(analyticsProvider.notifier).track(
+          await ref
+              .read(analyticsProvider.notifier)
+              .track(
                 BaseEvent(
                   'onboarding_screen_2_clicked',
                   eventProperties: <String, String>{
@@ -104,7 +103,10 @@ class Onboarding03GreetingScreen extends HookConsumerWidget {
             child: Container(
               height: 350 / 852 * mediaQuery.size.height,
               padding: const EdgeInsets.symmetric(horizontal: 24),
-              constraints: const BoxConstraints(minHeight: 250, maxHeight: 350),
+              constraints: const BoxConstraints(
+                minHeight: 250,
+                maxHeight: 350,
+              ),
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image:
@@ -121,7 +123,6 @@ class Onboarding03GreetingScreen extends HookConsumerWidget {
             child: Padding(
               padding: const EdgeInsets.all(24),
               child: Column(
-                mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   Text.rich(
@@ -146,7 +147,7 @@ class Onboarding03GreetingScreen extends HookConsumerWidget {
                     ),
                     textAlign: TextAlign.center,
                   ),
-                  const SizedBox(height: 84),
+                  const SizedBox(height: 24),
                   Row(
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -167,7 +168,7 @@ class Onboarding03GreetingScreen extends HookConsumerWidget {
                       ),
                     ],
                   ),
-                  const SizedBox(height: 84),
+                  const SizedBox(height: 24),
                   SizedBox(
                     height: 110,
                     child: Column(

@@ -16,9 +16,7 @@ import 'routes.dart';
 import 'widgets/onboarding/onboarding_00_splash_screen.dart';
 
 void main() async {
-  final Talker talker = TalkerFlutter.init(
-    settings: TalkerSettings(),
-  );
+  final Talker talker = TalkerFlutter.init(settings: TalkerSettings());
   await runZonedGuarded(
     () async {
       final WidgetsBinding widgetsBinding =
@@ -33,7 +31,10 @@ void main() async {
       ]);
       await RiveFile.initialize();
       final ProviderContainer container = ProviderContainer(
-        overrides: await Future.wait(<Future<Override>>[$amplitude, $supabase]),
+        overrides: await Future.wait(<Future<Override>>[
+          $amplitude,
+          $supabase,
+        ]),
         observers: <ProviderObserver>[
           TalkerRiverpodObserver(
             settings: const TalkerRiverpodLoggerSettings(
@@ -57,8 +58,9 @@ void main() async {
           ),
         ),
       );
-      widgetsBinding
-          .addPostFrameCallback((final _) => FlutterNativeSplash.remove());
+      widgetsBinding.addPostFrameCallback(
+        (final _) => FlutterNativeSplash.remove(),
+      );
     },
     (final Object error, final StackTrace stack) {
       talker.handle(error, stack, 'Uncaught app exception');

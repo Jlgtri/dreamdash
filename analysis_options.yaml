@@ -20,6 +20,9 @@ analyzer:
   plugins:
     - custom_lint
 
+formatter:
+  page_width: 79
+
 custom_lint:
   enable_all_lint_rules: false
   rules:

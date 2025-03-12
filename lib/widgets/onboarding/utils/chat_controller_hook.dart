@@ -13,16 +13,15 @@ ChatController useChatController({
   required final List<ChatUser> otherUsers,
   required final ChatUser currentUser,
   final List<Object?>? keys,
-}) =>
-    use(
-      _ChatControllerHook(
-        initialMessageList: initialMessageList,
-        scrollController: scrollController,
-        otherUsers: otherUsers,
-        currentUser: currentUser,
-        keys: keys,
-      ),
-    );
+}) => use(
+  _ChatControllerHook(
+    initialMessageList: initialMessageList,
+    scrollController: scrollController,
+    otherUsers: otherUsers,
+    currentUser: currentUser,
+    keys: keys,
+  ),
+);
 
 class _ChatControllerHook extends Hook<ChatController> {
   const _ChatControllerHook({
@@ -47,7 +46,10 @@ class _ChatControllerHook extends Hook<ChatController> {
       super.debugFillProperties(
         properties
           ..add(
-            IterableProperty<Message>('initialMessageList', initialMessageList),
+            IterableProperty<Message>(
+              'initialMessageList',
+              initialMessageList,
+            ),
           )
           ..add(
             DiagnosticsProperty<ScrollController>(

@@ -13,9 +13,7 @@ import '../utils.dart';
 
 part 'onboarding_06_info_screen.g.dart';
 
-@TypedGoRoute<Onboarding06InfoRoute>(
-  path: '/onboarding/06_info',
-)
+@TypedGoRoute<Onboarding06InfoRoute>(path: '/onboarding/06_info')
 class Onboarding06InfoRoute extends GoRouteData {
   const Onboarding06InfoRoute();
 
@@ -27,19 +25,18 @@ class Onboarding06InfoRoute extends GoRouteData {
   CustomTransitionPage<void> buildPage(
     final BuildContext context,
     final GoRouterState state,
-  ) =>
-      CustomTransitionPage<void>(
-        key: state.pageKey,
-        child: build(context, state),
-        transitionDuration: const Duration(milliseconds: 600),
-        transitionsBuilder: (
+  ) => CustomTransitionPage<void>(
+    key: state.pageKey,
+    child: build(context, state),
+    transitionDuration: const Duration(milliseconds: 600),
+    transitionsBuilder:
+        (
           final BuildContext context,
           final Animation<double> animation,
           final Animation<double> secondaryAnimation,
           final Widget child,
-        ) =>
-            FadeTransition(opacity: animation, child: child),
-      );
+        ) => FadeTransition(opacity: animation, child: child),
+  );
 }
 
 /// The welcome screen of the onboarding flow.
@@ -68,7 +65,9 @@ class Onboarding06InfoScreen extends HookConsumerWidget {
       if (!isLoading.value) {
         isLoading.value = true;
         try {
-          await ref.read(analyticsProvider.notifier).track(
+          await ref
+              .read(analyticsProvider.notifier)
+              .track(
                 BaseEvent(
                   'onboarding_screen_5_clicked',
                   eventProperties: <String, String>{
@@ -198,17 +197,9 @@ class Onboarding06InfoScreen extends HookConsumerWidget {
                                     blurRadius: 4,
                                   ),
                                 ],
-                                color: Color.fromRGBO(
-                                  250,
-                                  205,
-                                  119,
-                                  0.5,
-                                ),
+                                color: Color.fromRGBO(250, 205, 119, 0.5),
                                 borderRadius: BorderRadius.all(
-                                  Radius.elliptical(
-                                    78.08451080322266,
-                                    77,
-                                  ),
+                                  Radius.elliptical(78.08451080322266, 77),
                                 ),
                               ),
                             ),
@@ -225,9 +216,7 @@ class Onboarding06InfoScreen extends HookConsumerWidget {
                       height: 40.76,
                       decoration: ShapeDecoration(
                         gradient: secondaryGradient,
-                        shape: const StarBorder(
-                          innerRadiusRatio: 0.01,
-                        ),
+                        shape: const StarBorder(innerRadiusRatio: 0.01),
                         shadows: <BoxShadow>[
                           BoxShadow(
                             color: theme.colorScheme.secondary,
@@ -245,9 +234,7 @@ class Onboarding06InfoScreen extends HookConsumerWidget {
                       height: 34,
                       decoration: ShapeDecoration(
                         gradient: secondaryGradient,
-                        shape: const StarBorder(
-                          innerRadiusRatio: 0.01,
-                        ),
+                        shape: const StarBorder(innerRadiusRatio: 0.01),
                         shadows: <BoxShadow>[
                           BoxShadow(
                             color: theme.colorScheme.secondary,
@@ -289,9 +276,7 @@ class Onboarding06InfoScreen extends HookConsumerWidget {
                       height: 34,
                       decoration: ShapeDecoration(
                         gradient: secondaryGradient,
-                        shape: const StarBorder(
-                          innerRadiusRatio: 0.01,
-                        ),
+                        shape: const StarBorder(innerRadiusRatio: 0.01),
                         shadows: <BoxShadow>[
                           BoxShadow(
                             color: theme.colorScheme.secondary,
@@ -309,9 +294,7 @@ class Onboarding06InfoScreen extends HookConsumerWidget {
                       height: 28.15,
                       decoration: ShapeDecoration(
                         gradient: secondaryGradient,
-                        shape: const StarBorder(
-                          innerRadiusRatio: 0.01,
-                        ),
+                        shape: const StarBorder(innerRadiusRatio: 0.01),
                         shadows: <BoxShadow>[
                           BoxShadow(
                             color: theme.colorScheme.secondary,
@@ -329,9 +312,7 @@ class Onboarding06InfoScreen extends HookConsumerWidget {
                       height: 22,
                       decoration: ShapeDecoration(
                         gradient: secondaryGradient,
-                        shape: const StarBorder(
-                          innerRadiusRatio: 0.01,
-                        ),
+                        shape: const StarBorder(innerRadiusRatio: 0.01),
                         shadows: <BoxShadow>[
                           BoxShadow(
                             color: theme.colorScheme.secondary,
@@ -358,82 +339,6 @@ class Onboarding06InfoScreen extends HookConsumerWidget {
             ),
           ),
           const SliverToBoxAdapter(child: SizedBox(height: 73)),
-          SliverPadding(
-            padding: horizontalPadding,
-            sliver: SliverToBoxAdapter(
-              child: Container(
-                padding: const EdgeInsets.all(24),
-                constraints: const BoxConstraints(
-                  minHeight: 350,
-                ),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Column(
-                      children: <Widget>[
-                        Text.rich(
-                          TextSpan(
-                            children: <InlineSpan>[
-                              TextSpan(text: i18n.thankYou),
-                              const TextSpan(text: ' '),
-                              TextSpan(
-                                text: i18n.userName(name: name),
-                                style: TextStyle(
-                                  color: theme.colorScheme.secondary,
-                                ),
-                              ),
-                              TextSpan(
-                                text: '!',
-                                style: TextStyle(
-                                  color: theme.colorScheme.secondary,
-                                ),
-                              ),
-                            ],
-                          ),
-                          textAlign: TextAlign.center,
-                          style: theme.textTheme.displayMedium,
-                        ),
-                        const SizedBox(height: 48),
-                        Text.rich(
-                          TextSpan(
-                            children: <InlineSpan>[
-                              TextSpan(
-                                text: i18n.motivationMessage,
-                              ),
-                              const TextSpan(text: ' '),
-                              TextSpan(
-                                text: i18n.motivationStat,
-                                style: TextStyle(
-                                  color: theme.colorScheme.secondary,
-                                ),
-                              ),
-                              const TextSpan(text: ' '),
-                              TextSpan(
-                                text: i18n.motivationFact,
-                                style: theme.textTheme.titleMedium,
-                              ),
-                            ],
-                          ),
-                          textAlign: TextAlign.center,
-                          style: theme.textTheme.titleMedium,
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 80),
-                    Text(
-                      i18n.callToAction,
-                      textAlign: TextAlign.center,
-                      style: theme.textTheme.bodyLarge?.copyWith(
-                        color: theme.colorScheme.secondary,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ),
-          const SliverToBoxAdapter(child: SizedBox(height: 64)),
           SliverFillRemaining(
             hasScrollBody: false,
             fillOverscroll: true,
@@ -442,11 +347,78 @@ class Onboarding06InfoScreen extends HookConsumerWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: <Widget>[
+                  Expanded(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: <Widget>[
+                        Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: <Widget>[
+                            Text.rich(
+                              TextSpan(
+                                children: <InlineSpan>[
+                                  TextSpan(text: i18n.thankYou),
+                                  const TextSpan(text: ' '),
+                                  TextSpan(
+                                    text: i18n.userName(name: name),
+                                    style: TextStyle(
+                                      color: theme.colorScheme.secondary,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: '!',
+                                    style: TextStyle(
+                                      color: theme.colorScheme.secondary,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              textAlign: TextAlign.center,
+                              style: theme.textTheme.displayMedium,
+                            ),
+                            const SizedBox(height: 48),
+                            Text.rich(
+                              TextSpan(
+                                children: <InlineSpan>[
+                                  TextSpan(text: i18n.motivationMessage),
+                                  const TextSpan(text: ' '),
+                                  TextSpan(
+                                    text: i18n.motivationStat,
+                                    style: TextStyle(
+                                      color: theme.colorScheme.secondary,
+                                    ),
+                                  ),
+                                  const TextSpan(text: ' '),
+                                  TextSpan(
+                                    text: i18n.motivationFact,
+                                    style: theme.textTheme.titleMedium,
+                                  ),
+                                ],
+                              ),
+                              textAlign: TextAlign.center,
+                              style: theme.textTheme.titleMedium,
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 80 - 48),
+                  Text(
+                    i18n.callToAction,
+                    textAlign: TextAlign.center,
+                    style: theme.textTheme.bodyLarge?.copyWith(
+                      color: theme.colorScheme.secondary,
+                    ),
+                  ),
+                  const SizedBox(height: 64),
                   Text(
                     i18n.footerNote,
                     textAlign: TextAlign.center,
                     style: theme.textTheme.bodySmall?.copyWith(
-                      color: theme.colorScheme.onSurface.withValues(alpha: 0.3),
+                      color: theme.colorScheme.onSurface.withValues(
+                        alpha: 0.3,
+                      ),
                     ),
                   ),
                   const SizedBox(height: 12),

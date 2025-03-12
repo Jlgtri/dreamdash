@@ -28,19 +28,18 @@ class Onboarding08MotivationQ2Route extends GoRouteData {
   CustomTransitionPage<void> buildPage(
     final BuildContext context,
     final GoRouterState state,
-  ) =>
-      CustomTransitionPage<void>(
-        key: state.pageKey,
-        child: build(context, state),
-        transitionDuration: const Duration(milliseconds: 600),
-        transitionsBuilder: (
+  ) => CustomTransitionPage<void>(
+    key: state.pageKey,
+    child: build(context, state),
+    transitionDuration: const Duration(milliseconds: 600),
+    transitionsBuilder:
+        (
           final BuildContext context,
           final Animation<double> animation,
           final Animation<double> secondaryAnimation,
           final Widget child,
-        ) =>
-            FadeTransition(opacity: animation, child: child),
-      );
+        ) => FadeTransition(opacity: animation, child: child),
+  );
 }
 
 /// The welcome screen of the onboarding flow.
@@ -70,7 +69,9 @@ class Onboarding08MotivationQ2Screen extends HookConsumerWidget {
       if (!isLoading.value) {
         isLoading.value = true;
         try {
-          await ref.read(analyticsProvider.notifier).track(
+          await ref
+              .read(analyticsProvider.notifier)
+              .track(
                 BaseEvent(
                   'onboarding_screen_7_clicked',
                   eventProperties: <String, String>{
@@ -102,8 +103,11 @@ class Onboarding08MotivationQ2Screen extends HookConsumerWidget {
           const SliverToBoxAdapter(child: SizedBox(height: 70)),
           SliverToBoxAdapter(
             child: Container(
-              width: 393,
-              height: 462,
+              height: 462 / 852 * mediaQuery.size.height,
+              constraints: const BoxConstraints(
+                minHeight: 300,
+                maxHeight: 450,
+              ),
               clipBehavior: Clip.antiAlias,
               decoration: const BoxDecoration(),
               child: Stack(
@@ -158,9 +162,7 @@ class Onboarding08MotivationQ2Screen extends HookConsumerWidget {
                       height: 68.91,
                       decoration: ShapeDecoration(
                         gradient: secondaryGradient,
-                        shape: const StarBorder(
-                          innerRadiusRatio: 0.01,
-                        ),
+                        shape: const StarBorder(innerRadiusRatio: 0.01),
                         shadows: <BoxShadow>[
                           BoxShadow(
                             color: theme.colorScheme.secondary,
@@ -178,9 +180,7 @@ class Onboarding08MotivationQ2Screen extends HookConsumerWidget {
                       height: 68.91,
                       decoration: ShapeDecoration(
                         gradient: secondaryGradient,
-                        shape: const StarBorder(
-                          innerRadiusRatio: 0.01,
-                        ),
+                        shape: const StarBorder(innerRadiusRatio: 0.01),
                         shadows: <BoxShadow>[
                           BoxShadow(
                             color: theme.colorScheme.secondary,
@@ -198,9 +198,7 @@ class Onboarding08MotivationQ2Screen extends HookConsumerWidget {
                       height: 68.91,
                       decoration: ShapeDecoration(
                         gradient: secondaryGradient,
-                        shape: const StarBorder(
-                          innerRadiusRatio: 0.01,
-                        ),
+                        shape: const StarBorder(innerRadiusRatio: 0.01),
                         shadows: <BoxShadow>[
                           BoxShadow(
                             color: theme.colorScheme.secondary,
@@ -218,9 +216,7 @@ class Onboarding08MotivationQ2Screen extends HookConsumerWidget {
                       height: 34,
                       decoration: ShapeDecoration(
                         gradient: secondaryGradient,
-                        shape: const StarBorder(
-                          innerRadiusRatio: 0.01,
-                        ),
+                        shape: const StarBorder(innerRadiusRatio: 0.01),
                         shadows: <BoxShadow>[
                           BoxShadow(
                             color: theme.colorScheme.secondary,
@@ -238,9 +234,7 @@ class Onboarding08MotivationQ2Screen extends HookConsumerWidget {
                       height: 34,
                       decoration: ShapeDecoration(
                         gradient: secondaryGradient,
-                        shape: const StarBorder(
-                          innerRadiusRatio: 0.01,
-                        ),
+                        shape: const StarBorder(innerRadiusRatio: 0.01),
                         shadows: <BoxShadow>[
                           BoxShadow(
                             color: theme.colorScheme.secondary,
@@ -258,9 +252,7 @@ class Onboarding08MotivationQ2Screen extends HookConsumerWidget {
                       height: 34,
                       decoration: ShapeDecoration(
                         gradient: secondaryGradient,
-                        shape: const StarBorder(
-                          innerRadiusRatio: 0.01,
-                        ),
+                        shape: const StarBorder(innerRadiusRatio: 0.01),
                         shadows: <BoxShadow>[
                           BoxShadow(
                             color: theme.colorScheme.secondary,
@@ -343,8 +335,9 @@ class Onboarding08MotivationQ2Screen extends HookConsumerWidget {
                             sigmaX: 16,
                             sigmaY: 16,
                           ),
-                          child: assets.womanopeninglockwithakey2
-                              .image(color: Colors.black),
+                          child: assets.womanopeninglockwithakey2.image(
+                            color: Colors.black,
+                          ),
                         ),
                       ),
                     ),
@@ -370,8 +363,7 @@ class Onboarding08MotivationQ2Screen extends HookConsumerWidget {
           SliverFillRemaining(
             hasScrollBody: false,
             fillOverscroll: true,
-            child: Container(
-              height: 320,
+            child: Padding(
               padding: const EdgeInsets.all(24),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
@@ -383,9 +375,7 @@ class Onboarding08MotivationQ2Screen extends HookConsumerWidget {
                         const TextSpan(text: ' '),
                         TextSpan(
                           text: i18n.feelingTrouble,
-                          style: TextStyle(
-                            color: theme.colorScheme.secondary,
-                          ),
+                          style: TextStyle(color: theme.colorScheme.secondary),
                         ),
                         TextSpan(text: i18n.finishingIntro),
                         const TextSpan(text: '\n'),
@@ -396,9 +386,7 @@ class Onboarding08MotivationQ2Screen extends HookConsumerWidget {
                         const TextSpan(text: ' '),
                         TextSpan(
                           text: i18n.startingPoint,
-                          style: TextStyle(
-                            color: theme.colorScheme.secondary,
-                          ),
+                          style: TextStyle(color: theme.colorScheme.secondary),
                         ),
                       ],
                     ),

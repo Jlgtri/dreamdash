@@ -27,19 +27,18 @@ class Onboarding22MotivationProgressRoute extends GoRouteData {
   CustomTransitionPage<void> buildPage(
     final BuildContext context,
     final GoRouterState state,
-  ) =>
-      CustomTransitionPage<void>(
-        key: state.pageKey,
-        child: build(context, state),
-        transitionDuration: const Duration(milliseconds: 600),
-        transitionsBuilder: (
+  ) => CustomTransitionPage<void>(
+    key: state.pageKey,
+    child: build(context, state),
+    transitionDuration: const Duration(milliseconds: 600),
+    transitionsBuilder:
+        (
           final BuildContext context,
           final Animation<double> animation,
           final Animation<double> secondaryAnimation,
           final Widget child,
-        ) =>
-            FadeTransition(opacity: animation, child: child),
-      );
+        ) => FadeTransition(opacity: animation, child: child),
+  );
 }
 
 /// The welcome screen of the onboarding flow.
@@ -70,7 +69,9 @@ class Onboarding22MotivationProgressScreen extends HookConsumerWidget {
       if (!isLoading.value) {
         isLoading.value = true;
         try {
-          await ref.read(analyticsProvider.notifier).track(
+          await ref
+              .read(analyticsProvider.notifier)
+              .track(
                 BaseEvent(
                   'onboarding_screen_21_clicked',
                   eventProperties: <String, String>{
@@ -108,9 +109,7 @@ class Onboarding22MotivationProgressScreen extends HookConsumerWidget {
                   children: <InlineSpan>[
                     TextSpan(
                       text: i18n.title.username(name: name),
-                      style: TextStyle(
-                        color: theme.colorScheme.secondary,
-                      ),
+                      style: TextStyle(color: theme.colorScheme.secondary),
                     ),
                     TextSpan(text: i18n.title.separator),
                     const TextSpan(text: ' '),
@@ -118,18 +117,14 @@ class Onboarding22MotivationProgressScreen extends HookConsumerWidget {
                     const TextSpan(text: ' '),
                     TextSpan(
                       text: i18n.title.weeks(amount: 5),
-                      style: TextStyle(
-                        color: theme.colorScheme.secondary,
-                      ),
+                      style: TextStyle(color: theme.colorScheme.secondary),
                     ),
                     const TextSpan(text: ' '),
                     TextSpan(text: i18n.title.weWill),
                     const TextSpan(text: ' '),
                     TextSpan(
                       text: i18n.title.hitYourGoal,
-                      style: TextStyle(
-                        color: theme.colorScheme.secondary,
-                      ),
+                      style: TextStyle(color: theme.colorScheme.secondary),
                     ),
                     const TextSpan(text: ' '),
                     TextSpan(text: i18n.title.keepYouMotivation),
@@ -140,7 +135,7 @@ class Onboarding22MotivationProgressScreen extends HookConsumerWidget {
               ),
             ),
           ),
-          const SliverToBoxAdapter(child: SizedBox(height: 73)),
+          const SliverToBoxAdapter(child: SizedBox(height: 64)),
           SliverPadding(
             padding: const EdgeInsets.symmetric(horizontal: 24),
             sliver: SliverToBoxAdapter(
@@ -172,7 +167,8 @@ class Onboarding22MotivationProgressScreen extends HookConsumerWidget {
                                   ),
                                 ),
                                 Positioned(
-                                  left: 28.79 /
+                                  left:
+                                      28.79 /
                                       345 *
                                       (mediaQuery.size.width - 48),
                                   top: 135,
@@ -186,7 +182,8 @@ class Onboarding22MotivationProgressScreen extends HookConsumerWidget {
                                   ),
                                 ),
                                 Positioned(
-                                  left: 96.31 /
+                                  left:
+                                      96.31 /
                                       345 *
                                       (mediaQuery.size.width - 48),
                                   top: 66,
@@ -200,7 +197,8 @@ class Onboarding22MotivationProgressScreen extends HookConsumerWidget {
                                   ),
                                 ),
                                 Positioned(
-                                  left: 163.82 /
+                                  left:
+                                      163.82 /
                                       345 *
                                       (mediaQuery.size.width - 48),
                                   top: 124,
@@ -214,7 +212,8 @@ class Onboarding22MotivationProgressScreen extends HookConsumerWidget {
                                   ),
                                 ),
                                 Positioned(
-                                  left: 231.33 /
+                                  left:
+                                      231.33 /
                                       345 *
                                       (mediaQuery.size.width - 48),
                                   top: 107,
@@ -228,7 +227,8 @@ class Onboarding22MotivationProgressScreen extends HookConsumerWidget {
                                   ),
                                 ),
                                 Positioned(
-                                  left: 297.85 /
+                                  left:
+                                      297.85 /
                                       345 *
                                       (mediaQuery.size.width - 48),
                                   top: 57,
@@ -242,7 +242,8 @@ class Onboarding22MotivationProgressScreen extends HookConsumerWidget {
                                   ),
                                 ),
                                 Positioned(
-                                  left: 28.79 /
+                                  left:
+                                      28.79 /
                                           345 *
                                           (mediaQuery.size.width - 48) -
                                       (28.79 - 9),
@@ -252,9 +253,12 @@ class Onboarding22MotivationProgressScreen extends HookConsumerWidget {
                                     height: 18,
                                     clipBehavior: Clip.antiAlias,
                                     decoration: ShapeDecoration(
-                                      color: theme.colorScheme.primaryContainer,
+                                      color:
+                                          theme.colorScheme.primaryContainer,
                                       shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(15),
+                                        borderRadius: BorderRadius.circular(
+                                          15,
+                                        ),
                                       ),
                                       shadows: const <BoxShadow>[
                                         BoxShadow(
@@ -275,10 +279,13 @@ class Onboarding22MotivationProgressScreen extends HookConsumerWidget {
                                               i18n.states.week1,
                                               style: theme.textTheme.bodySmall
                                                   ?.copyWith(
-                                                fontWeight: FontWeight.w800,
-                                                color:
-                                                    theme.colorScheme.secondary,
-                                              ),
+                                                    fontWeight:
+                                                        FontWeight.w800,
+                                                    color:
+                                                        theme
+                                                            .colorScheme
+                                                            .secondary,
+                                                  ),
                                             ),
                                           ),
                                         ),
@@ -287,7 +294,8 @@ class Onboarding22MotivationProgressScreen extends HookConsumerWidget {
                                   ),
                                 ),
                                 Positioned(
-                                  left: 96.31 /
+                                  left:
+                                      96.31 /
                                           345 *
                                           (mediaQuery.size.width - 48) -
                                       (96.31 - 68.51),
@@ -299,7 +307,9 @@ class Onboarding22MotivationProgressScreen extends HookConsumerWidget {
                                     decoration: ShapeDecoration(
                                       color: theme.colorScheme.secondary,
                                       shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(15),
+                                        borderRadius: BorderRadius.circular(
+                                          15,
+                                        ),
                                       ),
                                       shadows: const <BoxShadow>[
                                         BoxShadow(
@@ -321,10 +331,13 @@ class Onboarding22MotivationProgressScreen extends HookConsumerWidget {
                                               i18n.states.week2,
                                               style: theme.textTheme.bodySmall
                                                   ?.copyWith(
-                                                fontWeight: FontWeight.w800,
-                                                color:
-                                                    theme.colorScheme.primary,
-                                              ),
+                                                    fontWeight:
+                                                        FontWeight.w800,
+                                                    color:
+                                                        theme
+                                                            .colorScheme
+                                                            .primary,
+                                                  ),
                                             ),
                                           ),
                                         ),
@@ -333,7 +346,8 @@ class Onboarding22MotivationProgressScreen extends HookConsumerWidget {
                                   ),
                                 ),
                                 Positioned(
-                                  left: 163.82 /
+                                  left:
+                                      163.82 /
                                           345 *
                                           (mediaQuery.size.width - 48) -
                                       (163.82 - 124.10),
@@ -343,9 +357,12 @@ class Onboarding22MotivationProgressScreen extends HookConsumerWidget {
                                     height: 18,
                                     clipBehavior: Clip.antiAlias,
                                     decoration: ShapeDecoration(
-                                      color: theme.colorScheme.primaryContainer,
+                                      color:
+                                          theme.colorScheme.primaryContainer,
                                       shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(15),
+                                        borderRadius: BorderRadius.circular(
+                                          15,
+                                        ),
                                       ),
                                       shadows: const <BoxShadow>[
                                         BoxShadow(
@@ -367,10 +384,13 @@ class Onboarding22MotivationProgressScreen extends HookConsumerWidget {
                                               i18n.states.week3,
                                               style: theme.textTheme.bodySmall
                                                   ?.copyWith(
-                                                fontWeight: FontWeight.w800,
-                                                color:
-                                                    theme.colorScheme.secondary,
-                                              ),
+                                                    fontWeight:
+                                                        FontWeight.w800,
+                                                    color:
+                                                        theme
+                                                            .colorScheme
+                                                            .secondary,
+                                                  ),
                                             ),
                                           ),
                                         ),
@@ -379,7 +399,8 @@ class Onboarding22MotivationProgressScreen extends HookConsumerWidget {
                                   ),
                                 ),
                                 Positioned(
-                                  left: 231.33 /
+                                  left:
+                                      231.33 /
                                           345 *
                                           (mediaQuery.size.width - 48) -
                                       (231.33 - 225.37),
@@ -391,7 +412,9 @@ class Onboarding22MotivationProgressScreen extends HookConsumerWidget {
                                     decoration: ShapeDecoration(
                                       color: theme.colorScheme.secondary,
                                       shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(15),
+                                        borderRadius: BorderRadius.circular(
+                                          15,
+                                        ),
                                       ),
                                       shadows: const <BoxShadow>[
                                         BoxShadow(
@@ -412,10 +435,13 @@ class Onboarding22MotivationProgressScreen extends HookConsumerWidget {
                                               i18n.states.week4,
                                               style: theme.textTheme.bodySmall
                                                   ?.copyWith(
-                                                fontWeight: FontWeight.w800,
-                                                color:
-                                                    theme.colorScheme.primary,
-                                              ),
+                                                    fontWeight:
+                                                        FontWeight.w800,
+                                                    color:
+                                                        theme
+                                                            .colorScheme
+                                                            .primary,
+                                                  ),
                                             ),
                                           ),
                                         ),
@@ -424,7 +450,8 @@ class Onboarding22MotivationProgressScreen extends HookConsumerWidget {
                                   ),
                                 ),
                                 Positioned(
-                                  left: 297.85 /
+                                  left:
+                                      297.85 /
                                           345 *
                                           (mediaQuery.size.width - 48) -
                                       (297.85 - 257.63),
@@ -434,9 +461,12 @@ class Onboarding22MotivationProgressScreen extends HookConsumerWidget {
                                     height: 54,
                                     clipBehavior: Clip.antiAlias,
                                     decoration: ShapeDecoration(
-                                      color: theme.colorScheme.primaryContainer,
+                                      color:
+                                          theme.colorScheme.primaryContainer,
                                       shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(15),
+                                        borderRadius: BorderRadius.circular(
+                                          15,
+                                        ),
                                       ),
                                       shadows: const <BoxShadow>[
                                         BoxShadow(
@@ -458,10 +488,13 @@ class Onboarding22MotivationProgressScreen extends HookConsumerWidget {
                                               textAlign: TextAlign.center,
                                               style: theme.textTheme.bodySmall
                                                   ?.copyWith(
-                                                fontWeight: FontWeight.w800,
-                                                color:
-                                                    theme.colorScheme.secondary,
-                                              ),
+                                                    fontWeight:
+                                                        FontWeight.w800,
+                                                    color:
+                                                        theme
+                                                            .colorScheme
+                                                            .secondary,
+                                                  ),
                                             ),
                                           ),
                                         ),
@@ -482,14 +515,16 @@ class Onboarding22MotivationProgressScreen extends HookConsumerWidget {
                             children: <Widget>[
                               SizedBox(
                                 width:
-                                    66 / 345 * (mediaQuery.size.width - 48) + 4,
+                                    66 / 345 * (mediaQuery.size.width - 48) +
+                                    4,
                                 child: Column(
                                   children: <Widget>[
                                     SizedBox(
                                       height: 20,
                                       child: assets.vector.svg(
                                         fit: BoxFit.fill,
-                                        width: 66 /
+                                        width:
+                                            66 /
                                             345 *
                                             (mediaQuery.size.width - 48),
                                         colorFilter: ColorFilter.mode(
@@ -503,24 +538,26 @@ class Onboarding22MotivationProgressScreen extends HookConsumerWidget {
                                     Text(
                                       i18n.weeks.week1,
                                       textAlign: TextAlign.center,
-                                      style:
-                                          theme.textTheme.bodySmall?.copyWith(
-                                        fontWeight: FontWeight.w800,
-                                      ),
+                                      style: theme.textTheme.bodySmall
+                                          ?.copyWith(
+                                            fontWeight: FontWeight.w800,
+                                          ),
                                     ),
                                   ],
                                 ),
                               ),
                               SizedBox(
                                 width:
-                                    66 / 345 * (mediaQuery.size.width - 48) + 4,
+                                    66 / 345 * (mediaQuery.size.width - 48) +
+                                    4,
                                 child: Column(
                                   children: <Widget>[
                                     SizedBox(
                                       height: 20,
                                       child: assets.vector.svg(
                                         fit: BoxFit.fill,
-                                        width: 66 /
+                                        width:
+                                            66 /
                                             345 *
                                             (mediaQuery.size.width - 48),
                                         colorFilter: ColorFilter.mode(
@@ -533,24 +570,26 @@ class Onboarding22MotivationProgressScreen extends HookConsumerWidget {
                                     Text(
                                       i18n.weeks.week2,
                                       textAlign: TextAlign.center,
-                                      style:
-                                          theme.textTheme.bodySmall?.copyWith(
-                                        fontWeight: FontWeight.w800,
-                                      ),
+                                      style: theme.textTheme.bodySmall
+                                          ?.copyWith(
+                                            fontWeight: FontWeight.w800,
+                                          ),
                                     ),
                                   ],
                                 ),
                               ),
                               SizedBox(
                                 width:
-                                    66 / 345 * (mediaQuery.size.width - 48) + 4,
+                                    66 / 345 * (mediaQuery.size.width - 48) +
+                                    4,
                                 child: Column(
                                   children: <Widget>[
                                     SizedBox(
                                       height: 20,
                                       child: assets.vector.svg(
                                         fit: BoxFit.fill,
-                                        width: 66 /
+                                        width:
+                                            66 /
                                             345 *
                                             (mediaQuery.size.width - 48),
                                         colorFilter: ColorFilter.mode(
@@ -564,24 +603,26 @@ class Onboarding22MotivationProgressScreen extends HookConsumerWidget {
                                     Text(
                                       i18n.weeks.week3,
                                       textAlign: TextAlign.center,
-                                      style:
-                                          theme.textTheme.bodySmall?.copyWith(
-                                        fontWeight: FontWeight.w800,
-                                      ),
+                                      style: theme.textTheme.bodySmall
+                                          ?.copyWith(
+                                            fontWeight: FontWeight.w800,
+                                          ),
                                     ),
                                   ],
                                 ),
                               ),
                               SizedBox(
                                 width:
-                                    66 / 345 * (mediaQuery.size.width - 48) + 4,
+                                    66 / 345 * (mediaQuery.size.width - 48) +
+                                    4,
                                 child: Column(
                                   children: <Widget>[
                                     SizedBox(
                                       height: 20,
                                       child: assets.vector.svg(
                                         fit: BoxFit.fill,
-                                        width: 66 /
+                                        width:
+                                            66 /
                                             345 *
                                             (mediaQuery.size.width - 48),
                                         colorFilter: ColorFilter.mode(
@@ -594,24 +635,26 @@ class Onboarding22MotivationProgressScreen extends HookConsumerWidget {
                                     Text(
                                       i18n.weeks.week4,
                                       textAlign: TextAlign.center,
-                                      style:
-                                          theme.textTheme.bodySmall?.copyWith(
-                                        fontWeight: FontWeight.w800,
-                                      ),
+                                      style: theme.textTheme.bodySmall
+                                          ?.copyWith(
+                                            fontWeight: FontWeight.w800,
+                                          ),
                                     ),
                                   ],
                                 ),
                               ),
                               SizedBox(
                                 width:
-                                    66 / 345 * (mediaQuery.size.width - 48) + 8,
+                                    66 / 345 * (mediaQuery.size.width - 48) +
+                                    8,
                                 child: Column(
                                   children: <Widget>[
                                     SizedBox(
                                       height: 20,
                                       child: assets.vector.svg(
                                         fit: BoxFit.fill,
-                                        width: 66 /
+                                        width:
+                                            66 /
                                             345 *
                                             (mediaQuery.size.width - 48),
                                         colorFilter: ColorFilter.mode(
@@ -624,10 +667,10 @@ class Onboarding22MotivationProgressScreen extends HookConsumerWidget {
                                     Text(
                                       i18n.weeks.week5,
                                       textAlign: TextAlign.center,
-                                      style:
-                                          theme.textTheme.bodySmall?.copyWith(
-                                        fontWeight: FontWeight.w800,
-                                      ),
+                                      style: theme.textTheme.bodySmall
+                                          ?.copyWith(
+                                            fontWeight: FontWeight.w800,
+                                          ),
                                     ),
                                   ],
                                 ),
@@ -642,7 +685,7 @@ class Onboarding22MotivationProgressScreen extends HookConsumerWidget {
               ),
             ),
           ),
-          const SliverToBoxAdapter(child: SizedBox(height: 73)),
+          const SliverToBoxAdapter(child: SizedBox(height: 64)),
           SliverPadding(
             padding: const EdgeInsets.symmetric(horizontal: 24),
             sliver: SliverToBoxAdapter(
@@ -653,18 +696,14 @@ class Onboarding22MotivationProgressScreen extends HookConsumerWidget {
                     const TextSpan(text: ' '),
                     TextSpan(
                       text: i18n.usage.dreamdash,
-                      style: TextStyle(
-                        color: theme.colorScheme.secondary,
-                      ),
+                      style: TextStyle(color: theme.colorScheme.secondary),
                     ),
                     const TextSpan(text: ' '),
                     TextSpan(text: i18n.usage.createPlan),
                     const TextSpan(text: ' '),
                     TextSpan(
                       text: i18n.usage.askForMotivation,
-                      style: TextStyle(
-                        color: theme.colorScheme.secondary,
-                      ),
+                      style: TextStyle(color: theme.colorScheme.secondary),
                     ),
                     const TextSpan(text: ' '),
                     TextSpan(text: i18n.usage.fromCoach),
@@ -675,7 +714,7 @@ class Onboarding22MotivationProgressScreen extends HookConsumerWidget {
               ),
             ),
           ),
-          const SliverToBoxAdapter(child: SizedBox(height: 73)),
+          const SliverToBoxAdapter(child: SizedBox(height: 64)),
           SliverPadding(
             padding: const EdgeInsets.symmetric(horizontal: 24),
             sliver: SliverFillRemaining(

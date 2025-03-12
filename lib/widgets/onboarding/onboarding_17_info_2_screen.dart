@@ -13,9 +13,7 @@ import '../utils.dart';
 
 part 'onboarding_17_info_2_screen.g.dart';
 
-@TypedGoRoute<Onboarding17Info2Route>(
-  path: '/onboarding/17_info_2',
-)
+@TypedGoRoute<Onboarding17Info2Route>(path: '/onboarding/17_info_2')
 class Onboarding17Info2Route extends GoRouteData {
   const Onboarding17Info2Route();
 
@@ -27,19 +25,18 @@ class Onboarding17Info2Route extends GoRouteData {
   CustomTransitionPage<void> buildPage(
     final BuildContext context,
     final GoRouterState state,
-  ) =>
-      CustomTransitionPage<void>(
-        key: state.pageKey,
-        child: build(context, state),
-        transitionDuration: const Duration(milliseconds: 600),
-        transitionsBuilder: (
+  ) => CustomTransitionPage<void>(
+    key: state.pageKey,
+    child: build(context, state),
+    transitionDuration: const Duration(milliseconds: 600),
+    transitionsBuilder:
+        (
           final BuildContext context,
           final Animation<double> animation,
           final Animation<double> secondaryAnimation,
           final Widget child,
-        ) =>
-            FadeTransition(opacity: animation, child: child),
-      );
+        ) => FadeTransition(opacity: animation, child: child),
+  );
 }
 
 /// The welcome screen of the onboarding flow.
@@ -70,7 +67,9 @@ class Onboarding17Info2Screen extends HookConsumerWidget {
       if (!isLoading.value) {
         isLoading.value = true;
         try {
-          await ref.read(analyticsProvider.notifier).track(
+          await ref
+              .read(analyticsProvider.notifier)
+              .track(
                 BaseEvent(
                   'onboarding_screen_16_clicked',
                   eventProperties: <String, String>{
@@ -116,69 +115,6 @@ class Onboarding17Info2Screen extends HookConsumerWidget {
               ),
             ),
           ),
-          SliverToBoxAdapter(
-            child: Container(
-              height: 344,
-              padding: const EdgeInsets.symmetric(
-                vertical: 48,
-                horizontal: 24,
-              ),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  Text.rich(
-                    TextSpan(
-                      children: <InlineSpan>[
-                        TextSpan(
-                          text: i18n.username(name: name),
-                          style: TextStyle(
-                            color: theme.colorScheme.secondary,
-                          ),
-                        ),
-                        const TextSpan(text: ' '),
-                        TextSpan(text: i18n.thanksForSharing),
-                      ],
-                    ),
-                    textAlign: TextAlign.center,
-                    style: theme.textTheme.headlineLarge,
-                  ),
-                  const SizedBox(height: 48),
-                  SizedBox(
-                    height: 128,
-                    child: Text.rich(
-                      TextSpan(
-                        children: <InlineSpan>[
-                          TextSpan(text: i18n.your),
-                          const TextSpan(text: ' '),
-                          TextSpan(
-                            text: i18n.mentalHealthState,
-                            style: TextStyle(
-                              color: theme.colorScheme.secondary,
-                            ),
-                          ),
-                          const TextSpan(text: ' '),
-                          TextSpan(text: i18n.isGenerallyFavourable),
-                          const TextSpan(text: ' '),
-                          TextSpan(
-                            text: i18n.canBeBetter,
-                            style: TextStyle(
-                              color: theme.colorScheme.secondary,
-                            ),
-                          ),
-                          const TextSpan(text: ' '),
-                          TextSpan(
-                            text: i18n.withSomeSpecificInstruments,
-                          ),
-                        ],
-                      ),
-                      textAlign: TextAlign.center,
-                      style: theme.textTheme.titleMedium,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
           const SliverToBoxAdapter(child: SizedBox(height: 82)),
           SliverPadding(
             padding: const EdgeInsets.symmetric(horizontal: 24),
@@ -188,6 +124,63 @@ class Onboarding17Info2Screen extends HookConsumerWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: <Widget>[
+                  Expanded(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Text.rich(
+                          TextSpan(
+                            children: <InlineSpan>[
+                              TextSpan(
+                                text: i18n.username(name: name),
+                                style: TextStyle(
+                                  color: theme.colorScheme.secondary,
+                                ),
+                              ),
+                              const TextSpan(text: ' '),
+                              TextSpan(text: i18n.thanksForSharing),
+                            ],
+                          ),
+                          textAlign: TextAlign.center,
+                          style: theme.textTheme.headlineLarge,
+                        ),
+                        const SizedBox(height: 24),
+                        SizedBox(
+                          height: 128,
+                          child: Text.rich(
+                            TextSpan(
+                              children: <InlineSpan>[
+                                TextSpan(text: i18n.your),
+                                const TextSpan(text: ' '),
+                                TextSpan(
+                                  text: i18n.mentalHealthState,
+                                  style: TextStyle(
+                                    color: theme.colorScheme.secondary,
+                                  ),
+                                ),
+                                const TextSpan(text: ' '),
+                                TextSpan(text: i18n.isGenerallyFavourable),
+                                const TextSpan(text: ' '),
+                                TextSpan(
+                                  text: i18n.canBeBetter,
+                                  style: TextStyle(
+                                    color: theme.colorScheme.secondary,
+                                  ),
+                                ),
+                                const TextSpan(text: ' '),
+                                TextSpan(
+                                  text: i18n.withSomeSpecificInstruments,
+                                ),
+                              ],
+                            ),
+                            textAlign: TextAlign.center,
+                            style: theme.textTheme.titleMedium,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 48),
                   Container(
                     width: 450,
                     height: 48,

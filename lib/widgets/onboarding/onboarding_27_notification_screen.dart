@@ -28,19 +28,18 @@ class Onboarding27NotificationRoute extends GoRouteData {
   CustomTransitionPage<void> buildPage(
     final BuildContext context,
     final GoRouterState state,
-  ) =>
-      CustomTransitionPage<void>(
-        key: state.pageKey,
-        child: build(context, state),
-        transitionDuration: const Duration(milliseconds: 600),
-        transitionsBuilder: (
+  ) => CustomTransitionPage<void>(
+    key: state.pageKey,
+    child: build(context, state),
+    transitionDuration: const Duration(milliseconds: 600),
+    transitionsBuilder:
+        (
           final BuildContext context,
           final Animation<double> animation,
           final Animation<double> secondaryAnimation,
           final Widget child,
-        ) =>
-            FadeTransition(opacity: animation, child: child),
-      );
+        ) => FadeTransition(opacity: animation, child: child),
+  );
 }
 
 /// The welcome screen of the onboarding flow.
@@ -70,20 +69,22 @@ class Onboarding27NotificationScreen extends HookConsumerWidget {
       if (!isLoading.value) {
         isLoading.value = true;
         try {
-          await ref.read(analyticsProvider.notifier).track(
-                BaseEvent('notification_popup_shown'),
-              );
+          await ref
+              .read(analyticsProvider.notifier)
+              .track(BaseEvent('notification_popup_shown'));
           final PermissionStatus status =
               await Permission.notification.request();
-          await ref.read(analyticsProvider.notifier).track(
+          await ref
+              .read(analyticsProvider.notifier)
+              .track(
                 BaseEvent(
                   'notification_popup_clicked',
-                  eventProperties: <String, Object?>{
-                    'answer': status.name,
-                  },
+                  eventProperties: <String, Object?>{'answer': status.name},
                 ),
               );
-          await ref.read(analyticsProvider.notifier).track(
+          await ref
+              .read(analyticsProvider.notifier)
+              .track(
                 BaseEvent(
                   'onboarding_screen_26_clicked',
                   eventProperties: <String, Object?>{
@@ -225,9 +226,7 @@ class Onboarding27NotificationScreen extends HookConsumerWidget {
                       height: 40.76,
                       decoration: ShapeDecoration(
                         color: theme.colorScheme.secondary,
-                        shape: const StarBorder(
-                          innerRadiusRatio: 0.01,
-                        ),
+                        shape: const StarBorder(innerRadiusRatio: 0.01),
                         shadows: <BoxShadow>[
                           BoxShadow(
                             color: theme.colorScheme.secondary,
@@ -245,9 +244,7 @@ class Onboarding27NotificationScreen extends HookConsumerWidget {
                       height: 34,
                       decoration: ShapeDecoration(
                         color: theme.colorScheme.secondary,
-                        shape: const StarBorder(
-                          innerRadiusRatio: 0.01,
-                        ),
+                        shape: const StarBorder(innerRadiusRatio: 0.01),
                         shadows: <BoxShadow>[
                           BoxShadow(
                             color: theme.colorScheme.secondary,
@@ -277,9 +274,7 @@ class Onboarding27NotificationScreen extends HookConsumerWidget {
                       height: 34,
                       decoration: ShapeDecoration(
                         color: theme.colorScheme.secondary,
-                        shape: const StarBorder(
-                          innerRadiusRatio: 0.01,
-                        ),
+                        shape: const StarBorder(innerRadiusRatio: 0.01),
                         shadows: <BoxShadow>[
                           BoxShadow(
                             color: theme.colorScheme.secondary,
@@ -297,9 +292,7 @@ class Onboarding27NotificationScreen extends HookConsumerWidget {
                       height: 28.15,
                       decoration: ShapeDecoration(
                         color: theme.colorScheme.secondary,
-                        shape: const StarBorder(
-                          innerRadiusRatio: 0.01,
-                        ),
+                        shape: const StarBorder(innerRadiusRatio: 0.01),
                         shadows: <BoxShadow>[
                           BoxShadow(
                             color: theme.colorScheme.secondary,
@@ -317,9 +310,7 @@ class Onboarding27NotificationScreen extends HookConsumerWidget {
                       height: 22,
                       decoration: ShapeDecoration(
                         color: theme.colorScheme.secondary,
-                        shape: const StarBorder(
-                          innerRadiusRatio: 0.01,
-                        ),
+                        shape: const StarBorder(innerRadiusRatio: 0.01),
                         shadows: <BoxShadow>[
                           BoxShadow(
                             color: theme.colorScheme.secondary,
@@ -373,8 +364,9 @@ class Onboarding27NotificationScreen extends HookConsumerWidget {
                     ),
                     decoration: BoxDecoration(
                       image: DecorationImage(
-                        image: assets.happyvalentinesdaygreetingsandgift1
-                            .provider(),
+                        image:
+                            assets.happyvalentinesdaygreetingsandgift1
+                                .provider(),
                         fit: BoxFit.contain,
                       ),
                     ),
@@ -390,9 +382,7 @@ class Onboarding27NotificationScreen extends HookConsumerWidget {
                           ),
                         ),
                         const TextSpan(text: ' '),
-                        TextSpan(
-                          text: i18n.notifications.toGetResults,
-                        ),
+                        TextSpan(text: i18n.notifications.toGetResults),
                         const TextSpan(text: ' '),
                         TextSpan(
                           text: i18n.notifications.motivationalTips,
@@ -401,9 +391,7 @@ class Onboarding27NotificationScreen extends HookConsumerWidget {
                           ),
                         ),
                         const TextSpan(text: ' '),
-                        TextSpan(
-                          text: i18n.notifications.fromYourCoach,
-                        ),
+                        TextSpan(text: i18n.notifications.fromYourCoach),
                       ],
                     ),
                     textAlign: TextAlign.center,

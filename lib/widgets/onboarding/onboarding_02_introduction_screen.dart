@@ -29,19 +29,18 @@ class Onboarding02IntroductionRoute extends GoRouteData {
   CustomTransitionPage<void> buildPage(
     final BuildContext context,
     final GoRouterState state,
-  ) =>
-      CustomTransitionPage<void>(
-        key: state.pageKey,
-        child: build(context, state),
-        transitionDuration: const Duration(milliseconds: 600),
-        transitionsBuilder: (
+  ) => CustomTransitionPage<void>(
+    key: state.pageKey,
+    child: build(context, state),
+    transitionDuration: const Duration(milliseconds: 600),
+    transitionsBuilder:
+        (
           final BuildContext context,
           final Animation<double> animation,
           final Animation<double> secondaryAnimation,
           final Widget child,
-        ) =>
-            FadeTransition(opacity: animation, child: child),
-      );
+        ) => FadeTransition(opacity: animation, child: child),
+  );
 }
 
 class Onboarding02IntroductionScreen extends HookConsumerWidget {
@@ -64,8 +63,9 @@ class Onboarding02IntroductionScreen extends HookConsumerWidget {
 
     final ScrollController scrollController = useScrollController();
     final FocusNode nameFocusNode = useFocusNode();
-    final TextEditingController nameController =
-        useTextEditingController(text: '');
+    final TextEditingController nameController = useTextEditingController(
+      text: '',
+    );
     final ValueNotifier<bool> nameValid = useState(false);
     final ObjectRef<bool> isLoading = useRef(false);
 
@@ -77,9 +77,10 @@ class Onboarding02IntroductionScreen extends HookConsumerWidget {
         () => nameValid.value = nameRegex.hasMatch(nameController.text),
       );
       nameFocusNode.addListener(
-        () async => nameFocusNode.hasFocus
-            ? await scrollController.scrollToBottom()
-            : null,
+        () async =>
+            nameFocusNode.hasFocus
+                ? await scrollController.scrollToBottom()
+                : null,
       );
     });
 
@@ -87,7 +88,9 @@ class Onboarding02IntroductionScreen extends HookConsumerWidget {
       if (!isLoading.value) {
         isLoading.value = true;
         try {
-          await ref.read(analyticsProvider.notifier).track(
+          await ref
+              .read(analyticsProvider.notifier)
+              .track(
                 BaseEvent(
                   'onboarding_screen_1_clicked',
                   eventProperties: <String, String>{
@@ -148,9 +151,7 @@ class Onboarding02IntroductionScreen extends HookConsumerWidget {
                     const TextSpan(text: ' '),
                     TextSpan(
                       text: i18n.yourName,
-                      style: TextStyle(
-                        color: theme.colorScheme.secondary,
-                      ),
+                      style: TextStyle(color: theme.colorScheme.secondary),
                     ),
                     const TextSpan(text: '?'),
                   ],
@@ -176,15 +177,17 @@ class Onboarding02IntroductionScreen extends HookConsumerWidget {
                       focusNode: nameFocusNode,
                       clipBehavior: Clip.antiAlias,
                       style: theme.textTheme.bodyMedium,
-                      cursorColor:
-                          theme.colorScheme.onSurface.withValues(alpha: 0.3),
+                      cursorColor: theme.colorScheme.onSurface.withValues(
+                        alpha: 0.3,
+                      ),
                       // onTapOutside: (final _) =>
                       //     FocusManager.instance.primaryFocus?.unfocus(),
                       decoration: InputDecoration(
                         hintText: i18n.placeholder,
                         hintStyle: theme.textTheme.bodyMedium?.copyWith(
-                          color: theme.colorScheme.onSurface
-                              .withValues(alpha: 0.3),
+                          color: theme.colorScheme.onSurface.withValues(
+                            alpha: 0.3,
+                          ),
                         ),
                         constraints: const BoxConstraints(maxWidth: 450),
                       ),
@@ -214,8 +217,9 @@ class Onboarding02IntroductionScreen extends HookConsumerWidget {
                         Text(
                           i18n.respectPrivacy,
                           textAlign: TextAlign.center,
-                          style: theme.textTheme.bodySmall
-                              ?.copyWith(fontWeight: FontWeight.w800),
+                          style: theme.textTheme.bodySmall?.copyWith(
+                            fontWeight: FontWeight.w800,
+                          ),
                         ),
                       ],
                     ),

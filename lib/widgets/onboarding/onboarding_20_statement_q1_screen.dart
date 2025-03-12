@@ -27,19 +27,18 @@ class Onboarding20StatementQ1Route extends GoRouteData {
   CustomTransitionPage<void> buildPage(
     final BuildContext context,
     final GoRouterState state,
-  ) =>
-      CustomTransitionPage<void>(
-        key: state.pageKey,
-        child: build(context, state),
-        transitionDuration: const Duration(milliseconds: 600),
-        transitionsBuilder: (
+  ) => CustomTransitionPage<void>(
+    key: state.pageKey,
+    child: build(context, state),
+    transitionDuration: const Duration(milliseconds: 600),
+    transitionsBuilder:
+        (
           final BuildContext context,
           final Animation<double> animation,
           final Animation<double> secondaryAnimation,
           final Widget child,
-        ) =>
-            FadeTransition(opacity: animation, child: child),
-      );
+        ) => FadeTransition(opacity: animation, child: child),
+  );
 }
 
 /// The welcome screen of the onboarding flow.
@@ -69,7 +68,9 @@ class Onboarding20StatementQ1Screen extends HookConsumerWidget {
       if (!isLoading.value) {
         isLoading.value = true;
         try {
-          await ref.read(analyticsProvider.notifier).track(
+          await ref
+              .read(analyticsProvider.notifier)
+              .track(
                 BaseEvent(
                   'onboarding_screen_19_clicked',
                   eventProperties: <String, String>{
@@ -91,8 +92,9 @@ class Onboarding20StatementQ1Screen extends HookConsumerWidget {
     }
 
     return Container(
-      padding:
-          (mediaQuery.viewPadding + mediaQuery.viewInsets).copyWith(top: 0),
+      padding: (mediaQuery.viewPadding + mediaQuery.viewInsets).copyWith(
+        top: 0,
+      ),
       decoration: const BoxDecoration(gradient: primaryGradient),
       child: CustomScrollView(
         controller: scrollController,
@@ -102,8 +104,7 @@ class Onboarding20StatementQ1Screen extends HookConsumerWidget {
           const SliverToBoxAdapter(child: OnboardingStarHeader()),
           const SliverToBoxAdapter(child: SizedBox(height: 43)),
           SliverToBoxAdapter(
-            child: Container(
-              height: 98,
+            child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 24),
               child: Column(
                 children: <Widget>[
@@ -124,15 +125,15 @@ class Onboarding20StatementQ1Screen extends HookConsumerWidget {
               ),
             ),
           ),
-          const SliverToBoxAdapter(child: SizedBox(height: 43)),
+          const SliverToBoxAdapter(child: SizedBox(height: 24)),
           SliverToBoxAdapter(
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 24),
               constraints: const BoxConstraints(
-                minHeight: 300,
-                maxHeight: 400,
+                minHeight: 200,
+                maxHeight: 450,
               ),
-              height: 400 / 852 * mediaQuery.size.height,
+              height: 350 / 852 * mediaQuery.size.height,
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: assets.manthinkingaboutaquestion1.provider(),
@@ -141,7 +142,7 @@ class Onboarding20StatementQ1Screen extends HookConsumerWidget {
               ),
             ),
           ),
-          const SliverToBoxAdapter(child: SizedBox(height: 43)),
+          const SliverToBoxAdapter(child: SizedBox(height: 24)),
           SliverFillRemaining(
             hasScrollBody: false,
             fillOverscroll: true,
@@ -180,7 +181,6 @@ class Onboarding20StatementQ1Screen extends HookConsumerWidget {
                           child: assets.cross.svg(),
                         ),
                       ),
-                      const SizedBox(width: 116),
                       Container(
                         width: 62,
                         height: 62,

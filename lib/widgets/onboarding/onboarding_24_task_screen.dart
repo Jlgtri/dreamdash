@@ -13,9 +13,7 @@ import '../utils.dart';
 
 part 'onboarding_24_task_screen.g.dart';
 
-@TypedGoRoute<Onboarding24TaskRoute>(
-  path: '/onboarding/24_task',
-)
+@TypedGoRoute<Onboarding24TaskRoute>(path: '/onboarding/24_task')
 class Onboarding24TaskRoute extends GoRouteData {
   const Onboarding24TaskRoute();
 
@@ -27,19 +25,18 @@ class Onboarding24TaskRoute extends GoRouteData {
   CustomTransitionPage<void> buildPage(
     final BuildContext context,
     final GoRouterState state,
-  ) =>
-      CustomTransitionPage<void>(
-        key: state.pageKey,
-        child: build(context, state),
-        transitionDuration: const Duration(milliseconds: 600),
-        transitionsBuilder: (
+  ) => CustomTransitionPage<void>(
+    key: state.pageKey,
+    child: build(context, state),
+    transitionDuration: const Duration(milliseconds: 600),
+    transitionsBuilder:
+        (
           final BuildContext context,
           final Animation<double> animation,
           final Animation<double> secondaryAnimation,
           final Widget child,
-        ) =>
-            FadeTransition(opacity: animation, child: child),
-      );
+        ) => FadeTransition(opacity: animation, child: child),
+  );
 }
 
 /// The welcome screen of the onboarding flow.
@@ -68,7 +65,9 @@ class Onboarding24TaskScreen extends HookConsumerWidget {
       if (!isLoading.value) {
         isLoading.value = true;
         try {
-          await ref.read(analyticsProvider.notifier).track(
+          await ref
+              .read(analyticsProvider.notifier)
+              .track(
                 BaseEvent(
                   'onboarding_screen_23_clicked',
                   eventProperties: <String, String>{
@@ -127,11 +126,7 @@ class Onboarding24TaskScreen extends HookConsumerWidget {
                     left: 71 / 393 * mediaQuery.size.width,
                     child: assets.star35.svg(),
                   ),
-                  Positioned(
-                    top: 210,
-                    left: 208,
-                    child: assets.star41.svg(),
-                  ),
+                  Positioned(top: 210, left: 208, child: assets.star41.svg()),
                   Positioned(
                     top: 197,
                     left: 325 / 393 * mediaQuery.size.width,
@@ -145,9 +140,7 @@ class Onboarding24TaskScreen extends HookConsumerWidget {
                       height: 68.91,
                       decoration: const ShapeDecoration(
                         gradient: secondaryGradient,
-                        shape: StarBorder(
-                          innerRadiusRatio: 0.01,
-                        ),
+                        shape: StarBorder(innerRadiusRatio: 0.01),
                         shadows: <BoxShadow>[
                           BoxShadow(
                             color: Color(0xFFF2CF41),
@@ -165,9 +158,7 @@ class Onboarding24TaskScreen extends HookConsumerWidget {
                       height: 34,
                       decoration: const ShapeDecoration(
                         gradient: secondaryGradient,
-                        shape: StarBorder(
-                          innerRadiusRatio: 0.01,
-                        ),
+                        shape: StarBorder(innerRadiusRatio: 0.01),
                         shadows: <BoxShadow>[
                           BoxShadow(
                             color: Color(0xFFF2CF41),
@@ -274,9 +265,7 @@ class Onboarding24TaskScreen extends HookConsumerWidget {
                     Text.rich(
                       TextSpan(
                         children: <InlineSpan>[
-                          TextSpan(
-                            text: i18n.yourFirst,
-                          ),
+                          TextSpan(text: i18n.yourFirst),
                           const TextSpan(text: ' '),
                           TextSpan(
                             text: i18n.babyStep,
@@ -326,9 +315,7 @@ class Onboarding24TaskScreen extends HookConsumerWidget {
                       height: 25,
                       decoration: const ShapeDecoration(
                         gradient: secondaryGradient,
-                        shape: StarBorder(
-                          innerRadiusRatio: 0.01,
-                        ),
+                        shape: StarBorder(innerRadiusRatio: 0.01),
                         shadows: <BoxShadow>[
                           BoxShadow(
                             color: Color(0xFFF2CF41),
@@ -346,9 +333,7 @@ class Onboarding24TaskScreen extends HookConsumerWidget {
                       height: 34,
                       decoration: const ShapeDecoration(
                         gradient: secondaryGradient,
-                        shape: StarBorder(
-                          innerRadiusRatio: 0.01,
-                        ),
+                        shape: StarBorder(innerRadiusRatio: 0.01),
                         shadows: <BoxShadow>[
                           BoxShadow(
                             color: Color(0xFFF2CF41),

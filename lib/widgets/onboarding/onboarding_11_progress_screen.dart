@@ -13,9 +13,7 @@ import '../utils.dart';
 
 part 'onboarding_11_progress_screen.g.dart';
 
-@TypedGoRoute<Onboarding11ProgressRoute>(
-  path: '/onboarding/11_progress',
-)
+@TypedGoRoute<Onboarding11ProgressRoute>(path: '/onboarding/11_progress')
 class Onboarding11ProgressRoute extends GoRouteData {
   const Onboarding11ProgressRoute();
 
@@ -27,19 +25,18 @@ class Onboarding11ProgressRoute extends GoRouteData {
   CustomTransitionPage<void> buildPage(
     final BuildContext context,
     final GoRouterState state,
-  ) =>
-      CustomTransitionPage<void>(
-        key: state.pageKey,
-        child: build(context, state),
-        transitionDuration: const Duration(milliseconds: 600),
-        transitionsBuilder: (
+  ) => CustomTransitionPage<void>(
+    key: state.pageKey,
+    child: build(context, state),
+    transitionDuration: const Duration(milliseconds: 600),
+    transitionsBuilder:
+        (
           final BuildContext context,
           final Animation<double> animation,
           final Animation<double> secondaryAnimation,
           final Widget child,
-        ) =>
-            FadeTransition(opacity: animation, child: child),
-      );
+        ) => FadeTransition(opacity: animation, child: child),
+  );
 }
 
 /// The welcome screen of the onboarding flow.
@@ -69,7 +66,9 @@ class Onboarding11ProgressScreen extends HookConsumerWidget {
       if (!isLoading.value) {
         isLoading.value = true;
         try {
-          await ref.read(analyticsProvider.notifier).track(
+          await ref
+              .read(analyticsProvider.notifier)
+              .track(
                 BaseEvent(
                   'onboarding_screen_10_clicked',
                   eventProperties: <String, String>{
@@ -102,86 +101,17 @@ class Onboarding11ProgressScreen extends HookConsumerWidget {
         slivers: <Widget>[
           SliverToBoxAdapter(
             child: Container(
+              height: 371 / 852 * mediaQuery.size.height,
               constraints: const BoxConstraints(
                 minHeight: 250,
                 maxHeight: 450,
               ),
               padding: const EdgeInsets.symmetric(horizontal: 24),
-              height: 371 / 852 * mediaQuery.size.height,
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: assets.progress.provider(),
-                  fit: BoxFit.scaleDown,
+                  fit: BoxFit.contain,
                 ),
-              ),
-            ),
-          ),
-          const SliverToBoxAdapter(child: SizedBox(height: 24)),
-          SliverPadding(
-            padding: const EdgeInsets.all(24),
-            sliver: SliverToBoxAdapter(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Text.rich(
-                    TextSpan(
-                      children: <InlineSpan>[
-                        TextSpan(text: i18n.greeting.thanks),
-                        const TextSpan(text: ' '),
-                        TextSpan(
-                          text: i18n.greeting.name(name: name),
-                          style: TextStyle(
-                            color: theme.colorScheme.secondary,
-                          ),
-                        ),
-                      ],
-                    ),
-                    textAlign: TextAlign.center,
-                    style: theme.textTheme.displayMedium,
-                  ),
-                  const SizedBox(height: 48),
-                  Text.rich(
-                    TextSpan(
-                      children: <InlineSpan>[
-                        TextSpan(text: i18n.profileReady.message),
-                        const TextSpan(text: ' '),
-                        TextSpan(
-                          text: i18n.profileReady.completion(percent: 65),
-                          style: TextStyle(
-                            color: theme.colorScheme.secondary,
-                          ),
-                        ),
-                      ],
-                    ),
-                    textAlign: TextAlign.center,
-                    style: theme.textTheme.headlineLarge,
-                  ),
-                  const SizedBox(height: 48),
-                  Text.rich(
-                    TextSpan(
-                      children: <InlineSpan>[
-                        TextSpan(
-                          text: i18n.lastStep.prompt,
-                          style: theme.textTheme.labelLarge?.copyWith(
-                            color: theme.colorScheme.secondary,
-                          ),
-                        ),
-                        const TextSpan(text: ' '),
-                        TextSpan(
-                          text: i18n.lastStep.assessment,
-                          style: theme.textTheme.labelMedium,
-                        ),
-                      ],
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-                  const SizedBox(height: 48),
-                  Text(
-                    i18n.motivationMessage,
-                    textAlign: TextAlign.center,
-                    style: theme.textTheme.labelMedium,
-                  ),
-                ],
               ),
             ),
           ),
@@ -194,6 +124,74 @@ class Onboarding11ProgressScreen extends HookConsumerWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: <Widget>[
+                  Expanded(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Text.rich(
+                          TextSpan(
+                            children: <InlineSpan>[
+                              TextSpan(text: i18n.greeting.thanks),
+                              const TextSpan(text: ' '),
+                              TextSpan(
+                                text: i18n.greeting.name(name: name),
+                                style: TextStyle(
+                                  color: theme.colorScheme.secondary,
+                                ),
+                              ),
+                            ],
+                          ),
+                          textAlign: TextAlign.center,
+                          style: theme.textTheme.displayMedium,
+                        ),
+                        const SizedBox(height: 24),
+                        Text.rich(
+                          TextSpan(
+                            children: <InlineSpan>[
+                              TextSpan(text: i18n.profileReady.message),
+                              const TextSpan(text: ' '),
+                              TextSpan(
+                                text: i18n.profileReady.completion(
+                                  percent: 65,
+                                ),
+                                style: TextStyle(
+                                  color: theme.colorScheme.secondary,
+                                ),
+                              ),
+                            ],
+                          ),
+                          textAlign: TextAlign.center,
+                          style: theme.textTheme.headlineLarge,
+                        ),
+                        const SizedBox(height: 24),
+                        Text.rich(
+                          TextSpan(
+                            children: <InlineSpan>[
+                              TextSpan(
+                                text: i18n.lastStep.prompt,
+                                style: theme.textTheme.labelLarge?.copyWith(
+                                  color: theme.colorScheme.secondary,
+                                ),
+                              ),
+                              const TextSpan(text: ' '),
+                              TextSpan(
+                                text: i18n.lastStep.assessment,
+                                style: theme.textTheme.labelMedium,
+                              ),
+                            ],
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                        const SizedBox(height: 24),
+                        Text(
+                          i18n.motivationMessage,
+                          textAlign: TextAlign.center,
+                          style: theme.textTheme.labelMedium,
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 24),
                   Container(
                     width: 450,
                     height: 48,

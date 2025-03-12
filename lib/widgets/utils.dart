@@ -9,11 +9,7 @@ const LinearGradient primaryGradient = LinearGradient(
 const LinearGradient secondaryGradient = LinearGradient(
   begin: Alignment(0.31, -0.95),
   end: Alignment(-0.31, 0.95),
-  colors: <Color>[
-    Color(0xFFFBD080),
-    Color(0xFFF2DDB5),
-    Color(0xFFFCD180),
-  ],
+  colors: <Color>[Color(0xFFFBD080), Color(0xFFF2DDB5), Color(0xFFFCD180)],
 );
 
 const BoxShadow buttonShadow = BoxShadow(

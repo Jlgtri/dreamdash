@@ -31,18 +31,17 @@ class Onboarding01WelcomeRoute extends GoRouteData {
   CustomTransitionPage<void> buildPage(
     final BuildContext context,
     final GoRouterState state,
-  ) =>
-      CustomTransitionPage<void>(
-        key: state.pageKey,
-        child: build(context, state),
-        transitionsBuilder: (
+  ) => CustomTransitionPage<void>(
+    key: state.pageKey,
+    child: build(context, state),
+    transitionsBuilder:
+        (
           final BuildContext context,
           final Animation<double> animation,
           final Animation<double> secondaryAnimation,
           final Widget child,
-        ) =>
-            FadeTransition(opacity: animation, child: child),
-      );
+        ) => FadeTransition(opacity: animation, child: child),
+  );
 }
 
 /// The welcome screen of the onboarding flow.
@@ -64,34 +63,34 @@ class Onboarding01WelcomeScreen extends HookConsumerWidget {
     final ObjectRef<bool> isLoading = useRef(false);
 
     useMemoized(() {
-      WidgetsBinding.instance.addPostFrameCallback(
-        (final _) async {
-          await scrollController.scrollToBottom();
+      WidgetsBinding.instance.addPostFrameCallback((final _) async {
+        await scrollController.scrollToBottom();
 
-          if (defaultTargetPlatform == TargetPlatform.iOS) {
-            await ref.read(analyticsProvider.notifier).track(
-                  BaseEvent('att_popup_shown'),
-                );
-            final TrackingStatus status =
-                await AppTrackingTransparency.requestTrackingAuthorization();
-            await ref.read(analyticsProvider.notifier).track(
-                  BaseEvent(
-                    'att_popup_clicked',
-                    eventProperties: <String, String>{
-                      'answer': status.name,
-                    },
-                  ),
-                );
-          }
-        },
-      );
+        if (defaultTargetPlatform == TargetPlatform.iOS) {
+          await ref
+              .read(analyticsProvider.notifier)
+              .track(BaseEvent('att_popup_shown'));
+          final TrackingStatus status =
+              await AppTrackingTransparency.requestTrackingAuthorization();
+          await ref
+              .read(analyticsProvider.notifier)
+              .track(
+                BaseEvent(
+                  'att_popup_clicked',
+                  eventProperties: <String, String>{'answer': status.name},
+                ),
+              );
+        }
+      });
     });
 
     Future<void> next([Routes<RouteData>? route]) async {
       if (!isLoading.value) {
         isLoading.value = true;
         try {
-          await ref.read(analyticsProvider.notifier).track(
+          await ref
+              .read(analyticsProvider.notifier)
+              .track(
                 BaseEvent(
                   'onboarding_started',
                   eventProperties: <String, String>{
@@ -107,22 +106,24 @@ class Onboarding01WelcomeScreen extends HookConsumerWidget {
                 ),
               );
           if (route == null) {
-            await ref.read(analyticsProvider.notifier).track(
-                  BaseEvent('continue_with_anonymous_user'),
-                );
+            await ref
+                .read(analyticsProvider.notifier)
+                .track(BaseEvent('continue_with_anonymous_user'));
             await ref.read(authorizationProvider.notifier).signInAnonymously();
-            await ref.read(analyticsProvider.notifier).track(
-                  BaseEvent('anonymous_user_account_success'),
-                );
+            await ref
+                .read(analyticsProvider.notifier)
+                .track(BaseEvent('anonymous_user_account_success'));
             route ??= await ref.read(onboardingProvider.notifier).next();
             if (context.mounted) {
               route?.go(context);
             }
           } else if (route == Routes.authorization01Prompt) {
-            await ref.read(analyticsProvider.notifier).track(
-                  BaseEvent('have_account_clicked'),
-                );
-            await ref.read(analyticsProvider.notifier).track(
+            await ref
+                .read(analyticsProvider.notifier)
+                .track(BaseEvent('have_account_clicked'));
+            await ref
+                .read(analyticsProvider.notifier)
+                .track(
                   BaseEvent(
                     'login_screen_shown',
                     eventProperties: <String, String>{'placement': 'login'},
@@ -273,9 +274,7 @@ class Onboarding01WelcomeScreen extends HookConsumerWidget {
                       height: 68.91,
                       decoration: ShapeDecoration(
                         gradient: secondaryGradient,
-                        shape: const StarBorder(
-                          innerRadiusRatio: 0.01,
-                        ),
+                        shape: const StarBorder(innerRadiusRatio: 0.01),
                         shadows: <BoxShadow>[
                           BoxShadow(
                             color: theme.colorScheme.secondary,
@@ -293,9 +292,7 @@ class Onboarding01WelcomeScreen extends HookConsumerWidget {
                       height: 68.91,
                       decoration: ShapeDecoration(
                         gradient: secondaryGradient,
-                        shape: const StarBorder(
-                          innerRadiusRatio: 0.01,
-                        ),
+                        shape: const StarBorder(innerRadiusRatio: 0.01),
                         shadows: <BoxShadow>[
                           BoxShadow(
                             color: theme.colorScheme.secondary,
@@ -313,9 +310,7 @@ class Onboarding01WelcomeScreen extends HookConsumerWidget {
                       height: 68.91,
                       decoration: ShapeDecoration(
                         gradient: secondaryGradient,
-                        shape: const StarBorder(
-                          innerRadiusRatio: 0.01,
-                        ),
+                        shape: const StarBorder(innerRadiusRatio: 0.01),
                         shadows: <BoxShadow>[
                           BoxShadow(
                             color: theme.colorScheme.secondary,
@@ -333,9 +328,7 @@ class Onboarding01WelcomeScreen extends HookConsumerWidget {
                       height: 34,
                       decoration: ShapeDecoration(
                         gradient: secondaryGradient,
-                        shape: const StarBorder(
-                          innerRadiusRatio: 0.01,
-                        ),
+                        shape: const StarBorder(innerRadiusRatio: 0.01),
                         shadows: <BoxShadow>[
                           BoxShadow(
                             color: theme.colorScheme.secondary,
@@ -353,9 +346,7 @@ class Onboarding01WelcomeScreen extends HookConsumerWidget {
                       height: 34,
                       decoration: ShapeDecoration(
                         gradient: secondaryGradient,
-                        shape: const StarBorder(
-                          innerRadiusRatio: 0.01,
-                        ),
+                        shape: const StarBorder(innerRadiusRatio: 0.01),
                         shadows: <BoxShadow>[
                           BoxShadow(
                             color: theme.colorScheme.secondary,
@@ -373,9 +364,7 @@ class Onboarding01WelcomeScreen extends HookConsumerWidget {
                       height: 34,
                       decoration: ShapeDecoration(
                         gradient: secondaryGradient,
-                        shape: const StarBorder(
-                          innerRadiusRatio: 0.01,
-                        ),
+                        shape: const StarBorder(innerRadiusRatio: 0.01),
                         shadows: <BoxShadow>[
                           BoxShadow(
                             color: theme.colorScheme.secondary,
@@ -460,9 +449,7 @@ class Onboarding01WelcomeScreen extends HookConsumerWidget {
                         Text.rich(
                           TextSpan(
                             children: <InlineSpan>[
-                              TextSpan(
-                                text: i18n.toYour,
-                              ),
+                              TextSpan(text: i18n.toYour),
                               const TextSpan(text: ' '),
                               TextSpan(
                                 text: i18n.dreamsFullfilling,
@@ -515,7 +502,8 @@ class Onboarding01WelcomeScreen extends HookConsumerWidget {
                       shadows: const <BoxShadow>[buttonShadow],
                     ),
                     child: TextButton(
-                      onPressed: () async => next(Routes.authorization01Prompt),
+                      onPressed:
+                          () async => next(Routes.authorization01Prompt),
                       child: Text(
                         i18n.iAlreadyHaveAnAccount,
                         textAlign: TextAlign.center,
@@ -528,18 +516,18 @@ class Onboarding01WelcomeScreen extends HookConsumerWidget {
                     child: Text.rich(
                       TextSpan(
                         children: <InlineSpan>[
-                          TextSpan(
-                            text: i18n.agreement.byContinuingYouAgree,
-                          ),
+                          TextSpan(text: i18n.agreement.byContinuingYouAgree),
                           const TextSpan(text: '\n'),
                           TextSpan(text: i18n.agreement.withOur),
                           const TextSpan(text: ' '),
                           TextSpan(
                             text: i18n.agreement.privacyPolicy,
                             style: theme.textTheme.labelSmall,
-                            recognizer: TapGestureRecognizer()
-                              ..onTap = () async =>
-                                  next(Routes.authorization01Prompt),
+                            recognizer:
+                                TapGestureRecognizer()
+                                  ..onTap =
+                                      () async =>
+                                          next(Routes.authorization01Prompt),
                           ),
                           const TextSpan(text: ' '),
                           TextSpan(text: i18n.agreement.and),
@@ -547,9 +535,11 @@ class Onboarding01WelcomeScreen extends HookConsumerWidget {
                           TextSpan(
                             text: i18n.agreement.termsOfUse,
                             style: theme.textTheme.labelSmall,
-                            recognizer: TapGestureRecognizer()
-                              ..onTap = () async =>
-                                  next(Routes.authorization01Prompt),
+                            recognizer:
+                                TapGestureRecognizer()
+                                  ..onTap =
+                                      () async =>
+                                          next(Routes.authorization01Prompt),
                           ),
                         ],
                       ),

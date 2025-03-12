@@ -13,9 +13,7 @@ import '../utils.dart';
 
 part 'onboarding_18_comparison_screen.g.dart';
 
-@TypedGoRoute<Onboarding18ComparisonRoute>(
-  path: '/onboarding/18_comparison',
-)
+@TypedGoRoute<Onboarding18ComparisonRoute>(path: '/onboarding/18_comparison')
 class Onboarding18ComparisonRoute extends GoRouteData {
   const Onboarding18ComparisonRoute();
 
@@ -27,19 +25,18 @@ class Onboarding18ComparisonRoute extends GoRouteData {
   CustomTransitionPage<void> buildPage(
     final BuildContext context,
     final GoRouterState state,
-  ) =>
-      CustomTransitionPage<void>(
-        key: state.pageKey,
-        child: build(context, state),
-        transitionDuration: const Duration(milliseconds: 600),
-        transitionsBuilder: (
+  ) => CustomTransitionPage<void>(
+    key: state.pageKey,
+    child: build(context, state),
+    transitionDuration: const Duration(milliseconds: 600),
+    transitionsBuilder:
+        (
           final BuildContext context,
           final Animation<double> animation,
           final Animation<double> secondaryAnimation,
           final Widget child,
-        ) =>
-            FadeTransition(opacity: animation, child: child),
-      );
+        ) => FadeTransition(opacity: animation, child: child),
+  );
 }
 
 /// The welcome screen of the onboarding flow.
@@ -70,7 +67,9 @@ class Onboarding18ComparisonScreen extends HookConsumerWidget {
       if (!isLoading.value) {
         isLoading.value = true;
         try {
-          await ref.read(analyticsProvider.notifier).track(
+          await ref
+              .read(analyticsProvider.notifier)
+              .track(
                 BaseEvent(
                   'onboarding_screen_17_clicked',
                   eventProperties: <String, String>{
@@ -110,9 +109,7 @@ class Onboarding18ComparisonScreen extends HookConsumerWidget {
                     const TextSpan(text: ' '),
                     TextSpan(
                       text: i18n.dreamdash,
-                      style: TextStyle(
-                        color: theme.colorScheme.secondary,
-                      ),
+                      style: TextStyle(color: theme.colorScheme.secondary),
                     ),
                   ],
                 ),
@@ -258,10 +255,10 @@ class Onboarding18ComparisonScreen extends HookConsumerWidget {
                                             width: 5.2,
                                             height: 5.2,
                                             decoration: ShapeDecoration(
-                                              color: theme.colorScheme.onSurface
-                                                  .withValues(
-                                                alpha: 0.7,
-                                              ),
+                                              color: theme
+                                                  .colorScheme
+                                                  .onSurface
+                                                  .withValues(alpha: 0.7),
                                               shape: const OvalBorder(),
                                             ),
                                           ),
@@ -271,13 +268,15 @@ class Onboarding18ComparisonScreen extends HookConsumerWidget {
                                               i18n.adhd,
                                               style: theme.textTheme.bodyMedium
                                                   ?.copyWith(
-                                                color: theme
-                                                    .colorScheme.onSurface
-                                                    .withValues(
-                                                  alpha: 0.7,
-                                                ),
-                                                overflow: TextOverflow.visible,
-                                              ),
+                                                    color: theme
+                                                        .colorScheme
+                                                        .onSurface
+                                                        .withValues(
+                                                          alpha: 0.7,
+                                                        ),
+                                                    overflow:
+                                                        TextOverflow.visible,
+                                                  ),
                                             ),
                                           ),
                                         ],
@@ -292,10 +291,10 @@ class Onboarding18ComparisonScreen extends HookConsumerWidget {
                                             width: 5.2,
                                             height: 5.2,
                                             decoration: ShapeDecoration(
-                                              color: theme.colorScheme.onSurface
-                                                  .withValues(
-                                                alpha: 0.7,
-                                              ),
+                                              color: theme
+                                                  .colorScheme
+                                                  .onSurface
+                                                  .withValues(alpha: 0.7),
                                               shape: const OvalBorder(),
                                             ),
                                           ),
@@ -305,12 +304,13 @@ class Onboarding18ComparisonScreen extends HookConsumerWidget {
                                               i18n.struggleToStart,
                                               style: theme.textTheme.bodyMedium
                                                   ?.copyWith(
-                                                color: theme
-                                                    .colorScheme.onSurface
-                                                    .withValues(
-                                                  alpha: 0.7,
-                                                ),
-                                              ),
+                                                    color: theme
+                                                        .colorScheme
+                                                        .onSurface
+                                                        .withValues(
+                                                          alpha: 0.7,
+                                                        ),
+                                                  ),
                                             ),
                                           ),
                                         ],
@@ -325,10 +325,10 @@ class Onboarding18ComparisonScreen extends HookConsumerWidget {
                                             width: 5.2,
                                             height: 5.2,
                                             decoration: ShapeDecoration(
-                                              color: theme.colorScheme.onSurface
-                                                  .withValues(
-                                                alpha: 0.7,
-                                              ),
+                                              color: theme
+                                                  .colorScheme
+                                                  .onSurface
+                                                  .withValues(alpha: 0.7),
                                               shape: const OvalBorder(),
                                             ),
                                           ),
@@ -338,12 +338,13 @@ class Onboarding18ComparisonScreen extends HookConsumerWidget {
                                               i18n.noFocus,
                                               style: theme.textTheme.bodyMedium
                                                   ?.copyWith(
-                                                color: theme
-                                                    .colorScheme.onSurface
-                                                    .withValues(
-                                                  alpha: 0.7,
-                                                ),
-                                              ),
+                                                    color: theme
+                                                        .colorScheme
+                                                        .onSurface
+                                                        .withValues(
+                                                          alpha: 0.7,
+                                                        ),
+                                                  ),
                                             ),
                                           ),
                                         ],
@@ -358,10 +359,10 @@ class Onboarding18ComparisonScreen extends HookConsumerWidget {
                                             width: 5.2,
                                             height: 5.2,
                                             decoration: ShapeDecoration(
-                                              color: theme.colorScheme.onSurface
-                                                  .withValues(
-                                                alpha: 0.7,
-                                              ),
+                                              color: theme
+                                                  .colorScheme
+                                                  .onSurface
+                                                  .withValues(alpha: 0.7),
                                               shape: const OvalBorder(),
                                             ),
                                           ),
@@ -371,12 +372,13 @@ class Onboarding18ComparisonScreen extends HookConsumerWidget {
                                               i18n.lackOfSupport,
                                               style: theme.textTheme.bodyMedium
                                                   ?.copyWith(
-                                                color: theme
-                                                    .colorScheme.onSurface
-                                                    .withValues(
-                                                  alpha: 0.7,
-                                                ),
-                                              ),
+                                                    color: theme
+                                                        .colorScheme
+                                                        .onSurface
+                                                        .withValues(
+                                                          alpha: 0.7,
+                                                        ),
+                                                  ),
                                             ),
                                           ),
                                         ],
@@ -391,10 +393,10 @@ class Onboarding18ComparisonScreen extends HookConsumerWidget {
                                             width: 5.2,
                                             height: 5.2,
                                             decoration: ShapeDecoration(
-                                              color: theme.colorScheme.onSurface
-                                                  .withValues(
-                                                alpha: 0.7,
-                                              ),
+                                              color: theme
+                                                  .colorScheme
+                                                  .onSurface
+                                                  .withValues(alpha: 0.7),
                                               shape: const OvalBorder(),
                                             ),
                                           ),
@@ -404,12 +406,13 @@ class Onboarding18ComparisonScreen extends HookConsumerWidget {
                                               i18n.poorResults,
                                               style: theme.textTheme.bodyMedium
                                                   ?.copyWith(
-                                                color: theme
-                                                    .colorScheme.onSurface
-                                                    .withValues(
-                                                  alpha: 0.7,
-                                                ),
-                                              ),
+                                                    color: theme
+                                                        .colorScheme
+                                                        .onSurface
+                                                        .withValues(
+                                                          alpha: 0.7,
+                                                        ),
+                                                  ),
                                             ),
                                           ),
                                         ],
@@ -451,7 +454,8 @@ class Onboarding18ComparisonScreen extends HookConsumerWidget {
                               child: SizedBox(
                                 height: 87.04,
                                 child: assets.vector4.svg(
-                                  width: 190 /
+                                  width:
+                                      190 /
                                       (393 - 48) *
                                       (mediaQuery.size.width - 48),
                                   fit: BoxFit.fill,
@@ -739,7 +743,8 @@ class Onboarding18ComparisonScreen extends HookConsumerWidget {
                                           Flexible(
                                             child: Text(
                                               i18n.peaceOfMind,
-                                              style: theme.textTheme.bodyMedium,
+                                              style:
+                                                  theme.textTheme.bodyMedium,
                                             ),
                                           ),
                                         ],
@@ -757,7 +762,8 @@ class Onboarding18ComparisonScreen extends HookConsumerWidget {
                                           Flexible(
                                             child: Text(
                                               i18n.toDoPersonalizedPlan,
-                                              style: theme.textTheme.bodyMedium,
+                                              style:
+                                                  theme.textTheme.bodyMedium,
                                               maxLines: 2,
                                               overflow: TextOverflow.visible,
                                             ),
@@ -777,7 +783,8 @@ class Onboarding18ComparisonScreen extends HookConsumerWidget {
                                           Flexible(
                                             child: Text(
                                               i18n.aiCoach,
-                                              style: theme.textTheme.bodyMedium,
+                                              style:
+                                                  theme.textTheme.bodyMedium,
                                             ),
                                           ),
                                         ],
@@ -795,7 +802,8 @@ class Onboarding18ComparisonScreen extends HookConsumerWidget {
                                           Flexible(
                                             child: Text(
                                               i18n.focusOnYourself,
-                                              style: theme.textTheme.bodyMedium,
+                                              style:
+                                                  theme.textTheme.bodyMedium,
                                             ),
                                           ),
                                         ],
@@ -813,7 +821,8 @@ class Onboarding18ComparisonScreen extends HookConsumerWidget {
                                           Flexible(
                                             child: Text(
                                               i18n.reachingTheGoal,
-                                              style: theme.textTheme.bodyMedium,
+                                              style:
+                                                  theme.textTheme.bodyMedium,
                                             ),
                                           ),
                                         ],
@@ -835,8 +844,9 @@ class Onboarding18ComparisonScreen extends HookConsumerWidget {
                         height: 198,
                         decoration: BoxDecoration(
                           image: DecorationImage(
-                            image: assets.teamworkdiscussinganideainateam1
-                                .provider(),
+                            image:
+                                assets.teamworkdiscussinganideainateam1
+                                    .provider(),
                             fit: BoxFit.contain,
                           ),
                         ),

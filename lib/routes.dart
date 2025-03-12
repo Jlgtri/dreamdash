@@ -200,8 +200,9 @@ enum Routes<Route extends RouteData> {
     final ProviderContainer container,
   ) async {
     await container.read(authorizationProvider.future);
-    final OnboardingState onboarding =
-        await container.read(onboardingProvider.future);
+    final OnboardingState onboarding = await container.read(
+      onboardingProvider.future,
+    );
     return onboarding.route!;
   }
 
@@ -464,61 +465,63 @@ enum Routes<Route extends RouteData> {
   }) {
     switch (this) {
       case authorization01Prompt:
-        return GoRouter.of(context)
-            .pushReplacement<T>(authorization01Prompt.location, extra: extra);
+        return GoRouter.of(
+          context,
+        ).pushReplacement<T>(authorization01Prompt.location, extra: extra);
       case authorization02Verification:
         return GoRouter.of(context).pushReplacement<T>(
           authorization02Verification.location,
           extra: extra,
         );
       case onboarding00Splash:
-        return GoRouter.of(context).pushReplacement<T>(
-          onboarding00Splash.location,
-          extra: extra,
-        );
+        return GoRouter.of(
+          context,
+        ).pushReplacement<T>(onboarding00Splash.location, extra: extra);
       case onboarding01Welcome:
-        return GoRouter.of(context)
-            .pushReplacement<T>(onboarding01Welcome.location, extra: extra);
+        return GoRouter.of(
+          context,
+        ).pushReplacement<T>(onboarding01Welcome.location, extra: extra);
       case onboarding02Introduction:
-        return GoRouter.of(context).pushReplacement<T>(
-          onboarding02Introduction.location,
-          extra: extra,
-        );
+        return GoRouter.of(
+          context,
+        ).pushReplacement<T>(onboarding02Introduction.location, extra: extra);
       case onboarding03Greeting:
-        return GoRouter.of(context)
-            .pushReplacement<T>(onboarding03Greeting.location, extra: extra);
+        return GoRouter.of(
+          context,
+        ).pushReplacement<T>(onboarding03Greeting.location, extra: extra);
       case onboarding04Gender:
-        return GoRouter.of(context)
-            .pushReplacement<T>(onboarding04Gender.location, extra: extra);
+        return GoRouter.of(
+          context,
+        ).pushReplacement<T>(onboarding04Gender.location, extra: extra);
       case onboarding05Age:
-        return GoRouter.of(context)
-            .pushReplacement<T>(onboarding05Age.location, extra: extra);
+        return GoRouter.of(
+          context,
+        ).pushReplacement<T>(onboarding05Age.location, extra: extra);
       case onboarding06Info:
-        return GoRouter.of(context)
-            .pushReplacement<T>(onboarding06Info.location, extra: extra);
+        return GoRouter.of(
+          context,
+        ).pushReplacement<T>(onboarding06Info.location, extra: extra);
       case onboarding07MotivationQ1:
-        return GoRouter.of(context).pushReplacement<T>(
-          onboarding07MotivationQ1.location,
-          extra: extra,
-        );
+        return GoRouter.of(
+          context,
+        ).pushReplacement<T>(onboarding07MotivationQ1.location, extra: extra);
       case onboarding08MotivationQ2:
-        return GoRouter.of(context).pushReplacement<T>(
-          onboarding08MotivationQ2.location,
-          extra: extra,
-        );
+        return GoRouter.of(
+          context,
+        ).pushReplacement<T>(onboarding08MotivationQ2.location, extra: extra);
       case onboarding09MotivationQ3:
-        return GoRouter.of(context).pushReplacement<T>(
-          onboarding09MotivationQ3.location,
-          extra: extra,
-        );
+        return GoRouter.of(
+          context,
+        ).pushReplacement<T>(onboarding09MotivationQ3.location, extra: extra);
       case onboarding10MotivationLevel:
         return GoRouter.of(context).pushReplacement<T>(
           onboarding10MotivationLevel.location,
           extra: extra,
         );
       case onboarding11Progress:
-        return GoRouter.of(context)
-            .pushReplacement<T>(onboarding11Progress.location, extra: extra);
+        return GoRouter.of(
+          context,
+        ).pushReplacement<T>(onboarding11Progress.location, extra: extra);
       case onboarding12MentalHealthQ1:
         return GoRouter.of(context).pushReplacement<T>(
           onboarding12MentalHealthQ1.location,
@@ -545,53 +548,62 @@ enum Routes<Route extends RouteData> {
           extra: extra,
         );
       case onboarding17Info2:
-        return GoRouter.of(context)
-            .pushReplacement<T>(onboarding17Info2.location, extra: extra);
+        return GoRouter.of(
+          context,
+        ).pushReplacement<T>(onboarding17Info2.location, extra: extra);
       case onboarding18Comparison:
-        return GoRouter.of(context)
-            .pushReplacement<T>(onboarding18Comparison.location, extra: extra);
+        return GoRouter.of(
+          context,
+        ).pushReplacement<T>(onboarding18Comparison.location, extra: extra);
       case onboarding19Journey:
-        return GoRouter.of(context)
-            .pushReplacement<T>(onboarding19Journey.location, extra: extra);
+        return GoRouter.of(
+          context,
+        ).pushReplacement<T>(onboarding19Journey.location, extra: extra);
       case onboarding20StatementQ1:
-        return GoRouter.of(context)
-            .pushReplacement<T>(onboarding20StatementQ1.location, extra: extra);
+        return GoRouter.of(
+          context,
+        ).pushReplacement<T>(onboarding20StatementQ1.location, extra: extra);
       case onboarding21StatementQ2:
-        return GoRouter.of(context)
-            .pushReplacement<T>(onboarding21StatementQ2.location, extra: extra);
+        return GoRouter.of(
+          context,
+        ).pushReplacement<T>(onboarding21StatementQ2.location, extra: extra);
       case onboarding22MotivationProgress:
         return GoRouter.of(context).pushReplacement<T>(
           onboarding22MotivationProgress.location,
           extra: extra,
         );
       case onboarding23Testimonials:
-        return GoRouter.of(context).pushReplacement<T>(
-          onboarding23Testimonials.location,
-          extra: extra,
-        );
+        return GoRouter.of(
+          context,
+        ).pushReplacement<T>(onboarding23Testimonials.location, extra: extra);
       case onboarding24Task:
-        return GoRouter.of(context)
-            .pushReplacement<T>(onboarding24Task.location, extra: extra);
+        return GoRouter.of(
+          context,
+        ).pushReplacement<T>(onboarding24Task.location, extra: extra);
       case onboarding25Wishlist:
-        return GoRouter.of(context)
-            .pushReplacement<T>(onboarding25Wishlist.location, extra: extra);
+        return GoRouter.of(
+          context,
+        ).pushReplacement<T>(onboarding25Wishlist.location, extra: extra);
       case onboarding26Commitment:
-        return GoRouter.of(context)
-            .pushReplacement<T>(onboarding26Commitment.location, extra: extra);
+        return GoRouter.of(
+          context,
+        ).pushReplacement<T>(onboarding26Commitment.location, extra: extra);
       case onboarding27Notification:
-        return GoRouter.of(context).pushReplacement<T>(
-          onboarding27Notification.location,
-          extra: extra,
-        );
+        return GoRouter.of(
+          context,
+        ).pushReplacement<T>(onboarding27Notification.location, extra: extra);
       case onboarding28Promise:
-        return GoRouter.of(context)
-            .pushReplacement<T>(onboarding28Promise.location, extra: extra);
+        return GoRouter.of(
+          context,
+        ).pushReplacement<T>(onboarding28Promise.location, extra: extra);
       case onboarding29Chat:
-        return GoRouter.of(context)
-            .pushReplacement<T>(onboarding29Chat.location, extra: extra);
+        return GoRouter.of(
+          context,
+        ).pushReplacement<T>(onboarding29Chat.location, extra: extra);
       case onboarding30Paywall:
-        return GoRouter.of(context)
-            .pushReplacement<T>(onboarding30Paywall.location, extra: extra);
+        return GoRouter.of(
+          context,
+        ).pushReplacement<T>(onboarding30Paywall.location, extra: extra);
     }
   }
 
@@ -601,104 +613,137 @@ enum Routes<Route extends RouteData> {
   }) {
     switch (this) {
       case authorization01Prompt:
-        return GoRouter.of(context)
-            .replace<T>(authorization01Prompt.location, extra: extra);
+        return GoRouter.of(
+          context,
+        ).replace<T>(authorization01Prompt.location, extra: extra);
       case authorization02Verification:
-        return GoRouter.of(context)
-            .replace<T>(authorization02Verification.location, extra: extra);
+        return GoRouter.of(
+          context,
+        ).replace<T>(authorization02Verification.location, extra: extra);
       case onboarding00Splash:
-        return GoRouter.of(context)
-            .replace<T>(onboarding00Splash.location, extra: extra);
+        return GoRouter.of(
+          context,
+        ).replace<T>(onboarding00Splash.location, extra: extra);
       case onboarding01Welcome:
-        return GoRouter.of(context)
-            .replace<T>(onboarding01Welcome.location, extra: extra);
+        return GoRouter.of(
+          context,
+        ).replace<T>(onboarding01Welcome.location, extra: extra);
       case onboarding02Introduction:
-        return GoRouter.of(context)
-            .replace<T>(onboarding02Introduction.location, extra: extra);
+        return GoRouter.of(
+          context,
+        ).replace<T>(onboarding02Introduction.location, extra: extra);
       case onboarding03Greeting:
-        return GoRouter.of(context)
-            .replace<T>(onboarding03Greeting.location, extra: extra);
+        return GoRouter.of(
+          context,
+        ).replace<T>(onboarding03Greeting.location, extra: extra);
       case onboarding04Gender:
-        return GoRouter.of(context)
-            .replace<T>(onboarding04Gender.location, extra: extra);
+        return GoRouter.of(
+          context,
+        ).replace<T>(onboarding04Gender.location, extra: extra);
       case onboarding05Age:
-        return GoRouter.of(context)
-            .replace<T>(onboarding05Age.location, extra: extra);
+        return GoRouter.of(
+          context,
+        ).replace<T>(onboarding05Age.location, extra: extra);
       case onboarding06Info:
-        return GoRouter.of(context)
-            .replace<T>(onboarding06Info.location, extra: extra);
+        return GoRouter.of(
+          context,
+        ).replace<T>(onboarding06Info.location, extra: extra);
       case onboarding07MotivationQ1:
-        return GoRouter.of(context)
-            .replace<T>(onboarding07MotivationQ1.location, extra: extra);
+        return GoRouter.of(
+          context,
+        ).replace<T>(onboarding07MotivationQ1.location, extra: extra);
       case onboarding08MotivationQ2:
-        return GoRouter.of(context)
-            .replace<T>(onboarding08MotivationQ2.location, extra: extra);
+        return GoRouter.of(
+          context,
+        ).replace<T>(onboarding08MotivationQ2.location, extra: extra);
       case onboarding09MotivationQ3:
-        return GoRouter.of(context)
-            .replace<T>(onboarding09MotivationQ3.location, extra: extra);
+        return GoRouter.of(
+          context,
+        ).replace<T>(onboarding09MotivationQ3.location, extra: extra);
       case onboarding10MotivationLevel:
-        return GoRouter.of(context)
-            .replace<T>(onboarding10MotivationLevel.location, extra: extra);
+        return GoRouter.of(
+          context,
+        ).replace<T>(onboarding10MotivationLevel.location, extra: extra);
       case onboarding11Progress:
-        return GoRouter.of(context)
-            .replace<T>(onboarding11Progress.location, extra: extra);
+        return GoRouter.of(
+          context,
+        ).replace<T>(onboarding11Progress.location, extra: extra);
       case onboarding12MentalHealthQ1:
-        return GoRouter.of(context)
-            .replace<T>(onboarding12MentalHealthQ1.location, extra: extra);
+        return GoRouter.of(
+          context,
+        ).replace<T>(onboarding12MentalHealthQ1.location, extra: extra);
       case onboarding13MentalHealthQ2:
-        return GoRouter.of(context)
-            .replace<T>(onboarding13MentalHealthQ2.location, extra: extra);
+        return GoRouter.of(
+          context,
+        ).replace<T>(onboarding13MentalHealthQ2.location, extra: extra);
       case onboarding14MentalHealthQ3:
-        return GoRouter.of(context)
-            .replace<T>(onboarding14MentalHealthQ3.location, extra: extra);
+        return GoRouter.of(
+          context,
+        ).replace<T>(onboarding14MentalHealthQ3.location, extra: extra);
       case onboarding15MentalHealthQ4:
-        return GoRouter.of(context)
-            .replace<T>(onboarding15MentalHealthQ4.location, extra: extra);
+        return GoRouter.of(
+          context,
+        ).replace<T>(onboarding15MentalHealthQ4.location, extra: extra);
       case onboarding16MentalHealthQ5:
-        return GoRouter.of(context)
-            .replace<T>(onboarding16MentalHealthQ5.location, extra: extra);
+        return GoRouter.of(
+          context,
+        ).replace<T>(onboarding16MentalHealthQ5.location, extra: extra);
       case onboarding17Info2:
-        return GoRouter.of(context)
-            .replace<T>(onboarding17Info2.location, extra: extra);
+        return GoRouter.of(
+          context,
+        ).replace<T>(onboarding17Info2.location, extra: extra);
       case onboarding18Comparison:
-        return GoRouter.of(context)
-            .replace<T>(onboarding18Comparison.location, extra: extra);
+        return GoRouter.of(
+          context,
+        ).replace<T>(onboarding18Comparison.location, extra: extra);
       case onboarding19Journey:
-        return GoRouter.of(context)
-            .replace<T>(onboarding19Journey.location, extra: extra);
+        return GoRouter.of(
+          context,
+        ).replace<T>(onboarding19Journey.location, extra: extra);
       case onboarding20StatementQ1:
-        return GoRouter.of(context)
-            .replace<T>(onboarding20StatementQ1.location, extra: extra);
+        return GoRouter.of(
+          context,
+        ).replace<T>(onboarding20StatementQ1.location, extra: extra);
       case onboarding21StatementQ2:
-        return GoRouter.of(context)
-            .replace<T>(onboarding21StatementQ2.location, extra: extra);
+        return GoRouter.of(
+          context,
+        ).replace<T>(onboarding21StatementQ2.location, extra: extra);
       case onboarding22MotivationProgress:
-        return GoRouter.of(context)
-            .replace<T>(onboarding22MotivationProgress.location, extra: extra);
+        return GoRouter.of(
+          context,
+        ).replace<T>(onboarding22MotivationProgress.location, extra: extra);
       case onboarding23Testimonials:
-        return GoRouter.of(context)
-            .replace<T>(onboarding23Testimonials.location, extra: extra);
+        return GoRouter.of(
+          context,
+        ).replace<T>(onboarding23Testimonials.location, extra: extra);
       case onboarding24Task:
-        return GoRouter.of(context)
-            .replace<T>(onboarding24Task.location, extra: extra);
+        return GoRouter.of(
+          context,
+        ).replace<T>(onboarding24Task.location, extra: extra);
       case onboarding25Wishlist:
-        return GoRouter.of(context)
-            .replace<T>(onboarding25Wishlist.location, extra: extra);
+        return GoRouter.of(
+          context,
+        ).replace<T>(onboarding25Wishlist.location, extra: extra);
       case onboarding26Commitment:
-        return GoRouter.of(context)
-            .replace<T>(onboarding26Commitment.location, extra: extra);
+        return GoRouter.of(
+          context,
+        ).replace<T>(onboarding26Commitment.location, extra: extra);
       case onboarding27Notification:
-        return GoRouter.of(context)
-            .replace<T>(onboarding27Notification.location, extra: extra);
+        return GoRouter.of(
+          context,
+        ).replace<T>(onboarding27Notification.location, extra: extra);
       case onboarding28Promise:
-        return GoRouter.of(context)
-            .replace<T>(onboarding28Promise.location, extra: extra);
+        return GoRouter.of(
+          context,
+        ).replace<T>(onboarding28Promise.location, extra: extra);
       case onboarding29Chat:
-        return GoRouter.of(context)
-            .replace<T>(onboarding29Chat.location, extra: extra);
+        return GoRouter.of(
+          context,
+        ).replace<T>(onboarding29Chat.location, extra: extra);
       case onboarding30Paywall:
-        return GoRouter.of(context)
-            .replace<T>(onboarding30Paywall.location, extra: extra);
+        return GoRouter.of(
+          context,
+        ).replace<T>(onboarding30Paywall.location, extra: extra);
     }
   }
 }
@@ -719,7 +764,7 @@ class RoutesApp extends HookConsumerWidget {
   Widget build(final BuildContext context, final WidgetRef ref) {
     const ColorScheme colorScheme = ColorScheme.light(
       primary: Color(0xFF104b8e), // Main Blue
-      secondary: Color(0xFFf2c265), // Main Yellow
+      secondary: Color(0xFFFBC035), // Main Yellow
       error: Color(0xFFf44242), // Red
       primaryContainer: Color(0xFF084080), // Dark Blue
       secondaryContainer: Color(0xFF528ccd), // Second Blue
@@ -976,8 +1021,9 @@ class RoutesApp extends HookConsumerWidget {
                 systemNavigationBarIconBrightness: Brightness.light,
               ),
               child: ScrollConfiguration(
-                behavior:
-                    const MaterialScrollBehavior().copyWith(overscroll: false),
+                behavior: const MaterialScrollBehavior().copyWith(
+                  overscroll: false,
+                ),
                 child: ConstrainedBox(
                   constraints: BoxConstraints.tight(mediaQuery.size),
                   child: Material(child: child),

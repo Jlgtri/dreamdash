@@ -32,18 +32,17 @@ class Onboarding00SplashRoute extends GoRouteData {
   CustomTransitionPage<void> buildPage(
     final BuildContext context,
     final GoRouterState state,
-  ) =>
-      CustomTransitionPage<void>(
-        key: state.pageKey,
-        child: build(context, state),
-        transitionsBuilder: (
+  ) => CustomTransitionPage<void>(
+    key: state.pageKey,
+    child: build(context, state),
+    transitionsBuilder:
+        (
           final BuildContext context,
           final Animation<double> animation,
           final Animation<double> secondaryAnimation,
           final Widget child,
-        ) =>
-            FadeTransition(opacity: animation, child: child),
-      );
+        ) => FadeTransition(opacity: animation, child: child),
+  );
 }
 
 /// The welcome screen of the onboarding flow.
@@ -96,12 +95,12 @@ class Onboarding00SplashScreen extends HookConsumerWidget {
     unawaited(
       useMemoized(() async {
         final ProviderContainer container = ProviderScope.containerOf(context);
-        await ref.read(analyticsProvider.notifier).track(
+        await ref
+            .read(analyticsProvider.notifier)
+            .track(
               BaseEvent(
                 'splash_screen_shown',
-                eventProperties: <String, String>{
-                  'ob_type': 'quiz_1',
-                },
+                eventProperties: <String, String>{'ob_type': 'quiz_1'},
               ),
             );
         await Future<void>.delayed(showFirst);
@@ -149,9 +148,7 @@ class Onboarding00SplashScreen extends HookConsumerWidget {
                       height: 68.91,
                       decoration: ShapeDecoration(
                         color: theme.colorScheme.secondary,
-                        shape: const StarBorder(
-                          innerRadiusRatio: 0.01,
-                        ),
+                        shape: const StarBorder(innerRadiusRatio: 0.01),
                         shadows: <BoxShadow>[
                           BoxShadow(
                             color: theme.colorScheme.secondary,
@@ -172,9 +169,7 @@ class Onboarding00SplashScreen extends HookConsumerWidget {
                       height: 68.91,
                       decoration: ShapeDecoration(
                         color: theme.colorScheme.secondary,
-                        shape: const StarBorder(
-                          innerRadiusRatio: 0.01,
-                        ),
+                        shape: const StarBorder(innerRadiusRatio: 0.01),
                         shadows: <BoxShadow>[
                           BoxShadow(
                             color: theme.colorScheme.secondary,
@@ -195,9 +190,7 @@ class Onboarding00SplashScreen extends HookConsumerWidget {
                       height: 68.91,
                       decoration: ShapeDecoration(
                         color: theme.colorScheme.secondary,
-                        shape: const StarBorder(
-                          innerRadiusRatio: 0.01,
-                        ),
+                        shape: const StarBorder(innerRadiusRatio: 0.01),
                         shadows: <BoxShadow>[
                           BoxShadow(
                             color: theme.colorScheme.secondary,
@@ -218,9 +211,7 @@ class Onboarding00SplashScreen extends HookConsumerWidget {
                       height: 68.91,
                       decoration: ShapeDecoration(
                         color: theme.colorScheme.secondary,
-                        shape: const StarBorder(
-                          innerRadiusRatio: 0.01,
-                        ),
+                        shape: const StarBorder(innerRadiusRatio: 0.01),
                         shadows: <BoxShadow>[
                           BoxShadow(
                             color: theme.colorScheme.secondary,
@@ -241,9 +232,7 @@ class Onboarding00SplashScreen extends HookConsumerWidget {
                       height: 34,
                       decoration: ShapeDecoration(
                         color: theme.colorScheme.secondary,
-                        shape: const StarBorder(
-                          innerRadiusRatio: 0.01,
-                        ),
+                        shape: const StarBorder(innerRadiusRatio: 0.01),
                         shadows: <BoxShadow>[
                           BoxShadow(
                             color: theme.colorScheme.secondary,
@@ -264,9 +253,7 @@ class Onboarding00SplashScreen extends HookConsumerWidget {
                       height: 34,
                       decoration: ShapeDecoration(
                         color: theme.colorScheme.secondary,
-                        shape: const StarBorder(
-                          innerRadiusRatio: 0.01,
-                        ),
+                        shape: const StarBorder(innerRadiusRatio: 0.01),
                         shadows: <BoxShadow>[
                           BoxShadow(
                             color: theme.colorScheme.secondary,
@@ -287,9 +274,7 @@ class Onboarding00SplashScreen extends HookConsumerWidget {
                       height: 34,
                       decoration: ShapeDecoration(
                         color: theme.colorScheme.secondary,
-                        shape: const StarBorder(
-                          innerRadiusRatio: 0.01,
-                        ),
+                        shape: const StarBorder(innerRadiusRatio: 0.01),
                         shadows: <BoxShadow>[
                           BoxShadow(
                             color: theme.colorScheme.secondary,
@@ -310,9 +295,7 @@ class Onboarding00SplashScreen extends HookConsumerWidget {
                       height: 68.91,
                       decoration: ShapeDecoration(
                         gradient: secondaryGradient,
-                        shape: const StarBorder(
-                          innerRadiusRatio: 0.01,
-                        ),
+                        shape: const StarBorder(innerRadiusRatio: 0.01),
                         shadows: <BoxShadow>[
                           BoxShadow(
                             color: theme.colorScheme.secondary,
@@ -333,9 +316,7 @@ class Onboarding00SplashScreen extends HookConsumerWidget {
                       height: 34,
                       decoration: ShapeDecoration(
                         color: theme.colorScheme.secondary,
-                        shape: const StarBorder(
-                          innerRadiusRatio: 0.01,
-                        ),
+                        shape: const StarBorder(innerRadiusRatio: 0.01),
                         shadows: <BoxShadow>[
                           BoxShadow(
                             color: theme.colorScheme.secondary,
@@ -448,8 +429,7 @@ class Onboarding00SplashScreen extends HookConsumerWidget {
                     child: assets.star31.svg(),
                   ),
                   const SizedBox(width: 14),
-                  SizedBox(
-                    width: 273,
+                  Expanded(
                     child: Text.rich(
                       TextSpan(
                         children: <InlineSpan>[

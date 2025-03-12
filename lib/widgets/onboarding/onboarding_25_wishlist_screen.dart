@@ -12,9 +12,7 @@ import '../utils.dart';
 
 part 'onboarding_25_wishlist_screen.g.dart';
 
-@TypedGoRoute<Onboarding25WishlistRoute>(
-  path: '/onboarding/25_wishlist',
-)
+@TypedGoRoute<Onboarding25WishlistRoute>(path: '/onboarding/25_wishlist')
 class Onboarding25WishlistRoute extends GoRouteData {
   const Onboarding25WishlistRoute();
 
@@ -26,19 +24,18 @@ class Onboarding25WishlistRoute extends GoRouteData {
   CustomTransitionPage<void> buildPage(
     final BuildContext context,
     final GoRouterState state,
-  ) =>
-      CustomTransitionPage<void>(
-        key: state.pageKey,
-        child: build(context, state),
-        transitionDuration: const Duration(milliseconds: 600),
-        transitionsBuilder: (
+  ) => CustomTransitionPage<void>(
+    key: state.pageKey,
+    child: build(context, state),
+    transitionDuration: const Duration(milliseconds: 600),
+    transitionsBuilder:
+        (
           final BuildContext context,
           final Animation<double> animation,
           final Animation<double> secondaryAnimation,
           final Widget child,
-        ) =>
-            FadeTransition(opacity: animation, child: child),
-      );
+        ) => FadeTransition(opacity: animation, child: child),
+  );
 }
 
 /// The welcome screen of the onboarding flow.
@@ -59,16 +56,19 @@ class Onboarding25WishlistScreen extends HookConsumerWidget {
         Assets.source.assets.onboarding.a25Wishlist;
 
     final FocusNode focusNode1 = useFocusNode();
-    final TextEditingController textController1 =
-        useTextEditingController(text: '');
+    final TextEditingController textController1 = useTextEditingController(
+      text: '',
+    );
 
     final FocusNode focusNode2 = useFocusNode();
-    final TextEditingController textController2 =
-        useTextEditingController(text: '');
+    final TextEditingController textController2 = useTextEditingController(
+      text: '',
+    );
 
     final FocusNode focusNode3 = useFocusNode();
-    final TextEditingController textController3 =
-        useTextEditingController(text: '');
+    final TextEditingController textController3 = useTextEditingController(
+      text: '',
+    );
 
     final ScrollController scrollController = useScrollController();
     final ObjectRef<bool> isLoading = useRef(false);
@@ -80,37 +80,49 @@ class Onboarding25WishlistScreen extends HookConsumerWidget {
         (final _) async => scrollController.scrollToBottom(),
       );
       textController1.addListener(
-        () => isValid.value = regex.hasMatch(textController1.text) &&
-            regex.hasMatch(textController2.text) &&
-            regex.hasMatch(textController3.text),
+        () =>
+            isValid.value =
+                regex.hasMatch(textController1.text) &&
+                regex.hasMatch(textController2.text) &&
+                regex.hasMatch(textController3.text),
       );
       textController2.addListener(
-        () => isValid.value = regex.hasMatch(textController1.text) &&
-            regex.hasMatch(textController2.text) &&
-            regex.hasMatch(textController3.text),
+        () =>
+            isValid.value =
+                regex.hasMatch(textController1.text) &&
+                regex.hasMatch(textController2.text) &&
+                regex.hasMatch(textController3.text),
       );
       textController3.addListener(
-        () => isValid.value = regex.hasMatch(textController1.text) &&
-            regex.hasMatch(textController2.text) &&
-            regex.hasMatch(textController3.text),
+        () =>
+            isValid.value =
+                regex.hasMatch(textController1.text) &&
+                regex.hasMatch(textController2.text) &&
+                regex.hasMatch(textController3.text),
       );
       focusNode1.addListener(
-        () async => focusNode1.hasPrimaryFocus
-            ? await scrollController.scrollToBottom()
-            : textController1.selection =
-                const TextSelection.collapsed(offset: 0),
+        () async =>
+            focusNode1.hasPrimaryFocus
+                ? await scrollController.scrollToBottom()
+                : textController1.selection = const TextSelection.collapsed(
+                  offset: 0,
+                ),
       );
       focusNode2.addListener(
-        () async => focusNode2.hasPrimaryFocus
-            ? await scrollController.scrollToBottom()
-            : textController2.selection =
-                const TextSelection.collapsed(offset: 0),
+        () async =>
+            focusNode2.hasPrimaryFocus
+                ? await scrollController.scrollToBottom()
+                : textController2.selection = const TextSelection.collapsed(
+                  offset: 0,
+                ),
       );
       focusNode3.addListener(
-        () async => focusNode3.hasPrimaryFocus
-            ? await scrollController.scrollToBottom()
-            : textController3.selection =
-                const TextSelection.collapsed(offset: 0),
+        () async =>
+            focusNode3.hasPrimaryFocus
+                ? await scrollController.scrollToBottom()
+                : textController3.selection = const TextSelection.collapsed(
+                  offset: 0,
+                ),
       );
     });
 
@@ -118,7 +130,9 @@ class Onboarding25WishlistScreen extends HookConsumerWidget {
       if (!isLoading.value) {
         isLoading.value = true;
         try {
-          await ref.read(analyticsProvider.notifier).track(
+          await ref
+              .read(analyticsProvider.notifier)
+              .track(
                 BaseEvent(
                   'onboarding_screen_24_clicked',
                   eventProperties: <String, Object?>{
@@ -173,7 +187,7 @@ class Onboarding25WishlistScreen extends HookConsumerWidget {
               ),
             ),
           ),
-          const SliverToBoxAdapter(child: SizedBox(height: 48)),
+          const SliverToBoxAdapter(child: SizedBox(height: 64)),
           SliverPadding(
             padding: const EdgeInsets.symmetric(horizontal: 24),
             sliver: SliverToBoxAdapter(
@@ -195,8 +209,9 @@ class Onboarding25WishlistScreen extends HookConsumerWidget {
                     focusNode: focusNode1,
                     clipBehavior: Clip.antiAlias,
                     style: theme.textTheme.bodyMedium,
-                    cursorColor:
-                        theme.colorScheme.onSurface.withValues(alpha: 0.3),
+                    cursorColor: theme.colorScheme.onSurface.withValues(
+                      alpha: 0.3,
+                    ),
                     // onTapOutside: (final _) =>
                     //     FocusManager.instance.primaryFocus?.unfocus(),
                     decoration: InputDecoration(
@@ -214,8 +229,9 @@ class Onboarding25WishlistScreen extends HookConsumerWidget {
                       ),
                       hintText: i18n.wishListItems.item1,
                       hintStyle: theme.textTheme.bodyMedium?.copyWith(
-                        color:
-                            theme.colorScheme.onSurface.withValues(alpha: 0.3),
+                        color: theme.colorScheme.onSurface.withValues(
+                          alpha: 0.3,
+                        ),
                       ),
                     ),
                   ),
@@ -225,15 +241,17 @@ class Onboarding25WishlistScreen extends HookConsumerWidget {
                     focusNode: focusNode2,
                     clipBehavior: Clip.antiAlias,
                     style: theme.textTheme.bodyMedium,
-                    cursorColor:
-                        theme.colorScheme.onSurface.withValues(alpha: 0.3),
+                    cursorColor: theme.colorScheme.onSurface.withValues(
+                      alpha: 0.3,
+                    ),
                     // onTapOutside: (final _) =>
                     //     FocusManager.instance.primaryFocus?.unfocus(),
                     decoration: InputDecoration(
                       hintText: i18n.wishListItems.item2,
                       hintStyle: theme.textTheme.bodyMedium?.copyWith(
-                        color:
-                            theme.colorScheme.onSurface.withValues(alpha: 0.3),
+                        color: theme.colorScheme.onSurface.withValues(
+                          alpha: 0.3,
+                        ),
                       ),
                       prefixIcon: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -255,15 +273,17 @@ class Onboarding25WishlistScreen extends HookConsumerWidget {
                     focusNode: focusNode3,
                     clipBehavior: Clip.antiAlias,
                     style: theme.textTheme.bodyMedium,
-                    cursorColor:
-                        theme.colorScheme.onSurface.withValues(alpha: 0.3),
+                    cursorColor: theme.colorScheme.onSurface.withValues(
+                      alpha: 0.3,
+                    ),
                     // onTapOutside: (final _) =>
                     //     FocusManager.instance.primaryFocus?.unfocus(),
                     decoration: InputDecoration(
                       hintText: i18n.wishListItems.item3,
                       hintStyle: theme.textTheme.bodyMedium?.copyWith(
-                        color:
-                            theme.colorScheme.onSurface.withValues(alpha: 0.3),
+                        color: theme.colorScheme.onSurface.withValues(
+                          alpha: 0.3,
+                        ),
                       ),
                       prefixIcon: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -315,13 +335,14 @@ class Onboarding25WishlistScreen extends HookConsumerWidget {
                       ),
                     ),
                     child: TextButton(
-                      onPressed: isValid.value
-                          ? () async => next(<String>[
+                      onPressed:
+                          isValid.value
+                              ? () async => next(<String>[
                                 textController1.text,
                                 textController2.text,
                                 textController3.text,
                               ])
-                          : null,
+                              : null,
                       child: Text(
                         i18n.buttonText,
                         textAlign: TextAlign.center,

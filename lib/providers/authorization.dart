@@ -19,11 +19,11 @@ Supabase _supabase(final Ref ref) => throw UnimplementedError();
 
 /// Default override for [_supabaseProvider].
 Future<Override> get $supabase async => _supabaseProvider.overrideWithValue(
-      await Supabase.initialize(
-        url: Env.supabaseUrl,
-        anonKey: Env.supabaseAnonKey,
-      ),
-    );
+  await Supabase.initialize(
+    url: Env.supabaseUrl,
+    anonKey: Env.supabaseAnonKey,
+  ),
+);
 
 @Riverpod(keepAlive: true, dependencies: <Object>[_supabase])
 class Authorization extends _$Authorization {
@@ -44,13 +44,13 @@ class Authorization extends _$Authorization {
   Future<void> signInWithOtp(final String email) async =>
       _supabase.auth.signInWithOtp(email: email);
 
-  Future<void> signInWithEmail(
-    final String email,
-    final String token,
-  ) async {
+  Future<void> signInWithEmail(final String email, final String token) async {
     state = const AsyncValue<Session?>.loading();
-    final AuthResponse response = await _supabase.auth
-        .verifyOTP(email: email, token: token, type: OtpType.magiclink);
+    final AuthResponse response = await _supabase.auth.verifyOTP(
+      email: email,
+      token: token,
+      type: OtpType.email,
+    );
     state = AsyncValue<Session?>.data(response.session);
   }
 
@@ -93,16 +93,17 @@ class Authorization extends _$Authorization {
   /// Performs Apple sign in on iOS or macOS
   Future<AuthResponse> signInWithApple() async {
     final String rawNonce = _supabase.auth.generateRawNonce();
-    final String hashedNonce = sha256.convert(utf8.encode(rawNonce)).toString();
+    final String hashedNonce =
+        sha256.convert(utf8.encode(rawNonce)).toString();
 
     final AuthorizationCredentialAppleID credential =
         await SignInWithApple.getAppleIDCredential(
-      scopes: <AppleIDAuthorizationScopes>[
-        AppleIDAuthorizationScopes.email,
-        AppleIDAuthorizationScopes.fullName,
-      ],
-      nonce: hashedNonce,
-    );
+          scopes: <AppleIDAuthorizationScopes>[
+            AppleIDAuthorizationScopes.email,
+            AppleIDAuthorizationScopes.fullName,
+          ],
+          nonce: hashedNonce,
+        );
 
     final String? idToken = credential.identityToken;
     if (idToken == null) {

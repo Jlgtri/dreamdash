@@ -61,36 +61,36 @@ class OnboardingState with OnboardingStateMappable {
   });
 
   factory OnboardingState.debug() => const OnboardingState(
-        a01Welcome: true,
-        a02IntroductionName: 'test',
-        a03Greeting: true,
-        a04Gender: Gender.female,
-        a05Age: Age.a18_25,
-        a06Info: true,
-        a07MotivationQ1Result: true,
-        a08MotivationQ2Result: true,
-        a09MotivationQ3Result: true,
-        a10MotivationLevel: true,
-        a11Progress: true,
-        a12MentalHealthQ1Result: Frequency.almostAlways,
-        a13MentalHealthQ2Result: Frequency.almostAlways,
-        a14MentalHealthQ3Result: Frequency.almostAlways,
-        a15MentalHealthQ4Result: Frequency.almostAlways,
-        a16MentalHealthQ5Result: Frequency.almostAlways,
-        a17Info2: true,
-        a18Comparison: true,
-        a19Journey: true,
-        a20StatementQ1Result: true,
-        a21StatementQ2Result: true,
-        a22MotivationProgress: true,
-        a23Testimonials: true,
-        a24Task: true,
-        a25Wishlist: <String>['test1', 'test2', 'test3'],
-        a26Commitment: DailyGoal.min5,
-        a27Notification: false,
-        a28Promise: true,
-        a29Chat: true,
-      );
+    a01Welcome: true,
+    a02IntroductionName: 'test',
+    a03Greeting: true,
+    a04Gender: Gender.female,
+    a05Age: Age.a18_25,
+    a06Info: true,
+    a07MotivationQ1Result: true,
+    a08MotivationQ2Result: true,
+    a09MotivationQ3Result: true,
+    a10MotivationLevel: true,
+    a11Progress: true,
+    a12MentalHealthQ1Result: Frequency.almostAlways,
+    a13MentalHealthQ2Result: Frequency.almostAlways,
+    a14MentalHealthQ3Result: Frequency.almostAlways,
+    a15MentalHealthQ4Result: Frequency.almostAlways,
+    a16MentalHealthQ5Result: Frequency.almostAlways,
+    a17Info2: true,
+    a18Comparison: true,
+    a19Journey: true,
+    a20StatementQ1Result: true,
+    a21StatementQ2Result: true,
+    a22MotivationProgress: true,
+    a23Testimonials: true,
+    a24Task: true,
+    a25Wishlist: <String>['test1', 'test2', 'test3'],
+    a26Commitment: DailyGoal.min5,
+    a27Notification: false,
+    a28Promise: true,
+    a29Chat: true,
+  );
 
   final bool a01Welcome;
   final String a02IntroductionName;
@@ -195,7 +195,8 @@ class OnboardingState with OnboardingStateMappable {
         a09MotivationQ3Result == null) {
       return null;
     }
-    final int motivated = (a07MotivationQ1Result! ? 1 : 0) +
+    final int motivated =
+        (a07MotivationQ1Result! ? 1 : 0) +
         (a08MotivationQ2Result! ? 1 : 0) +
         (a09MotivationQ3Result! ? 1 : 0);
     switch (motivated) {
@@ -353,14 +354,14 @@ class Onboarding extends _$Onboarding {
 
 @Riverpod(dependencies: <Object>[Onboarding], keepAlive: true)
 String name(final NameRef ref) => ref.watch(
-      onboardingProvider.select(
-        (final AsyncValue<OnboardingState> onboarding) =>
-            onboarding
-                .whenData(
-                  (final OnboardingState onboarding) =>
-                      onboarding.a02IntroductionName,
-                )
-                .valueOrNull ??
-            '',
-      ),
-    );
+  onboardingProvider.select(
+    (final AsyncValue<OnboardingState> onboarding) =>
+        onboarding
+            .whenData(
+              (final OnboardingState onboarding) =>
+                  onboarding.a02IntroductionName,
+            )
+            .valueOrNull ??
+        '',
+  ),
+);

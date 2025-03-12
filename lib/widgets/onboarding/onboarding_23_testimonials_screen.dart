@@ -28,19 +28,18 @@ class Onboarding23TestimonialsRoute extends GoRouteData {
   CustomTransitionPage<void> buildPage(
     final BuildContext context,
     final GoRouterState state,
-  ) =>
-      CustomTransitionPage<void>(
-        key: state.pageKey,
-        child: build(context, state),
-        transitionDuration: const Duration(milliseconds: 600),
-        transitionsBuilder: (
+  ) => CustomTransitionPage<void>(
+    key: state.pageKey,
+    child: build(context, state),
+    transitionDuration: const Duration(milliseconds: 600),
+    transitionsBuilder:
+        (
           final BuildContext context,
           final Animation<double> animation,
           final Animation<double> secondaryAnimation,
           final Widget child,
-        ) =>
-            FadeTransition(opacity: animation, child: child),
-      );
+        ) => FadeTransition(opacity: animation, child: child),
+  );
 }
 
 /// The welcome screen of the onboarding flow.
@@ -72,7 +71,9 @@ class Onboarding23TestimonialsScreen extends HookConsumerWidget {
       if (!isLoading.value) {
         isLoading.value = true;
         try {
-          await ref.read(analyticsProvider.notifier).track(
+          await ref
+              .read(analyticsProvider.notifier)
+              .track(
                 BaseEvent(
                   'onboarding_screen_22_clicked',
                   eventProperties: <String, String>{
@@ -188,9 +189,7 @@ class Onboarding23TestimonialsScreen extends HookConsumerWidget {
                     const TextSpan(text: ' '),
                     TextSpan(
                       text: i18n.title.aboutUs,
-                      style: TextStyle(
-                        color: theme.colorScheme.secondary,
-                      ),
+                      style: TextStyle(color: theme.colorScheme.secondary),
                     ),
                   ],
                 ),
@@ -312,9 +311,7 @@ class Onboarding23TestimonialsScreen extends HookConsumerWidget {
                       height: 40.76,
                       decoration: ShapeDecoration(
                         color: theme.colorScheme.secondary,
-                        shape: const StarBorder(
-                          innerRadiusRatio: 0.01,
-                        ),
+                        shape: const StarBorder(innerRadiusRatio: 0.01),
                         shadows: <BoxShadow>[
                           BoxShadow(
                             color: theme.colorScheme.secondary,
@@ -332,9 +329,7 @@ class Onboarding23TestimonialsScreen extends HookConsumerWidget {
                       height: 34,
                       decoration: ShapeDecoration(
                         color: theme.colorScheme.secondary,
-                        shape: const StarBorder(
-                          innerRadiusRatio: 0.01,
-                        ),
+                        shape: const StarBorder(innerRadiusRatio: 0.01),
                         shadows: <BoxShadow>[
                           BoxShadow(
                             color: theme.colorScheme.secondary,
@@ -376,9 +371,7 @@ class Onboarding23TestimonialsScreen extends HookConsumerWidget {
                       height: 34,
                       decoration: ShapeDecoration(
                         color: theme.colorScheme.secondary,
-                        shape: const StarBorder(
-                          innerRadiusRatio: 0.01,
-                        ),
+                        shape: const StarBorder(innerRadiusRatio: 0.01),
                         shadows: <BoxShadow>[
                           BoxShadow(
                             color: theme.colorScheme.secondary,
@@ -396,9 +389,7 @@ class Onboarding23TestimonialsScreen extends HookConsumerWidget {
                       height: 28.15,
                       decoration: ShapeDecoration(
                         color: theme.colorScheme.secondary,
-                        shape: const StarBorder(
-                          innerRadiusRatio: 0.01,
-                        ),
+                        shape: const StarBorder(innerRadiusRatio: 0.01),
                         shadows: <BoxShadow>[
                           BoxShadow(
                             color: theme.colorScheme.secondary,
@@ -416,9 +407,7 @@ class Onboarding23TestimonialsScreen extends HookConsumerWidget {
                       height: 22,
                       decoration: ShapeDecoration(
                         color: theme.colorScheme.secondary,
-                        shape: const StarBorder(
-                          innerRadiusRatio: 0.01,
-                        ),
+                        shape: const StarBorder(innerRadiusRatio: 0.01),
                         shadows: <BoxShadow>[
                           BoxShadow(
                             color: theme.colorScheme.secondary,
@@ -455,9 +444,7 @@ class Onboarding23TestimonialsScreen extends HookConsumerWidget {
                             height: 30,
                             decoration: const ShapeDecoration(
                               gradient: secondaryGradient,
-                              shape: StarBorder(
-                                innerRadiusRatio: 0.38,
-                              ),
+                              shape: StarBorder(innerRadiusRatio: 0.38),
                             ),
                           ),
                           const SizedBox(width: 12),
@@ -466,9 +453,7 @@ class Onboarding23TestimonialsScreen extends HookConsumerWidget {
                             height: 30,
                             decoration: const ShapeDecoration(
                               gradient: secondaryGradient,
-                              shape: StarBorder(
-                                innerRadiusRatio: 0.38,
-                              ),
+                              shape: StarBorder(innerRadiusRatio: 0.38),
                             ),
                           ),
                           const SizedBox(width: 12),
@@ -477,9 +462,7 @@ class Onboarding23TestimonialsScreen extends HookConsumerWidget {
                             height: 30,
                             decoration: const ShapeDecoration(
                               gradient: secondaryGradient,
-                              shape: StarBorder(
-                                innerRadiusRatio: 0.38,
-                              ),
+                              shape: StarBorder(innerRadiusRatio: 0.38),
                             ),
                           ),
                           const SizedBox(width: 12),
@@ -488,9 +471,7 @@ class Onboarding23TestimonialsScreen extends HookConsumerWidget {
                             height: 30,
                             decoration: const ShapeDecoration(
                               gradient: secondaryGradient,
-                              shape: StarBorder(
-                                innerRadiusRatio: 0.38,
-                              ),
+                              shape: StarBorder(innerRadiusRatio: 0.38),
                             ),
                           ),
                           const SizedBox(width: 12),
@@ -499,9 +480,7 @@ class Onboarding23TestimonialsScreen extends HookConsumerWidget {
                             height: 30,
                             decoration: const ShapeDecoration(
                               gradient: secondaryGradient,
-                              shape: StarBorder(
-                                innerRadiusRatio: 0.38,
-                              ),
+                              shape: StarBorder(innerRadiusRatio: 0.38),
                             ),
                           ),
                         ],
@@ -521,200 +500,18 @@ class Onboarding23TestimonialsScreen extends HookConsumerWidget {
                 enableInfiniteScroll: true,
                 autoPlay: true,
                 viewportFraction: 0.6,
-                autoPlayInterval: const Duration(seconds: 7),
+                autoPlayInterval: const Duration(seconds: 3),
                 autoPlayAnimationDuration: const Duration(milliseconds: 600),
-                onPageChanged: (final int index, final _) =>
-                    carousel1Index.value = index,
+                onPageChanged:
+                    (final int index, final _) => carousel1Index.value = index,
               ),
               itemCount: 3,
-              itemBuilder: (
-                final BuildContext context,
-                final int index,
-                final _,
-              ) =>
-                  carousel1Index.value == index
-                      ? Container(
-                          width: 236 / 393 * mediaQuery.size.width,
-                          height: 163,
-                          clipBehavior: Clip.antiAlias,
-                          decoration: ShapeDecoration(
-                            color: theme.colorScheme.primaryContainer,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15),
-                            ),
-                          ),
-                          margin: const EdgeInsets.symmetric(
-                            horizontal: 12,
-                          ),
-                          child: Stack(
-                            children: <Widget>[
-                              Positioned(
-                                left: 12,
-                                top: 42,
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.min,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: <Widget>[
-                                    Container(
-                                      width: 17,
-                                      height: 17,
-                                      clipBehavior: Clip.antiAlias,
-                                      decoration: ShapeDecoration(
-                                        color: theme.colorScheme.secondary,
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.circular(
-                                            100,
-                                          ),
-                                        ),
-                                        shadows: const <BoxShadow>[
-                                          buttonShadow,
-                                        ],
-                                      ),
-                                      child: Stack(
-                                        children: <Widget>[
-                                          Positioned(
-                                            left: 3,
-                                            top: 0,
-                                            child: SizedBox(
-                                              width: 12,
-                                              child: Text(
-                                                feedbackName(index)[0],
-                                                textAlign: TextAlign.center,
-                                                style: theme.textTheme.bodySmall
-                                                    ?.copyWith(
-                                                  fontWeight: FontWeight.w800,
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    const SizedBox(width: 4),
-                                    Text(
-                                      feedbackName(index),
-                                      textAlign: TextAlign.center,
-                                      style:
-                                          theme.textTheme.bodySmall?.copyWith(
-                                        fontWeight: FontWeight.w800,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              Positioned(
-                                left: 12,
-                                top: 71,
-                                child: SizedBox(
-                                  width: 212 /
-                                          (393 - 24) *
-                                          (mediaQuery.size.width - 24) -
-                                      24,
-                                  child: Text.rich(
-                                    TextSpan(
-                                      children: <InlineSpan>[
-                                        TextSpan(
-                                          text: feedbackPrefix(index),
-                                        ),
-                                        const TextSpan(text: ' '),
-                                        TextSpan(
-                                          text: feedbackBody(index),
-                                          style: TextStyle(
-                                            color: theme.colorScheme.secondary,
-                                          ),
-                                        ),
-                                        TextSpan(
-                                          text: feedbackSuffix(index),
-                                        ),
-                                      ],
-                                    ),
-                                    textAlign: TextAlign.justify,
-                                    style: theme.textTheme.bodySmall,
-                                  ),
-                                ),
-                              ),
-                              Positioned(
-                                left: 12,
-                                top: 12,
-                                child: DecoratedBox(
-                                  decoration: const BoxDecoration(
-                                    boxShadow: <BoxShadow>[
-                                      BoxShadow(
-                                        color: Color(0x19000000),
-                                        blurRadius: 2.36,
-                                        offset: Offset(2.95, 2.36),
-                                      ),
-                                    ],
-                                  ),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: <Widget>[
-                                      Container(
-                                        width: 17.73,
-                                        height: 17.73,
-                                        decoration: const ShapeDecoration(
-                                          gradient: secondaryGradient,
-                                          shape: StarBorder(
-                                            innerRadiusRatio: 0.38,
-                                          ),
-                                        ),
-                                      ),
-                                      const SizedBox(width: 7.09),
-                                      Container(
-                                        width: 17.73,
-                                        height: 17.73,
-                                        decoration: const ShapeDecoration(
-                                          gradient: secondaryGradient,
-                                          shape: StarBorder(
-                                            innerRadiusRatio: 0.38,
-                                          ),
-                                        ),
-                                      ),
-                                      const SizedBox(width: 7.09),
-                                      Container(
-                                        width: 17.73,
-                                        height: 17.73,
-                                        decoration: const ShapeDecoration(
-                                          gradient: secondaryGradient,
-                                          shape: StarBorder(
-                                            innerRadiusRatio: 0.38,
-                                          ),
-                                        ),
-                                      ),
-                                      const SizedBox(width: 7.09),
-                                      Container(
-                                        width: 17.73,
-                                        height: 17.73,
-                                        decoration: const ShapeDecoration(
-                                          gradient: secondaryGradient,
-                                          shape: StarBorder(
-                                            innerRadiusRatio: 0.38,
-                                          ),
-                                        ),
-                                      ),
-                                      const SizedBox(width: 7.09),
-                                      Container(
-                                        width: 17.73,
-                                        height: 17.73,
-                                        decoration: const ShapeDecoration(
-                                          gradient: secondaryGradient,
-                                          shape: StarBorder(
-                                            innerRadiusRatio: 0.38,
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        )
-                      : Opacity(
-                          opacity: 0.50,
-                          child: Container(
+              itemBuilder:
+                  (final BuildContext context, final int index, final _) =>
+                      carousel1Index.value == index
+                          ? Container(
                             width: 236 / 393 * mediaQuery.size.width,
-                            height: 115,
+                            height: 163,
                             clipBehavior: Clip.antiAlias,
                             decoration: ShapeDecoration(
                               color: theme.colorScheme.primaryContainer,
@@ -722,41 +519,9 @@ class Onboarding23TestimonialsScreen extends HookConsumerWidget {
                                 borderRadius: BorderRadius.circular(15),
                               ),
                             ),
+                            margin: const EdgeInsets.symmetric(horizontal: 12),
                             child: Stack(
                               children: <Widget>[
-                                Positioned(
-                                  left: 12,
-                                  top: 71,
-                                  child: SizedBox(
-                                    width: 212,
-                                    child: Text.rich(
-                                      TextSpan(
-                                        children: <InlineSpan>[
-                                          TextSpan(
-                                            text: feedbackPrefix(
-                                              index,
-                                            ),
-                                          ),
-                                          const TextSpan(text: ' '),
-                                          TextSpan(
-                                            text: feedbackBody(index),
-                                            style: TextStyle(
-                                              color:
-                                                  theme.colorScheme.secondary,
-                                            ),
-                                          ),
-                                          TextSpan(
-                                            text: feedbackSuffix(
-                                              index,
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                      textAlign: TextAlign.justify,
-                                      style: theme.textTheme.bodySmall,
-                                    ),
-                                  ),
-                                ),
                                 Positioned(
                                   left: 12,
                                   top: 42,
@@ -772,9 +537,8 @@ class Onboarding23TestimonialsScreen extends HookConsumerWidget {
                                         decoration: ShapeDecoration(
                                           color: theme.colorScheme.secondary,
                                           shape: RoundedRectangleBorder(
-                                            borderRadius: BorderRadius.circular(
-                                              100,
-                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(100),
                                           ),
                                           shadows: const <BoxShadow>[
                                             buttonShadow,
@@ -783,20 +547,20 @@ class Onboarding23TestimonialsScreen extends HookConsumerWidget {
                                         child: Stack(
                                           children: <Widget>[
                                             Positioned(
-                                              left: 2,
-                                              top: 1,
+                                              left: 3,
+                                              top: 0,
                                               child: SizedBox(
                                                 width: 12,
                                                 child: Text(
-                                                  feedbackName(
-                                                    index,
-                                                  )[0],
+                                                  feedbackName(index)[0],
                                                   textAlign: TextAlign.center,
                                                   style: theme
-                                                      .textTheme.bodySmall
+                                                      .textTheme
+                                                      .bodySmall
                                                       ?.copyWith(
-                                                    fontWeight: FontWeight.w800,
-                                                  ),
+                                                        fontWeight:
+                                                            FontWeight.w800,
+                                                      ),
                                                 ),
                                               ),
                                             ),
@@ -804,18 +568,48 @@ class Onboarding23TestimonialsScreen extends HookConsumerWidget {
                                         ),
                                       ),
                                       const SizedBox(width: 4),
-                                      SizedBox(
-                                        width: 48,
-                                        child: Text(
-                                          feedbackName(index),
-                                          textAlign: TextAlign.center,
-                                          style: theme.textTheme.bodySmall
-                                              ?.copyWith(
-                                            fontWeight: FontWeight.w800,
-                                          ),
-                                        ),
+                                      Text(
+                                        feedbackName(index),
+                                        textAlign: TextAlign.center,
+                                        style: theme.textTheme.bodySmall
+                                            ?.copyWith(
+                                              fontWeight: FontWeight.w800,
+                                            ),
                                       ),
                                     ],
+                                  ),
+                                ),
+                                Positioned(
+                                  left: 12,
+                                  top: 71,
+                                  child: SizedBox(
+                                    width:
+                                        212 /
+                                            (393 - 24) *
+                                            (mediaQuery.size.width - 24) -
+                                        24,
+                                    child: Text.rich(
+                                      TextSpan(
+                                        children: <InlineSpan>[
+                                          TextSpan(
+                                            text: feedbackPrefix(index),
+                                          ),
+                                          const TextSpan(text: ' '),
+                                          TextSpan(
+                                            text: feedbackBody(index),
+                                            style: TextStyle(
+                                              color:
+                                                  theme.colorScheme.secondary,
+                                            ),
+                                          ),
+                                          TextSpan(
+                                            text: feedbackSuffix(index),
+                                          ),
+                                        ],
+                                      ),
+                                      textAlign: TextAlign.justify,
+                                      style: theme.textTheme.bodySmall,
+                                    ),
                                   ),
                                 ),
                                 Positioned(
@@ -878,16 +672,13 @@ class Onboarding23TestimonialsScreen extends HookConsumerWidget {
                                           ),
                                         ),
                                         const SizedBox(width: 7.09),
-                                        Opacity(
-                                          opacity: 0.50,
-                                          child: Container(
-                                            width: 17.73,
-                                            height: 17.73,
-                                            decoration: const ShapeDecoration(
-                                              gradient: secondaryGradient,
-                                              shape: StarBorder(
-                                                innerRadiusRatio: 0.38,
-                                              ),
+                                        Container(
+                                          width: 17.73,
+                                          height: 17.73,
+                                          decoration: const ShapeDecoration(
+                                            gradient: secondaryGradient,
+                                            shape: StarBorder(
+                                              innerRadiusRatio: 0.38,
                                             ),
                                           ),
                                         ),
@@ -897,8 +688,196 @@ class Onboarding23TestimonialsScreen extends HookConsumerWidget {
                                 ),
                               ],
                             ),
+                          )
+                          : Opacity(
+                            opacity: 0.50,
+                            child: Container(
+                              width: 236 / 393 * mediaQuery.size.width,
+                              height: 115,
+                              clipBehavior: Clip.antiAlias,
+                              decoration: ShapeDecoration(
+                                color: theme.colorScheme.primaryContainer,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(15),
+                                ),
+                              ),
+                              child: Stack(
+                                children: <Widget>[
+                                  Positioned(
+                                    left: 12,
+                                    top: 71,
+                                    child: SizedBox(
+                                      width: 212,
+                                      child: Text.rich(
+                                        TextSpan(
+                                          children: <InlineSpan>[
+                                            TextSpan(
+                                              text: feedbackPrefix(index),
+                                            ),
+                                            const TextSpan(text: ' '),
+                                            TextSpan(
+                                              text: feedbackBody(index),
+                                              style: TextStyle(
+                                                color:
+                                                    theme
+                                                        .colorScheme
+                                                        .secondary,
+                                              ),
+                                            ),
+                                            TextSpan(
+                                              text: feedbackSuffix(index),
+                                            ),
+                                          ],
+                                        ),
+                                        textAlign: TextAlign.justify,
+                                        style: theme.textTheme.bodySmall,
+                                      ),
+                                    ),
+                                  ),
+                                  Positioned(
+                                    left: 12,
+                                    top: 42,
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.min,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: <Widget>[
+                                        Container(
+                                          width: 17,
+                                          height: 17,
+                                          clipBehavior: Clip.antiAlias,
+                                          decoration: ShapeDecoration(
+                                            color: theme.colorScheme.secondary,
+                                            shape: RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(100),
+                                            ),
+                                            shadows: const <BoxShadow>[
+                                              buttonShadow,
+                                            ],
+                                          ),
+                                          child: Stack(
+                                            children: <Widget>[
+                                              Positioned(
+                                                left: 2,
+                                                top: 1,
+                                                child: SizedBox(
+                                                  width: 12,
+                                                  child: Text(
+                                                    feedbackName(index)[0],
+                                                    textAlign:
+                                                        TextAlign.center,
+                                                    style: theme
+                                                        .textTheme
+                                                        .bodySmall
+                                                        ?.copyWith(
+                                                          fontWeight:
+                                                              FontWeight.w800,
+                                                        ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                        const SizedBox(width: 4),
+                                        SizedBox(
+                                          width: 48,
+                                          child: Text(
+                                            feedbackName(index),
+                                            textAlign: TextAlign.center,
+                                            style: theme.textTheme.bodySmall
+                                                ?.copyWith(
+                                                  fontWeight: FontWeight.w800,
+                                                ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  Positioned(
+                                    left: 12,
+                                    top: 12,
+                                    child: DecoratedBox(
+                                      decoration: const BoxDecoration(
+                                        boxShadow: <BoxShadow>[
+                                          BoxShadow(
+                                            color: Color(0x19000000),
+                                            blurRadius: 2.36,
+                                            offset: Offset(2.95, 2.36),
+                                          ),
+                                        ],
+                                      ),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.min,
+                                        children: <Widget>[
+                                          Container(
+                                            width: 17.73,
+                                            height: 17.73,
+                                            decoration: const ShapeDecoration(
+                                              gradient: secondaryGradient,
+                                              shape: StarBorder(
+                                                innerRadiusRatio: 0.38,
+                                              ),
+                                            ),
+                                          ),
+                                          const SizedBox(width: 7.09),
+                                          Container(
+                                            width: 17.73,
+                                            height: 17.73,
+                                            decoration: const ShapeDecoration(
+                                              gradient: secondaryGradient,
+                                              shape: StarBorder(
+                                                innerRadiusRatio: 0.38,
+                                              ),
+                                            ),
+                                          ),
+                                          const SizedBox(width: 7.09),
+                                          Container(
+                                            width: 17.73,
+                                            height: 17.73,
+                                            decoration: const ShapeDecoration(
+                                              gradient: secondaryGradient,
+                                              shape: StarBorder(
+                                                innerRadiusRatio: 0.38,
+                                              ),
+                                            ),
+                                          ),
+                                          const SizedBox(width: 7.09),
+                                          Container(
+                                            width: 17.73,
+                                            height: 17.73,
+                                            decoration: const ShapeDecoration(
+                                              gradient: secondaryGradient,
+                                              shape: StarBorder(
+                                                innerRadiusRatio: 0.38,
+                                              ),
+                                            ),
+                                          ),
+                                          const SizedBox(width: 7.09),
+                                          Opacity(
+                                            opacity: 0.50,
+                                            child: Container(
+                                              width: 17.73,
+                                              height: 17.73,
+                                              decoration:
+                                                  const ShapeDecoration(
+                                                    gradient:
+                                                        secondaryGradient,
+                                                    shape: StarBorder(
+                                                      innerRadiusRatio: 0.38,
+                                                    ),
+                                                  ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
                           ),
-                        ),
             ),
           ),
           const SliverToBoxAdapter(child: SizedBox(height: 25)),
@@ -911,199 +890,17 @@ class Onboarding23TestimonialsScreen extends HookConsumerWidget {
                 enableInfiniteScroll: true,
                 autoPlay: true,
                 viewportFraction: 0.6,
-                autoPlayInterval: const Duration(seconds: 10),
                 autoPlayAnimationDuration: const Duration(milliseconds: 600),
-                onPageChanged: (final int index, final _) =>
-                    carousel2Index.value = index,
+                onPageChanged:
+                    (final int index, final _) => carousel2Index.value = index,
               ),
               itemCount: 3,
-              itemBuilder: (
-                final BuildContext context,
-                final int index,
-                final _,
-              ) =>
-                  carousel2Index.value == index
-                      ? Container(
-                          width: 236 / 393 * mediaQuery.size.width,
-                          height: 163,
-                          clipBehavior: Clip.antiAlias,
-                          decoration: ShapeDecoration(
-                            color: theme.colorScheme.primaryContainer,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15),
-                            ),
-                          ),
-                          margin: const EdgeInsets.symmetric(
-                            horizontal: 12,
-                          ),
-                          child: Stack(
-                            children: <Widget>[
-                              Positioned(
-                                left: 12,
-                                top: 42,
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.min,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: <Widget>[
-                                    Container(
-                                      width: 17,
-                                      height: 17,
-                                      clipBehavior: Clip.antiAlias,
-                                      decoration: ShapeDecoration(
-                                        color: theme.colorScheme.secondary,
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.circular(
-                                            100,
-                                          ),
-                                        ),
-                                        shadows: const <BoxShadow>[
-                                          buttonShadow,
-                                        ],
-                                      ),
-                                      child: Stack(
-                                        children: <Widget>[
-                                          Positioned(
-                                            left: 3,
-                                            top: 0,
-                                            child: SizedBox(
-                                              width: 12,
-                                              child: Text(
-                                                feedbackName(
-                                                  index + 3,
-                                                )[0],
-                                                textAlign: TextAlign.center,
-                                                style: theme.textTheme.bodySmall
-                                                    ?.copyWith(
-                                                  fontWeight: FontWeight.w800,
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    const SizedBox(width: 4),
-                                    Text(
-                                      feedbackName(index + 3),
-                                      textAlign: TextAlign.center,
-                                      style:
-                                          theme.textTheme.bodySmall?.copyWith(
-                                        fontWeight: FontWeight.w800,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              Positioned(
-                                left: 12,
-                                top: 71,
-                                child: SizedBox(
-                                  width: 212,
-                                  child: Text.rich(
-                                    TextSpan(
-                                      children: <InlineSpan>[
-                                        TextSpan(
-                                          text: feedbackPrefix(index + 3),
-                                        ),
-                                        const TextSpan(text: ' '),
-                                        TextSpan(
-                                          text: feedbackBody(index + 3),
-                                          style: TextStyle(
-                                            color: theme.colorScheme.secondary,
-                                          ),
-                                        ),
-                                        TextSpan(
-                                          text: feedbackSuffix(index + 3),
-                                        ),
-                                      ],
-                                    ),
-                                    textAlign: TextAlign.justify,
-                                    style: theme.textTheme.bodySmall,
-                                  ),
-                                ),
-                              ),
-                              Positioned(
-                                left: 12,
-                                top: 12,
-                                child: DecoratedBox(
-                                  decoration: const BoxDecoration(
-                                    boxShadow: <BoxShadow>[
-                                      BoxShadow(
-                                        color: Color(0x19000000),
-                                        blurRadius: 2.36,
-                                        offset: Offset(2.95, 2.36),
-                                      ),
-                                    ],
-                                  ),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: <Widget>[
-                                      Container(
-                                        width: 17.73,
-                                        height: 17.73,
-                                        decoration: const ShapeDecoration(
-                                          gradient: secondaryGradient,
-                                          shape: StarBorder(
-                                            innerRadiusRatio: 0.38,
-                                          ),
-                                        ),
-                                      ),
-                                      const SizedBox(width: 7.09),
-                                      Container(
-                                        width: 17.73,
-                                        height: 17.73,
-                                        decoration: const ShapeDecoration(
-                                          gradient: secondaryGradient,
-                                          shape: StarBorder(
-                                            innerRadiusRatio: 0.38,
-                                          ),
-                                        ),
-                                      ),
-                                      const SizedBox(width: 7.09),
-                                      Container(
-                                        width: 17.73,
-                                        height: 17.73,
-                                        decoration: const ShapeDecoration(
-                                          gradient: secondaryGradient,
-                                          shape: StarBorder(
-                                            innerRadiusRatio: 0.38,
-                                          ),
-                                        ),
-                                      ),
-                                      const SizedBox(width: 7.09),
-                                      Container(
-                                        width: 17.73,
-                                        height: 17.73,
-                                        decoration: const ShapeDecoration(
-                                          gradient: secondaryGradient,
-                                          shape: StarBorder(
-                                            innerRadiusRatio: 0.38,
-                                          ),
-                                        ),
-                                      ),
-                                      const SizedBox(width: 7.09),
-                                      Container(
-                                        width: 17.73,
-                                        height: 17.73,
-                                        decoration: const ShapeDecoration(
-                                          gradient: secondaryGradient,
-                                          shape: StarBorder(
-                                            innerRadiusRatio: 0.38,
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        )
-                      : Opacity(
-                          opacity: 0.50,
-                          child: Container(
+              itemBuilder:
+                  (final BuildContext context, final int index, final _) =>
+                      carousel2Index.value == index
+                          ? Container(
                             width: 236 / 393 * mediaQuery.size.width,
-                            height: 115,
+                            height: 163,
                             clipBehavior: Clip.antiAlias,
                             decoration: ShapeDecoration(
                               color: theme.colorScheme.primaryContainer,
@@ -1111,41 +908,9 @@ class Onboarding23TestimonialsScreen extends HookConsumerWidget {
                                 borderRadius: BorderRadius.circular(15),
                               ),
                             ),
+                            margin: const EdgeInsets.symmetric(horizontal: 12),
                             child: Stack(
                               children: <Widget>[
-                                Positioned(
-                                  left: 12,
-                                  top: 71,
-                                  child: SizedBox(
-                                    width: 212,
-                                    child: Text.rich(
-                                      TextSpan(
-                                        children: <InlineSpan>[
-                                          TextSpan(
-                                            text: feedbackPrefix(
-                                              index + 3,
-                                            ),
-                                          ),
-                                          const TextSpan(text: ' '),
-                                          TextSpan(
-                                            text: feedbackBody(index + 3),
-                                            style: TextStyle(
-                                              color:
-                                                  theme.colorScheme.secondary,
-                                            ),
-                                          ),
-                                          TextSpan(
-                                            text: feedbackSuffix(
-                                              index + 3,
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                      textAlign: TextAlign.justify,
-                                      style: theme.textTheme.bodySmall,
-                                    ),
-                                  ),
-                                ),
                                 Positioned(
                                   left: 12,
                                   top: 42,
@@ -1161,9 +926,8 @@ class Onboarding23TestimonialsScreen extends HookConsumerWidget {
                                         decoration: ShapeDecoration(
                                           color: theme.colorScheme.secondary,
                                           shape: RoundedRectangleBorder(
-                                            borderRadius: BorderRadius.circular(
-                                              100,
-                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(100),
                                           ),
                                           shadows: const <BoxShadow>[
                                             buttonShadow,
@@ -1172,20 +936,20 @@ class Onboarding23TestimonialsScreen extends HookConsumerWidget {
                                         child: Stack(
                                           children: <Widget>[
                                             Positioned(
-                                              left: 2,
-                                              top: 1,
+                                              left: 3,
+                                              top: 0,
                                               child: SizedBox(
                                                 width: 12,
                                                 child: Text(
-                                                  feedbackName(
-                                                    index + 3,
-                                                  )[0],
+                                                  feedbackName(index + 3)[0],
                                                   textAlign: TextAlign.center,
                                                   style: theme
-                                                      .textTheme.bodySmall
+                                                      .textTheme
+                                                      .bodySmall
                                                       ?.copyWith(
-                                                    fontWeight: FontWeight.w800,
-                                                  ),
+                                                        fontWeight:
+                                                            FontWeight.w800,
+                                                      ),
                                                 ),
                                               ),
                                             ),
@@ -1196,12 +960,41 @@ class Onboarding23TestimonialsScreen extends HookConsumerWidget {
                                       Text(
                                         feedbackName(index + 3),
                                         textAlign: TextAlign.center,
-                                        style:
-                                            theme.textTheme.bodySmall?.copyWith(
-                                          fontWeight: FontWeight.w800,
-                                        ),
+                                        style: theme.textTheme.bodySmall
+                                            ?.copyWith(
+                                              fontWeight: FontWeight.w800,
+                                            ),
                                       ),
                                     ],
+                                  ),
+                                ),
+                                Positioned(
+                                  left: 12,
+                                  top: 71,
+                                  child: SizedBox(
+                                    width: 212,
+                                    child: Text.rich(
+                                      TextSpan(
+                                        children: <InlineSpan>[
+                                          TextSpan(
+                                            text: feedbackPrefix(index + 3),
+                                          ),
+                                          const TextSpan(text: ' '),
+                                          TextSpan(
+                                            text: feedbackBody(index + 3),
+                                            style: TextStyle(
+                                              color:
+                                                  theme.colorScheme.secondary,
+                                            ),
+                                          ),
+                                          TextSpan(
+                                            text: feedbackSuffix(index + 3),
+                                          ),
+                                        ],
+                                      ),
+                                      textAlign: TextAlign.justify,
+                                      style: theme.textTheme.bodySmall,
+                                    ),
                                   ),
                                 ),
                                 Positioned(
@@ -1264,16 +1057,13 @@ class Onboarding23TestimonialsScreen extends HookConsumerWidget {
                                           ),
                                         ),
                                         const SizedBox(width: 7.09),
-                                        Opacity(
-                                          opacity: 0.50,
-                                          child: Container(
-                                            width: 17.73,
-                                            height: 17.73,
-                                            decoration: const ShapeDecoration(
-                                              gradient: secondaryGradient,
-                                              shape: StarBorder(
-                                                innerRadiusRatio: 0.38,
-                                              ),
+                                        Container(
+                                          width: 17.73,
+                                          height: 17.73,
+                                          decoration: const ShapeDecoration(
+                                            gradient: secondaryGradient,
+                                            shape: StarBorder(
+                                              innerRadiusRatio: 0.38,
                                             ),
                                           ),
                                         ),
@@ -1283,8 +1073,193 @@ class Onboarding23TestimonialsScreen extends HookConsumerWidget {
                                 ),
                               ],
                             ),
+                          )
+                          : Opacity(
+                            opacity: 0.50,
+                            child: Container(
+                              width: 236 / 393 * mediaQuery.size.width,
+                              height: 115,
+                              clipBehavior: Clip.antiAlias,
+                              decoration: ShapeDecoration(
+                                color: theme.colorScheme.primaryContainer,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(15),
+                                ),
+                              ),
+                              child: Stack(
+                                children: <Widget>[
+                                  Positioned(
+                                    left: 12,
+                                    top: 71,
+                                    child: SizedBox(
+                                      width: 212,
+                                      child: Text.rich(
+                                        TextSpan(
+                                          children: <InlineSpan>[
+                                            TextSpan(
+                                              text: feedbackPrefix(index + 3),
+                                            ),
+                                            const TextSpan(text: ' '),
+                                            TextSpan(
+                                              text: feedbackBody(index + 3),
+                                              style: TextStyle(
+                                                color:
+                                                    theme
+                                                        .colorScheme
+                                                        .secondary,
+                                              ),
+                                            ),
+                                            TextSpan(
+                                              text: feedbackSuffix(index + 3),
+                                            ),
+                                          ],
+                                        ),
+                                        textAlign: TextAlign.justify,
+                                        style: theme.textTheme.bodySmall,
+                                      ),
+                                    ),
+                                  ),
+                                  Positioned(
+                                    left: 12,
+                                    top: 42,
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.min,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: <Widget>[
+                                        Container(
+                                          width: 17,
+                                          height: 17,
+                                          clipBehavior: Clip.antiAlias,
+                                          decoration: ShapeDecoration(
+                                            color: theme.colorScheme.secondary,
+                                            shape: RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(100),
+                                            ),
+                                            shadows: const <BoxShadow>[
+                                              buttonShadow,
+                                            ],
+                                          ),
+                                          child: Stack(
+                                            children: <Widget>[
+                                              Positioned(
+                                                left: 2,
+                                                top: 1,
+                                                child: SizedBox(
+                                                  width: 12,
+                                                  child: Text(
+                                                    feedbackName(index + 3)[0],
+                                                    textAlign:
+                                                        TextAlign.center,
+                                                    style: theme
+                                                        .textTheme
+                                                        .bodySmall
+                                                        ?.copyWith(
+                                                          fontWeight:
+                                                              FontWeight.w800,
+                                                        ),
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                        const SizedBox(width: 4),
+                                        Text(
+                                          feedbackName(index + 3),
+                                          textAlign: TextAlign.center,
+                                          style: theme.textTheme.bodySmall
+                                              ?.copyWith(
+                                                fontWeight: FontWeight.w800,
+                                              ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  Positioned(
+                                    left: 12,
+                                    top: 12,
+                                    child: DecoratedBox(
+                                      decoration: const BoxDecoration(
+                                        boxShadow: <BoxShadow>[
+                                          BoxShadow(
+                                            color: Color(0x19000000),
+                                            blurRadius: 2.36,
+                                            offset: Offset(2.95, 2.36),
+                                          ),
+                                        ],
+                                      ),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.min,
+                                        children: <Widget>[
+                                          Container(
+                                            width: 17.73,
+                                            height: 17.73,
+                                            decoration: const ShapeDecoration(
+                                              gradient: secondaryGradient,
+                                              shape: StarBorder(
+                                                innerRadiusRatio: 0.38,
+                                              ),
+                                            ),
+                                          ),
+                                          const SizedBox(width: 7.09),
+                                          Container(
+                                            width: 17.73,
+                                            height: 17.73,
+                                            decoration: const ShapeDecoration(
+                                              gradient: secondaryGradient,
+                                              shape: StarBorder(
+                                                innerRadiusRatio: 0.38,
+                                              ),
+                                            ),
+                                          ),
+                                          const SizedBox(width: 7.09),
+                                          Container(
+                                            width: 17.73,
+                                            height: 17.73,
+                                            decoration: const ShapeDecoration(
+                                              gradient: secondaryGradient,
+                                              shape: StarBorder(
+                                                innerRadiusRatio: 0.38,
+                                              ),
+                                            ),
+                                          ),
+                                          const SizedBox(width: 7.09),
+                                          Container(
+                                            width: 17.73,
+                                            height: 17.73,
+                                            decoration: const ShapeDecoration(
+                                              gradient: secondaryGradient,
+                                              shape: StarBorder(
+                                                innerRadiusRatio: 0.38,
+                                              ),
+                                            ),
+                                          ),
+                                          const SizedBox(width: 7.09),
+                                          Opacity(
+                                            opacity: 0.50,
+                                            child: Container(
+                                              width: 17.73,
+                                              height: 17.73,
+                                              decoration:
+                                                  const ShapeDecoration(
+                                                    gradient:
+                                                        secondaryGradient,
+                                                    shape: StarBorder(
+                                                      innerRadiusRatio: 0.38,
+                                                    ),
+                                                  ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
                           ),
-                        ),
             ),
           ),
           SliverFillRemaining(

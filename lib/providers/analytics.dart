@@ -32,9 +32,6 @@ class Analytics extends _$Analytics {
 
   Future<void> setUserId(final String? userId) => _amplitude.setUserId(userId);
 
-  Future<void> track(
-    final BaseEvent event, [
-    final EventOptions? options,
-  ]) =>
+  Future<void> track(final BaseEvent event, [final EventOptions? options]) =>
       _amplitude.track(event, options);
 }

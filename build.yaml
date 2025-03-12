@@ -25,14 +25,14 @@ targets:
           include:
             - lib/providers/**.dart
 
-      envied_generator:
+      envied_generator|envied:
         enabled: true
         generate_for:
           include:
             - .env
             - lib/env.dart
 
-      flutter_gen:
+      flutter_gen_runner:
         enabled: true
         generate_for:
           include:
