@@ -1016,9 +1016,10 @@ class RoutesApp extends HookConsumerWidget {
               value: const SystemUiOverlayStyle(
                 statusBarColor: Colors.transparent,
                 systemNavigationBarColor: Colors.transparent,
-                statusBarBrightness: Brightness.light,
-                statusBarIconBrightness: Brightness.light,
-                systemNavigationBarIconBrightness: Brightness.light,
+                systemNavigationBarDividerColor: Colors.transparent,
+                statusBarBrightness: Brightness.dark,
+                statusBarIconBrightness: Brightness.dark,
+                systemNavigationBarIconBrightness: Brightness.dark,
               ),
               child: ScrollConfiguration(
                 behavior: const MaterialScrollBehavior().copyWith(
